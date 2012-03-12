@@ -4,15 +4,15 @@
 #include "commun.h"
 #include "Node.h"
 
-typedef list<Node> ChildNodes;
+typedef vector<Node *> ChildNodes;
 
 class ElementNode : public Node {
 
   public:
     ElementNode(string ns, string n);
     ~ElementNode();
-    Node firstChild();
-    Node lastChild();
+    Node *firstChild();
+    Node *lastChild();
     void appendChild(Node n);
     string serialize();
 
