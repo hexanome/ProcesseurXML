@@ -18,6 +18,13 @@ void ElementNode::appendChild(Node n) {
 
 string ElementNode::serialize() {
   string s = "<" + name.first() + ":" name.second();
-  for(AttList::iterator it = attlist.
-  return 
+  for(AttList::iterator i = attlist.begin() ; i != attlist.end() ; i++) {
+    s += " " + *i.first() + " \"" + *i.second() + "\"";
+  }
+  s += ">";
+  for(Children::iterator i = children.begin() ; i != children.end() ; i++) {
+    s += *i.serialize();
+  }
+  s += "</" + name.first() + ":" name.second() + ">"; 
+  return s;
 }
