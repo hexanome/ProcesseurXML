@@ -1,7 +1,10 @@
+#include "commun.h"
+
+using namespace std;
 
 class Node {
 
   public:
-    virtual std::string serialize() = 0;
+    virtual string serialize() = 0;
 
 }

@@ -1,11 +1,13 @@
+#include "commun.h"
+#include "Node.h"
 
 class TextNode : public Node {
 
   public:
-    TextNode(std::string text);
+    TextNode(string text);
     ~TextNode();
 
   private:
-    std::string text;
+    string text;
 
 }

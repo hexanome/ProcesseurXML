@@ -1,17 +1,19 @@
-#include<string>
+#include "commun.h"
+#include "Node.h"
 
 class ElementNode : public Node {
 
   public:
-    ElementNode(std::string name, std::vector<string> attlist);
+    ElementNode(ElementName name, AttList attlist);
     ~ElementNode();
-    ElementNode firstChild();
-    virtual void appendChild(Node n);
-    virtual string serialize();
+    Node firstChild();
+    Node lastChild();
+    void appendChild(Node n);
+    string serialize();
 
   private:
-    std::string name;
-    std::vector<Node> children;
-    std::vector<std::string> attlist;
+    ElementName name;
+    AttList attlist;
+    list<Node> children;
 
 }

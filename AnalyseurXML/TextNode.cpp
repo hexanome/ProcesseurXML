@@ -1,8 +1,6 @@
-#include<iostream>
-#include<Node.h>
 #include<TextNode.h>
 
-TextNode::TextNode(std::string text) {
+TextNode::TextNode(string text) {
   this.text = text;
 }
 
