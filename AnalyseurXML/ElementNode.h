@@ -4,12 +4,12 @@
 #include "commun.h"
 #include "Node.h"
 
-typedef list<Node> Children;
+typedef list<Node> ChildNodes;
 
 class ElementNode : public Node {
 
   public:
-    ElementNode(ElementName name, AttList attlist);
+    ElementNode(string ns, string n);
     ~ElementNode();
     Node firstChild();
     Node lastChild();
@@ -17,9 +17,9 @@ class ElementNode : public Node {
     string serialize();
 
   private:
-    ElementName name;
-    AttList attlist;
-    Children children;
+    ElementName nodeName;
+    AttList attributes;
+    ChildNodes childNodes;
 
 }
 
