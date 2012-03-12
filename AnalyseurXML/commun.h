@@ -2,12 +2,12 @@
 #define COMMUN_H
 
 using namespace std;
-#include <list>
+#include <vector>
 #include <utility>
 #include <string>
 
 typedef pair<string,string> Attribute;
-typedef list<Attribute> AttList;
+typedef vector<Attribute> AttList;
 typedef pair<string,string> ElementName;
 
 #ifdef DEBUG
