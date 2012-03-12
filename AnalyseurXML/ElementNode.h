@@ -1,5 +1,10 @@
+#ifndef ELEMENTNODE_H
+#define ELEMENTNODE_H
+
 #include "commun.h"
 #include "Node.h"
+
+typedef list<Node> Children;
 
 class ElementNode : public Node {
 
@@ -14,6 +19,8 @@ class ElementNode : public Node {
   private:
     ElementName name;
     AttList attlist;
-    list<Node> children;
+    Children children;
 
 }
+
+#endif

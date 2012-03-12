@@ -1,6 +1,7 @@
-#include "commun.h"
+#ifndef NODE_H
+#define NODE_H
 
-using namespace std;
+#include "commun.h"
 
 class Node {
 
@@ -8,3 +9,5 @@ class Node {
     virtual string serialize() = 0;
 
 }
+
+#endif

@@ -17,4 +17,7 @@ void ElementNode::appendChild(Node n) {
 }
 
 string ElementNode::serialize() {
+  string s = "<" + name.first() + ":" name.second();
+  for(AttList::iterator it = attlist.
+  return 
 }
