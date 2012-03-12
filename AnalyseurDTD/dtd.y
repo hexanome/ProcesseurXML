@@ -17,11 +17,72 @@ main: dtd_list_opt
     ;
 
 dtd_list_opt
-: dtd_list_opt ATTLIST IDENT att_definition_opt CLOSE            
+: dtd_list_opt ELEMENT IDENT content_spec CLOSE
+| dtd_list_opt ATTLIST IDENT att_definition_opt CLOSE            
 | /* empty */                     
 ;
 
+content_spec
+ : ANY
+ | EMPTY
+ | mixed
+ | children
+ ;
 
+children
+ : choice card
+ | sequence card
+ ;
+ 
+item_card
+ : item card
+ ; 
+ 
+item
+ : choice
+ | sequence
+ | IDENT
+ ;
+ 
+card
+ : PLUS 
+ | QMARK
+ | AST
+ | /*empty*/ 
+ ;
+
+choice
+ : OPENPAR list_choice_plus CLOSEPAR
+ ;
+
+list_choice_plus
+ : item_card PIPE list_choice
+ ;
+ 
+list_choice
+ : list_choice PIPE item_card
+ | item_card
+ ;
+    
+sequence
+ : OPENPAR list_sequence CLOSEPAR
+ ;
+ 
+list_sequence
+ : list_sequence COMMA item_card
+ | item_card
+ ;
+ 
+mixed
+ : OPENPAR PCDATA mixed_content CLOSEPAR AST
+ | OPENPAR PCDATA CLOSEPAR
+ ;
+ 
+mixed_content
+ : mixed_content PIPE IDENT
+ | IDENT
+ ;
+ 
 att_definition_opt
 : att_definition_opt attribute
 | /* empty */
