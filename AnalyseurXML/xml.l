@@ -79,7 +79,7 @@ openspecial {ws}?"<?"
 closespecial "?>"{nl}?
 
 /*
- * Le mode CONTENT est utilse pour le contenu des elements, c a d
+ * Le mode CONTENT est utilise pour le contenu des elements, c a d
  *  entre le ">" et le "<" des balises 
  *  Le mode INITIAL est utlise en dehors de l'element RACINE 
  * et a l'interieur des balises
