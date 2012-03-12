@@ -2,6 +2,7 @@
 #define COMMUN_H
 
 using namespace std;
+#include <iostream>
 #include <vector>
 #include <utility>
 #include <string>
