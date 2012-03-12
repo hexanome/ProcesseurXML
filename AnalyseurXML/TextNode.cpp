@@ -7,3 +7,7 @@ TextNode::TextNode(string text) {
 TextNode::~TextNode() {
 }
 
+string TextNode::serialize() {
+  return text;
+}
+
