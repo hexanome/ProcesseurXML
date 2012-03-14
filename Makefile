@@ -1,5 +1,6 @@
 CC = g++
 DIRS = AnalyseurXML/ Analyseur/
+TESTDIRS = Analyseur/
 
 all:
 	for d in $(DIRS); do  \
@@ -10,7 +11,7 @@ all:
 	done
 
 test: Test/test.o all
-	for d in $(DIRS); do  \
+	for d in $(TESTDIRS); do  \
 		echo -e "\n--- Testing: $$d :dearly ---";  \
 		cd $$d;  \
 		make test;  \
