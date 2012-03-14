@@ -1,7 +1,6 @@
 #ifndef ELEMENTNODE_H
 #define ELEMENTNODE_H
 
-#include "commun.h"
 #include "Node.h"
 
 typedef vector<Node*> ChildNodes;

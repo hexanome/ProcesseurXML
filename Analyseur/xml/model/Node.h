@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "commun.h"
+#include "../../includes/common.h"
 
 class Node {
 

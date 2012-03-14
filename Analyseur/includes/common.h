@@ -3,6 +3,7 @@
 
 using namespace std;
 #include <iostream>
+#include <cstdio>
 #include <map>
 #include <vector>
 #include <utility>

@@ -1,4 +1,6 @@
-#include "commun.h"
+#ifndef TEXTNODE_H
+#define TEXTNODE_H
+
 #include "Node.h"
 
 class TextNode : public Node {
@@ -12,3 +14,5 @@ class TextNode : public Node {
     string text;
 
 };
+
+#endif

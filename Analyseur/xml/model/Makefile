@@ -11,10 +11,10 @@ all: $(OBJ) $(TESTOBJ)
 test: all
 	./$(TESTEXE)
 
-ElementNode.o: ElementNode.cpp ElementNode.h Node.h
-Document.o: Document.cpp Document.h ElementNode.h
-TextNode.o: TextNode.cpp TextNode.h Node.h
-test.o: test.cpp Document.h commun.h
+TextNode.o: TextNode.cpp TextNode.h Node.h ../../includes/common.h
+ElementNode.o: ElementNode.cpp TextNode.h Node.h ../../includes/common.h
+Document.o: Document.cpp Document.h ElementNode.h ../../includes/common.h
+test.o: test.cpp Document.h ../../../Test/test.h
 
 
 %.o: %.cpp

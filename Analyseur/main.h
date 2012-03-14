@@ -1,4 +1,4 @@
-#include "includes/commun.h"
+#include "includes/common.h"
 
 extern FILE* xmlin;
 extern FILE* dtdin;
