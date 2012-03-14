@@ -18,7 +18,7 @@ TextNode.o: TextNode.cpp TextNode.h Node.h
 
 
 clean:
-	rm *.o
+	rm *.o $(EXE)
 
 
 .PHONY: all clean
