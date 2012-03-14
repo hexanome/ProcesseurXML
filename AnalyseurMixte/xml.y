@@ -1,13 +1,17 @@
 %{
 
 using namespace std;
+#include <ctype.h>
+#include <string.h>
 #include "commun.h"
 
-int xmlwrap(void);
-void xmlerror(char *msg);
+//int xmlwrap(void);
+void xmlerror(char ** content, char *msg);
 int xmllex(void);
 
 %}
+
+%parse-param { char ** content }
 
 %union {
    char * s;
@@ -37,7 +41,7 @@ declarations_opt
  ;
  
 declaration
- : DOCTYPE IDENT IDENT STRING CLOSE 
+ : DOCTYPE IDENT IDENT STRING CLOSE { strcpy(*content, $4); }
  ;
 
 xml_element
@@ -81,13 +85,14 @@ content_opt
   return 0;
 }*/
 
+/*
 int xmlwrap(void)
 {
   return 1;
 }
+*/
 
-void xmlerror(char *msg)
+void xmlerror(char ** content, char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }
-

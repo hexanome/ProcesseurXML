@@ -50,11 +50,12 @@ bool serializeComplex() {
 
 int main(int argc, char ** argv) {
   int passed = 0;
-  Test test();
-  test.run("serializeTextNode", serializeTextNode);
-  test.run("serializeElementNode", serializeElementNode);
-  test.run("serializeBoth", serializeBoth);
-  test.run("serializeComplex", serializeComplex);
-  test.end();
+  Test *test = new Test();
+  test->run("serializeTextNode", serializeTextNode);
+  test->run("serializeElementNode", serializeElementNode);
+  test->run("serializeBoth", serializeBoth);
+  test->run("serializeComplex", serializeComplex);
+  test->end();
+	delete test;
   return 0;
 }

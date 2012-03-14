@@ -1,10 +1,10 @@
 CC = g++
 TESTEXE = test
-TESTOBJ = ElementNode.o Document.o test.o TextNode.o
+TESTOBJ = ElementNode.o Document.o ../Test/test.o test.o TextNode.o
 
 all: analyseXML
 analyseXML: *.l *.y Makefile
-	flex -P xml xml.l
+	flex -Pxml xml.l
 	bison --debug --verbose -p xml --defines=yy.tab.h xml.y
 	g++ -g -DYYDEBUG=1 -o analyseXML  lex.xml.c  xml.tab.c
 

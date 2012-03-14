@@ -9,8 +9,8 @@ Test::~Test() {
 
 void Test::run(string name, bool(*function)()) {
   tests++;
-  cout << "[test] " << (*ii).first << " ";
-  if (!(*ii).second()) {
+  cout << "[test] " << name << " ";
+  if (!function()) {
     cout << "FAIL";
   } else {
     cout << "OK";
