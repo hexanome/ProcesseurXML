@@ -1,6 +1,6 @@
 CC = g++
 TESTEXE = test
-TESTOBJ = ElementNode.o Document.o test.o TextNode.o
+TESTOBJ = ElementNode.o Document.o ../Test/test.o test.o TextNode.o
 
 all: analyseXML
 analyseXML: *.l *.y Makefile
