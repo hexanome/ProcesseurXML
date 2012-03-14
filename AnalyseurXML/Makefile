@@ -1,19 +1,33 @@
-EXE = test
-OBJ = ElementNode.o Document.o test.o TextNode.o
+CC = g++
+TESTEXE = test
+TESTOBJ = ElementNode.o Document.o test.o TextNode.o
 
-all: test
+all: analyseXML
+analyseXML: *.l *.y Makefile
+	flex -P xml xml.l
+	bison --debug --verbose -p xml --defines=yy.tab.h xml.y
+	g++ -g -DYYDEBUG=1 -o analyseXML  lex.xml.c  xml.tab.c
 
-test: $(OBJ)
-	gcc -o $(EXE) $<
 
-ElementNode.o: ElementNode.cpp ElementNode.h
-Document.o: Document.cpp Document.h
-test.o: test.cpp
-TextNode.o: TextNode.cpp TextNode.h
+# Testing ...
+
+test: $(TESTOBJ)
+	$(CC) -o $(TESTEXE) $^
+	./$(TESTEXE)
+
+ElementNode.o: ElementNode.cpp ElementNode.h Node.h
+Document.o: Document.cpp Document.h ElementNode.h
+test.o: test.cpp Document.h commun.h
+TextNode.o: TextNode.cpp TextNode.h Node.h
 
 
 %.o: %.cpp
-	gcc -c $<
+	$(CC) -c $<
 
 
-.PHONY: all
+clean:
+	rm *.o $(TESTEXE)
+	rm -rf *.tab.c lex.*.c *.tab.h *.output analyseXML
+
+
+.PHONY: all analyseXML clean

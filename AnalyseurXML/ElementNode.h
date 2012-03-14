@@ -14,6 +14,8 @@ class ElementNode : public Node {
     Node *firstChild();
     Node *lastChild();
     void appendChild(Node *n);
+    string getAttribute(string name);
+    void setAttribute(string name, string value);
     string serialize();
 
   private:
