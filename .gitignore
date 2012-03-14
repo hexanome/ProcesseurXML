@@ -1,0 +1,6 @@
+*.tab.c
+*.tab.h
+*.output
+AnalyseurDTD/analyseDTD
+AnalyseurXML/analyseXML
+lex.*
