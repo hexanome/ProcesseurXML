@@ -12,6 +12,6 @@ class Document {
   private:
     ElementNode root;
 
-}
+};
 
 #endif

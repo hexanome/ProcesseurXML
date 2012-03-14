@@ -11,4 +11,4 @@ class TextNode : public Node {
   private:
     string text;
 
-}
+};
