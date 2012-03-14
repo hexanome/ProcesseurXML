@@ -1,4 +1,4 @@
-#include<TextNode.h>
+#include "TextNode.h"
 
 TextNode::TextNode(string text) {
   this.text = text;

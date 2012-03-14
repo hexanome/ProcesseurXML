@@ -7,7 +7,6 @@ ElementNode::ElementNode(string ns, string n) {
 }
 
 ElementNode::~ElementNode() {
-  for
 }
 
 Node *ElementNode::firstChild() {
