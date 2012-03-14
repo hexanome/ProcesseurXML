@@ -1,0 +1,12 @@
+*.tab.c
+*.tab.h
+*.output
+AnalyseurDTD/analyseDTD
+AnalyseurXML/analyseXML
+<<<<<<< HEAD
+AnalyseurMixte/analyseMixte
+lex.*
+=======
+lex.*
+*.o
+>>>>>>> f55804ccdd74f35c7ce5e1062eb46818cc1aa00d
