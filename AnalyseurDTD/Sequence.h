@@ -8,6 +8,7 @@ class Choix : public Children {
   public:
     Sequence();
     ~Sequence();
+    string serialize(){
 };
 
 #endif

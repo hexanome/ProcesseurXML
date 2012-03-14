@@ -1,16 +1,16 @@
 #ifndef CONTENUCOMPOSE_H
 #define CONTENUCOMPOSE_H
 
-#include "Contenu.h"
 
-class ContenuCompose : public Contenu {
+class ContenuCompose {
 
   public:
-    ContenuCompose();
-    ~ContenuCompose();
-   
+  	ContenuCompose(string type);
+  	~ContenuCompose();
+  	virtual string serialize();
+  
   private:
-  //TODO : Définir la structure de données des children.
+  	string type; // ANY, EMPTY 
 };
 
 #endif

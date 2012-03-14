@@ -8,7 +8,7 @@ class ContenuMixte : public ContenuCompose {
   public:
     ContenuMixte();
     ~ContenuMixte();
-   
+   string serialize();
 };
 
 #endif

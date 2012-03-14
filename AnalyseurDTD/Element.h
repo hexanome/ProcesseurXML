@@ -9,9 +9,10 @@ class Element : public ContenuCompose {
   public:
     Element();
     ~Element();
+    string serialize();
 
   private:
-  //TODO : définir la structure de données de ContenuMixte.
+  vector<ContenuMixte*> contenuMixte;
 
 };
 

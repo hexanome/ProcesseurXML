@@ -10,7 +10,8 @@ class Document {
     ~Document();
 
   private:
-  //TODO : Définir la structure des Definitions.
+  vector<Definitions*> definitions;
+
 
 
 };

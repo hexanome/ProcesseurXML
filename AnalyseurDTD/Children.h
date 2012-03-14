@@ -10,7 +10,7 @@ class Children : public ContenuCompose {
     ~Children();
 
   private:
-  //TODO : définir la structure de données de ContenuCompose.
+  vector<ContenuCompose*> contenu;
 
 };
 

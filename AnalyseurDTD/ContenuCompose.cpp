@@ -1,8 +1,11 @@
 #include "ContenuCompose.h"
 
-
-ContenuCompose::ContenuCompose() {
+ContenuCompose::ContenuCompose(string type){
+	this.type = type;
 }
 
-ContenuCompose::~ContenuCompose() {
+ContenuCompose::~ContenuCompose(){
+}
+virtual string ContenuCompose::serialize() {
+	
 }

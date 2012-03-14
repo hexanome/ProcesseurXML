@@ -1,7 +1,7 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#include "Contenu.h"
+#include "ContenuCompose.h"
 #include "Attribut.h"
 
 class Definitions {
@@ -11,8 +11,8 @@ class Definitions {
     ~Definitions();
 
   private:
-  Contenu *contenu;
-  //TODO : Définir la structure des Attributs
+  ContenuCompose *contenuCompose;
+  vector<Attributs> *attributs;
 
 
 };

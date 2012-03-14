@@ -5,3 +5,9 @@ ContenuMixte::ContenuMixte() {
 
 ContenuMixte::~ContenuMixte() {
 }
+
+
+Element::string serialize() {
+	
+	
+}

@@ -5,3 +5,9 @@ Element::Element() {
 
 Element::~Element() {
 }
+
+
+Element::string serialize() {
+	
+	
+}
