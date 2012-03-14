@@ -2,19 +2,48 @@
 #include "ElementNode.h"
 #include "TextNode.h"
 
-bool serialize() {
+bool serializeTextNode() {
+  TextNode *text = new TextNode("bonjour");
 
-  TextNode *text = new TextNode("blabla");
-  ElementNode *element = new ElementNode("lol", "p");
+  string xml = text->serialize();
+  delete text;
+  return xml == "bonjour";
+}
+
+bool serializeElementNode() {
+  ElementNode *element = new ElementNode("ns", "element");
+
+  string xml = element->serialize();
+  delete element;
+  return xml == "<ns:element></ns:element>";
+}
+
+bool serializeBoth() {
+  TextNode *text = new TextNode("bonjour");
+  ElementNode *element = new ElementNode("", "element");
   element->appendChild(text);
 
   string xml = element->serialize();
+  delete text; delete element;
+  return xml == "<element>bonjour</element>";
+}
 
-  delete text;
-  delete element;
+bool serializeComplex() {
+  TextNode *foo = new TextNode("foo");
+  TextNode *bar = new TextNode("bar");
+  TextNode *baz = new TextNode("baz");
 
-  return xml == "<lol:p>blabla</lol:p>";
+  ElementNode *ebar = new ElementNode("","awesome");
+  ebar->appendChild(bar);
 
+  ElementNode *e = new ElementNode("yo","dawg");
+  e->appendChild(foo);
+  e->appendChild(ebar);
+  e->appendChild(baz);
+
+  string xml = e->serialize();
+  delete e; delete ebar; delete foo; delete bar; delete baz;
+  return xml == "<yo:dawg>foo<awesome>bar</awesome>baz</yo:dawg>";
 }
 
 int test(string name, bool(*unitTest)()) {
@@ -29,7 +58,10 @@ int test(string name, bool(*unitTest)()) {
 
 int main(int argc, char ** argv) {
   int passed = 0;
-  passed += test("serialize", serialize);
-  cout << passed << "/1 tests passed" << endl;
+  passed += test("serializeTextNode", serializeTextNode);
+  passed += test("serializeElementNode", serializeElementNode);
+  passed += test("serializeBoth", serializeBoth);
+  passed += test("serializeComplex", serializeComplex);
+  cout << passed << "/4 tests passed" << endl;
   return 0;
 }
