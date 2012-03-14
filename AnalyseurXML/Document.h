@@ -10,7 +10,7 @@ class Document {
     ~Document();
 
   private:
-    ElementNode root;
+    ElementNode *root;
 
 };
 

@@ -22,14 +22,14 @@ void ElementNode::appendChild(Node *n) {
 }
 
 string ElementNode::serialize() {
-  string s = "<" + nodeName.first() + ":" nodeName.second();
+  string s = "<" + nodeName.first + ":" + nodeName.second;
   for(int i = 0 ; i < attributes.size() ; i++) {
-    s += " " + attributes[i].first() + " \"" + attributes[i].second() + "\"";
+    s += " " + attributes[i].first + " \"" + attributes[i].second + "\"";
   }
   s += ">";
   for(int i = 0 ; i < childNodes.size() ; i++) {
     s += childNodes[i]->serialize();
   }
-  s += "</" + nodeName.first() + ":" nodeName.second() + ">"; 
+  s += "</" + nodeName.first + ":" + nodeName.second + ">"; 
   return s;
 }

@@ -1,7 +1,7 @@
 #include "TextNode.h"
 
 TextNode::TextNode(string text) {
-  this.text = text;
+  this->text = text;
 }
 
 TextNode::~TextNode() {
