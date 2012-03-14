@@ -1,8 +1,10 @@
-
+EXE = test
+OBJ = ElementNode.o Document.o test.o TextNode.o
 
 all: test
 
-test: test.o
+test: $(OBJ)
+	gcc -o $(EXE) $<
 
 ElementNode.o: ElementNode.cpp ElementNode.h
 Document.o: Document.cpp Document.h
@@ -14,4 +16,4 @@ TextNode.o: TextNode.cpp TextNode.h
 	gcc -c $<
 
 
-.PHONY: all test
+.PHONY: all
