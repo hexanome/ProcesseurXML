@@ -47,8 +47,7 @@ void ElementNode::setAttribute(string name, string value) {
 string ElementNode::serialize() {
 
   // Tag name, with or without namespace
-  string tag = nodeName.first;
-  if (nodeName.second.length() > 0) tag += ":" + nodeName.second;
+  string tag = (nodeName.first.length() > 0 ? nodeName.first + ":" : "") + nodeName.second;
 
   // Open tag
   string s = "<" + tag;

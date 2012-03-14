@@ -1,6 +1,7 @@
 #include "commun.h"
 #include "ElementNode.h"
 #include "TextNode.h"
+#include "../Test/test.h"
 
 bool serializeTextNode() {
   TextNode *text = new TextNode("bonjour");
@@ -46,22 +47,14 @@ bool serializeComplex() {
   return xml == "<yo:dawg>foo<awesome>bar</awesome>baz</yo:dawg>";
 }
 
-int test(string name, bool(*unitTest)()) {
-  cout << "[test] " << name << " ";
-  if (!unitTest()) {
-    cout << "FAIL" << endl;
-    return 0;
-  }
-  cout << "OK" << endl;
-  return 1;
-}
 
 int main(int argc, char ** argv) {
   int passed = 0;
-  passed += test("serializeTextNode", serializeTextNode);
-  passed += test("serializeElementNode", serializeElementNode);
-  passed += test("serializeBoth", serializeBoth);
-  passed += test("serializeComplex", serializeComplex);
-  cout << passed << "/4 tests passed" << endl;
+  Test test();
+  test.run("serializeTextNode", serializeTextNode);
+  test.run("serializeElementNode", serializeElementNode);
+  test.run("serializeBoth", serializeBoth);
+  test.run("serializeComplex", serializeComplex);
+  test.end();
   return 0;
 }
