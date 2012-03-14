@@ -3,4 +3,5 @@
 *.output
 AnalyseurDTD/analyseDTD
 AnalyseurXML/analyseXML
+AnalyseurMixte/analyseMixte
 lex.*
