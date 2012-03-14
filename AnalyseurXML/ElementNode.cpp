@@ -21,10 +21,18 @@ void ElementNode::appendChild(Node *n) {
   childNodes.push_back(n);
 }
 
+string ElementNode::getAttribute(string name) {
+  return attributes[name];
+}
+
+void ElementNode::setAttribute(string name, string value) {
+  attributes[name] = value;
+}
+
 string ElementNode::serialize() {
   string s = "<" + nodeName.first + ":" + nodeName.second;
-  for(int i = 0 ; i < attributes.size() ; i++) {
-    s += " " + attributes[i].first + " \"" + attributes[i].second + "\"";
+  for( map<string,string>::iterator ii = attributes.begin(); ii != attributes.end(); ++ii) {
+    s += " " + (*ii).first + " \"" + (*ii).second + "\"";
   }
   s += ">";
   for(int i = 0 ; i < childNodes.size() ; i++) {
