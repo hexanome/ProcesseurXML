@@ -4,3 +4,4 @@
 AnalyseurDTD/analyseDTD
 AnalyseurXML/analyseXML
 lex.*
+*.o
