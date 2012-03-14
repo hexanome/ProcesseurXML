@@ -58,6 +58,14 @@
 /* Using locations.  */
 #define YYLSP_NEEDED 0
 
+/* Substitute the variable and function names.  */
+#define yyparse dtdparse
+#define yylex   dtdlex
+#define yyerror dtderror
+#define yylval  dtdlval
+#define yychar  dtdchar
+#define yydebug dtddebug
+#define yynerrs dtdnerrs
 
 
 /* Tokens.  */
@@ -144,7 +152,7 @@ typedef union YYSTYPE
    ElementName * en;  /* le nom d'un element avec son namespace */
 }
 /* Line 193 of yacc.c.  */
-#line 148 "xml.tab.c"
+#line 156 "xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -157,7 +165,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 161 "xml.tab.c"
+#line 169 "xml.tab.c"
 
 #ifdef short
 # undef short
@@ -1371,7 +1379,7 @@ yyreduce:
     {
       
 /* Line 1267 of yacc.c.  */
-#line 1375 "xml.tab.c"
+#line 1383 "xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
