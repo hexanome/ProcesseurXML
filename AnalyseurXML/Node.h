@@ -8,6 +8,6 @@ class Node {
   public:
     virtual string serialize() = 0;
 
-}
+};
 
 #endif

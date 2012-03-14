@@ -4,7 +4,7 @@
 #include "commun.h"
 #include "Node.h"
 
-typedef vector<Node *> ChildNodes;
+typedef vector<Node*> ChildNodes;
 
 class ElementNode : public Node {
 
@@ -13,7 +13,9 @@ class ElementNode : public Node {
     ~ElementNode();
     Node *firstChild();
     Node *lastChild();
-    void appendChild(Node n);
+    void appendChild(Node *n);
+    string getAttribute(string name);
+    void setAttribute(string name, string value);
     string serialize();
 
   private:
@@ -21,6 +23,6 @@ class ElementNode : public Node {
     AttList attributes;
     ChildNodes childNodes;
 
-}
+};
 
 #endif

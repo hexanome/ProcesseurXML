@@ -7,7 +7,6 @@ ElementNode::ElementNode(string ns, string n) {
 }
 
 ElementNode::~ElementNode() {
-  for
 }
 
 Node *ElementNode::firstChild() {
@@ -22,15 +21,23 @@ void ElementNode::appendChild(Node *n) {
   childNodes.push_back(n);
 }
 
+string ElementNode::getAttribute(string name) {
+  return attributes[name];
+}
+
+void ElementNode::setAttribute(string name, string value) {
+  attributes[name] = value;
+}
+
 string ElementNode::serialize() {
-  string s = "<" + nodeName.first() + ":" nodeName.second();
-  for(int i = 0 ; i < attributes.size() ; i++) {
-    s += " " + attributes[i].first() + " \"" + attributes[i].second() + "\"";
+  string s = "<" + nodeName.first + ":" + nodeName.second;
+  for( map<string,string>::iterator ii = attributes.begin(); ii != attributes.end(); ++ii) {
+    s += " " + (*ii).first + " \"" + (*ii).second + "\"";
   }
   s += ">";
   for(int i = 0 ; i < childNodes.size() ; i++) {
     s += childNodes[i]->serialize();
   }
-  s += "</" + nodeName.first() + ":" nodeName.second() + ">"; 
+  s += "</" + nodeName.first + ":" + nodeName.second + ">"; 
   return s;
 }

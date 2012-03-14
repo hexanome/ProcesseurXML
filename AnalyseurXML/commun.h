@@ -2,12 +2,13 @@
 #define COMMUN_H
 
 using namespace std;
+#include <iostream>
+#include <map>
 #include <vector>
 #include <utility>
 #include <string>
 
-typedef pair<string,string> Attribute;
-typedef vector<Attribute> AttList;
+typedef map<string,string> AttList;
 typedef pair<string,string> ElementName;
 
 #ifdef DEBUG
@@ -15,6 +16,5 @@ typedef pair<string,string> ElementName;
 #else
 #define debug(x) ((void) 0)
 #endif
-
 
 #endif

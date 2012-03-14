@@ -3,9 +3,9 @@
 using namespace std;
 #include "commun.h"
 
-int yywrap(void);
-void yyerror(char *msg);
-int yylex(void);
+int xmlwrap(void);
+void xmlerror(char *msg);
+int xmllex(void);
 
 %}
 
@@ -73,19 +73,20 @@ int main(int argc, char **argv)
 {
   int err;
 
-  yydebug = 1; // pour enlever l'affichage de l'éxécution du parser, commenter cette ligne
+  xmldebug = 1; // pour enlever l'affichage de l'éxécution du parser, commenter cette ligne
 
-  err = yyparse();
+  err = xmlparse();
   if (err != 0) printf("Parse ended with %d error(s)\n", err);
   	else  printf("Parse ended with success\n", err);
   return 0;
 }
-int yywrap(void)
+
+int xmlwrap(void)
 {
   return 1;
 }
 
-void yyerror(char *msg)
+void xmlerror(char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }
