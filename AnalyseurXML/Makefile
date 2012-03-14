@@ -1,19 +1,24 @@
+CC = g++
 EXE = test
 OBJ = ElementNode.o Document.o test.o TextNode.o
 
 all: test
 
 test: $(OBJ)
-	gcc -o $(EXE) $<
+	$(CC) -o $(EXE) $^
 
-ElementNode.o: ElementNode.cpp ElementNode.h
-Document.o: Document.cpp Document.h
-test.o: test.cpp
-TextNode.o: TextNode.cpp TextNode.h
+ElementNode.o: ElementNode.cpp ElementNode.h Node.h
+Document.o: Document.cpp Document.h ElementNode.h
+test.o: test.cpp Document.h commun.h
+TextNode.o: TextNode.cpp TextNode.h Node.h
 
 
 %.o: %.cpp
-	gcc -c $<
+	$(CC) -c $<
 
 
-.PHONY: all
+clean:
+	rm *.o
+
+
+.PHONY: all clean
