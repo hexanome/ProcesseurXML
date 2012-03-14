@@ -3,7 +3,7 @@ OBJ = ElementNode.o Document.o test.o TextNode.o
 
 all: test
 
-test: test.o
+test: $(OBJ)
 	gcc -o $(EXE) $<
 
 ElementNode.o: ElementNode.cpp ElementNode.h
