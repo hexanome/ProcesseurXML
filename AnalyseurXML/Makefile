@@ -1,24 +1,9 @@
-CC = g++
-EXE = test
-OBJ = ElementNode.o Document.o test.o TextNode.o
-
-all: test
-
-test: $(OBJ)
-	$(CC) -o $(EXE) $^
-
-ElementNode.o: ElementNode.cpp ElementNode.h Node.h
-Document.o: Document.cpp Document.h ElementNode.h
-test.o: test.cpp Document.h commun.h
-TextNode.o: TextNode.cpp TextNode.h Node.h
-
-
-%.o: %.cpp
-	$(CC) -c $<
-
-
+all: analyseXML
+analyseXML: *.l *.y Makefile
+	flex -Pxml xml.l
+	bison --debug --verbose -p xml --defines=yy.tab.h xml.y
+	g++ -g -DYYDEBUG=1 -o analyseXML  lex.xml.c  xml.tab.c
 clean:
-	rm *.o
+	rm -rf *.tab.c lex.*.c *.tab.h *.output analyseXML
 
-
-.PHONY: all clean
+.PHONY: all analyseXML clean

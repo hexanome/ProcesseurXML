@@ -1,17 +1,17 @@
 %{
 
 using namespace std;
-#include "commun.h"
-#include <stdio.h>
+#include <ctype.h>
 #include <string.h>
+#include "commun.h"
 
-int xmlwrap(void);
-void xmlerror(char** dtd_name,char *msg);
+//int xmlwrap(void);
+void xmlerror(char ** content, char *msg);
 int xmllex(void);
 
 %}
 
-%parse-param {char** dtd_name}
+%parse-param { char ** content }
 
 %union {
    char * s;
@@ -41,7 +41,7 @@ declarations_opt
  ;
  
 declaration
- : DOCTYPE IDENT IDENT STRING CLOSE {strcpy (*date_name,$4);}
+ : DOCTYPE IDENT IDENT STRING CLOSE { strcpy(*content, $4); }
  ;
 
 xml_element
@@ -76,23 +76,23 @@ content_opt
 /*int main(int argc, char **argv)
 {
   int err;
-  char* dtd_name;
-  dtd_name = (char*)malloc(50*sizeof(char));
+
   xmldebug = 1; // pour enlever l'affichage de l'éxécution du parser, commenter cette ligne
 
-  err = xmlparse(&dtd_name);
+  err = xmlparse();
   if (err != 0) printf("Parse ended with %d error(s)\n", err);
   	else  printf("Parse ended with success\n", err);
   return 0;
 }*/
 
+/*
 int xmlwrap(void)
 {
   return 1;
 }
+*/
 
-void xmlerror(char *msg)
+void xmlerror(char ** content, char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }
-
