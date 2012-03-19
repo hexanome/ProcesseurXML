@@ -28,6 +28,7 @@ document
  : declarations_opt xml_element misc_seq_opt 
  { 
     *xdoc = new Document(); 
+    //(*xdoc)->setRoot($2);
  }
  ;
 misc_seq_opt
@@ -55,7 +56,7 @@ xml_element
  }
  ;
 start
- : START		
+ : START
  | NSSTART	
  ;
 attributes_opt

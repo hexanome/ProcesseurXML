@@ -2,7 +2,7 @@ PARSE_OBJ = lex.xml.o xml.tab.o xml.o
 MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o
 TEST_EXE = test
 
-all: $(PARSE_OBJ)
+all:
 	cd parser; make
 	# TODO: make the actual program.
 	cd model; make

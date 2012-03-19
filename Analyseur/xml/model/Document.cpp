@@ -1,6 +1,7 @@
 #include "Document.h"
 
 Document::Document() {
+	root = NULL;
 }
 
 Document::~Document() {
@@ -18,5 +19,10 @@ ElementNode* Document::getRoot()
 
 string Document::serialize()
 {
+	if (root == NULL)
+	{
+		return "";
+	}
+
 	return root->serialize();
 }
