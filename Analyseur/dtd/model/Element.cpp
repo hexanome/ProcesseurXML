@@ -14,7 +14,7 @@ void Element::addElement(Element * element) {
 
 void Element::addElements(vector<string> elements) {
   for (int i = 0; i < elements.size(); i++) {
-    this->addElement(new Element(elements[i].getName());
+    this->addElement(new Element(elements[i]));
   }
 }
 
@@ -29,8 +29,7 @@ Element::~Element() {
 string Element::serialize() {
 	 string s = "<!ELEMENT " + name + " ";
 	 if(category != "") {
-	 	s += category;
-	 
+	 	s += category;	 
 	 } else {
 	 	s += "(";
 	 	for (int i = 0; i < elements.size(); i++){
