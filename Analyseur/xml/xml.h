@@ -14,3 +14,4 @@ class XmlParser
 };
 
 #endif
+
