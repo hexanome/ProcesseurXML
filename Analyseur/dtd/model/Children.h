@@ -8,7 +8,7 @@ class Children : public ContenuCompose {
   public:
     Children();
     ~Children();
-    virtual serialize();
+    virtual string serialize();
 
   protected:
   vector<ContenuCompose*> contenu;
