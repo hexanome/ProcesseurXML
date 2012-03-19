@@ -2,7 +2,7 @@
 %option noyywrap
 
 %{
-#include "commun.h"
+#include "../../includes/common.h"
 #include "xml.tab.h"
 
 static char* skipSpace(char *s) {
@@ -17,7 +17,7 @@ static char* skipSpace(char *s) {
   return buf;
 }
 
-// enlève les " au début et à la fin
+// enlève les "" au début et à la fin
 static char * getString(char *s) {
    s++;
    s[strlen(s)-1] = '\0';
