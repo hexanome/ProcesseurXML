@@ -1,13 +1,7 @@
 
 # TODO: combine the parser and the model into a single executable.
-all: parser model
-
-parser:
-	flex -Pxml xml.l
-	bison --debug --verbose -p xml --defines=yy.tab.h xml.y
-	g++ -g -DYYDEBUG=1 -o analyse xml/parser/lex.xml.c dtd/parser/lex.dtd.c xml/parser/xml.tab.c dtd/parser/dtd.tab.c main.c
-
-model:
+all: 
+	cd parser; make
 	cd model; make
 
 clean:
