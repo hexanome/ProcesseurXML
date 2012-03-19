@@ -7,11 +7,11 @@
 class Element : public ContenuCompose {
 
   public:
-    Element::Element(string name);
+    Element(string name);
     void setCategory(string category);
     void addElement(Element * element);
     void addElements(vector<string> elements);
-	string Element::getName();
+	string getName();
     ~Element();
     string serialize();
 

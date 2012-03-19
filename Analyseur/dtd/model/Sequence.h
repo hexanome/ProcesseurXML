@@ -3,12 +3,12 @@
 
 #include "Children.h"
 
-class Choix : public Children {
+class Sequence : public Children {
 
   public:
     Sequence();
     ~Sequence();
-    string serialize(){
+    string serialize();
 };
 
 #endif

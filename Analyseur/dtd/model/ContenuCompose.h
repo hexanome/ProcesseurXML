@@ -1,16 +1,14 @@
 #ifndef CONTENUCOMPOSE_H
 #define CONTENUCOMPOSE_H
 
+#include "../../includes/common.h"
 
 class ContenuCompose {
 
   public:
-  	ContenuCompose(string type);
+  	ContenuCompose();
   	~ContenuCompose();
   	virtual string serialize();
-  
-  private:
-  	string type; // ANY, EMPTY 
 };
 
 #endif
