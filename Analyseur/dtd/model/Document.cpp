@@ -1,4 +1,4 @@
-#include "Document.cpp"
+#include "Document.h"
 
 Document::Document() {
 }

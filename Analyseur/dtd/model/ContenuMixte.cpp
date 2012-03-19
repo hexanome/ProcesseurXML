@@ -6,8 +6,7 @@ ContenuMixte::ContenuMixte() {
 ContenuMixte::~ContenuMixte() {
 }
 
-
-Element::string serialize() {
+string ContenuMixte::serialize() {
 	
 	
 }

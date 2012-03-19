@@ -12,7 +12,7 @@ class Definitions {
 
   private:
   ContenuCompose *contenuCompose;
-  vector<Attributs> *attributs;
+  vector<Attribut> *attributs;
 
 
 };
