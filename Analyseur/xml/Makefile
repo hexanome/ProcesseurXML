@@ -20,7 +20,7 @@ test: all
 lex.xml.o: parser
 xml.tab.o: parser
 xml.o: parser
-parser: parser/lex.xml.c parser/xml.tab.c
+parser: all
 	g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
 
 .PHONY: all parser clean test
