@@ -10,7 +10,8 @@ extern int xmlparse(Document **xdoc);
 class XmlParser
 {
 	public:
-		Document* parseStream(FILE *fd);
+		static Document* parseStream(FILE *fd);
 };
 
 #endif
+

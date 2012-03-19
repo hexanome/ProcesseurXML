@@ -8,6 +8,9 @@ class Document {
   public:
     Document();
     ~Document();
+    void setRoot(ElementNode *newRoot);
+    ElementNode* getRoot();
+    virtual string serialize();
 
   private:
     ElementNode *root;
