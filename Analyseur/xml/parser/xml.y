@@ -16,11 +16,14 @@ int xmllex(void);
 %union {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
+   ElementNode * node;
 }
 
 %token EQ SLASH CLOSE CLOSESPECIAL DOCTYPE
 %token <s> ENCODING STRING DATA COMMENT IDENT NSIDENT
 %token <en> NSSTART START STARTSPECIAL END NSEND
+
+%type <node> xml_element
 
 %%
 
@@ -28,7 +31,7 @@ document
  : declarations_opt xml_element misc_seq_opt 
  { 
     *xdoc = new Document(); 
-    //(*xdoc)->setRoot($2);
+    (*xdoc)->setRoot($2);
  }
  ;
 misc_seq_opt
@@ -51,8 +54,10 @@ declaration
 xml_element
  : start attributes_opt empty_or_content 
  { 
-    //ElementNode *xnode = new ElementNode("test", "test2");
+    ElementNode *xnode = new ElementNode("test", "test2");
     //(*xdoc)->setRoot(xnode);
+
+    $$ = xnode;
  }
  ;
 start
