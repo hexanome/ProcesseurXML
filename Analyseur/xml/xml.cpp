@@ -6,7 +6,7 @@ Document* XmlParser::parseStream(FILE* fd)
 	xmlin = fd;
 
 	// Start the parsing of the document.
-	Document* xdoc;
+	Document *xdoc;
 	int xmlErr = xmlparse(&xdoc);
 
 	cout << xdoc->serialize() << endl;
