@@ -5,8 +5,7 @@ bool testParseStream()
 {
 	FILE *xmlfd = fopen("rap1.xml", "r");
 
-	XmlParser *xparser = new XmlParser();
-	xparser->parseStream(xmlfd);
+	XmlParser::parseStream(xmlfd);
 
 	fclose(xmlfd);
 

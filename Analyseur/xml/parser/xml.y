@@ -26,6 +26,9 @@ int xmllex(void);
 
 document
  : declarations_opt xml_element misc_seq_opt 
+ { 
+    *xdoc = new Document(); 
+ }
  ;
 misc_seq_opt
  : misc_seq_opt comment
@@ -41,11 +44,15 @@ declarations_opt
  ;
  
 declaration
- : DOCTYPE IDENT IDENT STRING CLOSE { *xdoc = new Document(); }
+ : DOCTYPE IDENT IDENT STRING CLOSE
  ;
 
 xml_element
  : start attributes_opt empty_or_content 
+ { 
+    //ElementNode *xnode = new ElementNode("test", "test2");
+    //(*xdoc)->setRoot(xnode);
+ }
  ;
 start
  : START		
