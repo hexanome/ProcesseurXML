@@ -3,9 +3,9 @@ all:
 	cd dtd; make
 
 test:
-	@echo -e "\n--- Testing XML Dearly ---"
+	@echo -e "\n--- Testing XML dearly ---"
 	cd xml; make test
-	@echo -e "\n--- Testing DTD Dearly ---"
+	@echo -e "\n--- Testing DTD dearly ---"
 	cd dtd; make test
 
 .PHONY: all test
