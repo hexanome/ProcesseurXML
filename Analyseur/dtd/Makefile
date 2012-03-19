@@ -7,8 +7,8 @@ all:
 clean:
 	rm -rf *.tab.c lex.*.c *.tab.h *.output analyse
 
-test:
-	#cd model; make test
+test: all
+	cd model; make test
 	#cd parser; make test
 
 .PHONY: all parser model clean test
