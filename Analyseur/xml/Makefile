@@ -3,13 +3,12 @@
 all: 
 	cd parser; make
 	cd model; make
-	#cd parser; make
 
 clean:
 	rm -rf *.tab.c lex.*.c *.tab.h *.output analyse
 
-test:
+test: all
 	cd model; make test
-	#cd parser; make test
+	g++ -g -DYYDEBUG=1 -o test parser/lex.xml.c parser/xml.tab.c test.cpp
 
 .PHONY: all parser model clean test

@@ -3,14 +3,15 @@
 using namespace std;
 #include <ctype.h>
 #include <string.h>
-#include "commun.h"
+#include "../../includes/common.h"
+#include "../model/Document.h"
 
 void xmlerror(char ** content, char *msg);
 int xmllex(void);
 
 %}
 
-%parse-param { char ** content }
+%parse-param { Document ** xdoc }
 
 %union {
    char * s;
@@ -40,7 +41,7 @@ declarations_opt
  ;
  
 declaration
- : DOCTYPE IDENT IDENT STRING CLOSE { strcpy(*content, $4); }
+ : DOCTYPE IDENT IDENT STRING CLOSE { *xdoc = new Document(); }
  ;
 
 xml_element
