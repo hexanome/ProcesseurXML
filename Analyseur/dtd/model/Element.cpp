@@ -31,14 +31,7 @@ string Element::serialize() {
 	 if(category != "") {
 	 	s += category;	 
 	 } else {
-	 	s += "(";
-	 	for (int i = 0; i < elements.size(); i++){
-	 		if (i > 0) {
-	 			s += ",";
-	 		}
-	 		s += elements[i]->getName();
-	 	}
-	 	s += ")";
+	 	contenuMixte->serialize();
 	 }
 	 s += ">";
 	 for (int i = 0; i < elements.size(); i++){

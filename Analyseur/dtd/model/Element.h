@@ -18,7 +18,6 @@ class Element : public ContenuCompose {
   private:
   string name;
   string category;
-  vector<Element*> elements;
   vector<ContenuMixte*> contenuMixte;
 
 };
