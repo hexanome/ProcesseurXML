@@ -16,7 +16,6 @@ ElementNode.o: ElementNode.cpp TextNode.h Node.h ../../includes/common.h
 Document.o: Document.cpp Document.h ElementNode.h ../../includes/common.h
 test.o: test.cpp Document.h ../../../Test/test.h
 
-
 %.o: %.cpp
 	$(CC) -c $<
 

@@ -1,7 +1,7 @@
 %{
 
 using namespace std;
-#include "commun.h"
+#include "../Analyseur/includes/common.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -41,7 +41,7 @@ declarations_opt
  ;
  
 declaration
- : DOCTYPE IDENT IDENT STRING CLOSE {strcpy (*date_name,$4);}
+ : DOCTYPE IDENT IDENT STRING CLOSE {strcpy (*dtd_name,$4);}
  ;
 
 xml_element
@@ -73,7 +73,7 @@ content_opt
  ;
 %%
 
-/*int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   int err;
   char* dtd_name;
@@ -84,14 +84,14 @@ content_opt
   if (err != 0) printf("Parse ended with %d error(s)\n", err);
   	else  printf("Parse ended with success\n", err);
   return 0;
-}*/
+}
 
 int xmlwrap(void)
 {
   return 1;
 }
 
-void xmlerror(char *msg)
+void xmlerror(char** dtd_name,char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }

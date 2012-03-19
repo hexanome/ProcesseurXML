@@ -1,8 +1,8 @@
 all: analyseMixte
 analyseMixte: *.l *.y *.c *.h makefile
-	flex -P xml xml.l
+	flex -Pxml xml.l
 	bison --debug --verbose -p xml --defines=xml.tab.h xml.y
-	flex -P dtd dtd.l
+	flex -Pdtd dtd.l
 	bison --debug --verbose -p dtd --defines=dtd.tab.h dtd.y
 	g++ -g -DYYDEBUG=1 -o analyseMixte lex.xml.c lex.dtd.c xml.tab.c dtd.tab.c main.c
 clean:

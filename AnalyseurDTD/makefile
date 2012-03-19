@@ -1,6 +1,6 @@
 all: analyseDTD
 analyseDTD: *.l *.y makefile
-	flex -P dtd dtd.l
+	flex -Pdtd dtd.l
 	bison --debug --verbose -p dtd --defines=yy.tab.h dtd.y
 	g++ -g -DYYDEBUG=1 -o analyseDTD  lex.dtd.c dtd.tab.c 
 clean:
