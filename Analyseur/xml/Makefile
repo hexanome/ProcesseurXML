@@ -1,5 +1,6 @@
 PARSE_OBJ = lex.xml.o xml.tab.o xml.o
 MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o
+TEST_EXE = test
 
 all: $(PARSE_OBJ)
 	cd parser; make
@@ -9,11 +10,11 @@ all: $(PARSE_OBJ)
 clean:
 	cd parser; make clean
 	cd model; make clean
-	rm -rf MOD_OBJ
+	rm -rf $(MOD_OBJ) $(PARSE_OBJ) $(TEST_EXE)
 
 test: all
 	cd model; make test
-	g++ -o test ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
+	g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	./test
 
 lex.xml.o: parser

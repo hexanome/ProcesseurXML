@@ -20,7 +20,7 @@ Document.o: Document.cpp Document.h ElementNode.h ../../includes/common.h
 
 
 clean:
-	rm *.o $(TESTEXE)
+	rm -f *.o $(TESTEXE)
 
 
 .PHONY: all test clean
