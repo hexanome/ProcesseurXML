@@ -2,12 +2,15 @@
 #define XML_SERVICES_H
 
 #include "../includes/common.h"
-#include "model/document.h"
+#include "model/Document.h"
 
 extern FILE* xmlin;
-extern int xmlparse(char ** content);
+extern int xmlparse(Document **xdoc);
 
-public:
-	Document* parseStream(iostream inStream);
+class XmlParser
+{
+	public:
+		Document* parseStream(FILE *fd);
+};
 
 #endif

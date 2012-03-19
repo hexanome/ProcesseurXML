@@ -1,6 +1,6 @@
 #include "xml.h"
 
-Document* parseStream(FILE* fd)
+Document* xml::parseStream(FILE* fd)
 {
 	// Specify the stream to use by the parser.
 	xmlin = fd;
