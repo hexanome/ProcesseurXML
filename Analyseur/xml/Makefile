@@ -1,16 +1,24 @@
+PARSE_OBJ = lex.xml.o xml.tab.o
+MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o
 
-# TODO: combine the parser and the model into a single executable.
 all: 
 	cd parser; make
 	cd model; make
 
 clean:
-	rm -rf *.tab.c lex.*.c *.tab.h *.output analyse
+	cd parser; make clean
+	cd model; make clean
+	rm -rf MOD_OBJ
 
-test: all
+test: all $(PARSE_OBJ)
 	cd model; make test
-	g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp
-	g++ -o test ../../Test/test.o test.o lex.xml.o xml.tab.o model/Document.o model/ElementNode.o model/TextNode.o
+	g++ -o test ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	./test
 
-.PHONY: all parser model clean test
+lex.xml.o: parser
+xml.tab.o: parser
+parser: parser/lex.xml.c parser/xml.tab.c
+	g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp
+
+.PHONY: all parser clean test
+
