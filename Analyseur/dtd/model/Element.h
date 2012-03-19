@@ -7,11 +7,15 @@
 class Element : public ContenuCompose {
 
   public:
-    Element();
+    Element(string name,string category);
+    Element(string name,vector<string> elements);
     ~Element();
     string serialize();
 
   private:
+  string name;
+  string category;
+  vector<Element*> elements;
   vector<ContenuMixte*> contenuMixte;
 
 };

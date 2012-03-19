@@ -2,6 +2,10 @@
 
 bool testParseStream()
 {
+	FILE *xmlfd = fopen("rap1.xml", "r");
+
+	
+
 	return true;	
 }
 
