@@ -13,3 +13,4 @@ Document* XmlParser::parseStream(FILE* fd)
 
 	return xdoc;
 }
+
