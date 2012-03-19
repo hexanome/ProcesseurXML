@@ -52,7 +52,7 @@ string ElementNode::serialize() {
   // Open tag
   string s = "<" + tag;
   for( map<string,string>::iterator ii = attributes.begin(); ii != attributes.end(); ++ii) {
-    s += " " + (*ii).first + " \"" + (*ii).second + "\"";
+    s += " " + (*ii).first + "=\"" + (*ii).second + "\"";
   }
   s += ">";
 

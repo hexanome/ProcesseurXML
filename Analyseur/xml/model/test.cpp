@@ -47,6 +47,19 @@ bool serializeComplex() {
   return xml == "<yo:dawg>foo<awesome>bar</awesome>baz</yo:dawg>";
 }
 
+bool serializeElementNodeWithAttList() {
+	TextNode *textNode1 = new TextNode("beau temps");
+	ElementNode *elementNode1 = new ElementNode("","Date");
+	elementNode1->setAttribute("Annee","2013");
+	elementNode1->setAttribute("Heure","13");
+	elementNode1->appendChild(textNode1);
+	
+	string xml = elementNode1->serialize();
+	delete elementNode1;
+	delete textNode1;
+	cout << endl << xml << endl;
+	return xml == "<Date Annee=\"2013\" Heure=\"13\">beau temps</Date>";
+}
 
 int main(int argc, char ** argv) {
   int passed = 0;
@@ -55,6 +68,7 @@ int main(int argc, char ** argv) {
   test->run("serializeElementNode", serializeElementNode);
   test->run("serializeBoth", serializeBoth);
   test->run("serializeComplex", serializeComplex);
+  test->run("serializeElementNodeWithAttList", serializeElementNodeWithAttList);
   test->end();
 	delete test;
   return 0;
