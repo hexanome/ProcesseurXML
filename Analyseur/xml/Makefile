@@ -9,6 +9,8 @@ clean:
 
 test: all
 	cd model; make test
-	g++ -g -DYYDEBUG=1 -o test parser/lex.xml.c parser/xml.tab.c test.cpp
+	g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp
+	g++ -o test ../../Test/test.o test.o lex.xml.o xml.tab.o model/Document.o model/ElementNode.o model/TextNode.o
+	./test
 
 .PHONY: all parser model clean test

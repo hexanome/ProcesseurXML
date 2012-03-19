@@ -6,12 +6,12 @@ using namespace std;
 #include "../../includes/common.h"
 #include "../model/Document.h"
 
-void xmlerror(char ** content, char *msg);
+void xmlerror(Document **xdoc, char *msg);
 int xmllex(void);
 
 %}
 
-%parse-param { Document ** xdoc }
+%parse-param { Document **xdoc }
 
 %union {
    char * s;
@@ -73,26 +73,7 @@ content_opt
  ;
 %%
 
-/*int main(int argc, char **argv)
-{
-  int err;
-
-  xmldebug = 1; // pour enlever l'affichage de l'éxécution du parser, commenter cette ligne
-
-  err = xmlparse();
-  if (err != 0) printf("Parse ended with %d error(s)\n", err);
-  	else  printf("Parse ended with success\n", err);
-  return 0;
-}*/
-
-/*
-int xmlwrap(void)
-{
-  return 1;
-}
-*/
-
-void xmlerror(char ** content, char *msg)
+void xmlerror(Document **xdoc, char *msg)
 {
   fprintf(stderr, "%s\n", msg);
 }

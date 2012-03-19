@@ -3,7 +3,7 @@
 
 %{
 #include "../../includes/common.h"
-#include "xml.tab.h"
+#include "yy.tab.h"
 
 static char* skipSpace(char *s) {
   char *buf;
