@@ -2,11 +2,8 @@
 
 
 Choix::Choix() {
+	this->separator = "|";
 }
 
 Choix::~Choix() {
-}
-
-string Choix::serialize(){
-	
 }

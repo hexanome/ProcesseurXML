@@ -1,14 +1,13 @@
 #ifndef SEQUENCE_H
 #define SEQUENCE_H
 
-#include "Children.h"
+#include "Serie.h"
 
-class Sequence : public Children {
+class Sequence : public Serie {
 
   public:
     Sequence();
     ~Sequence();
-    string serialize();
 };
 
 #endif

@@ -10,7 +10,7 @@ class Document {
     ~Document();
 
   private:
-  vector<Definitions*> definitions;
+  vector<Definitions*> *definitions;
 
 
 
