@@ -1,5 +1,6 @@
 %option 8bit nodefault
 %option noyywrap
+%option yylineno
 
 %{
 #include "../../includes/common.h"
@@ -119,6 +120,5 @@ closespecial "?>"{nl}?
 
 <CONTENT>{ws}?{pcdata}		{ xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 
-{nl}		{ yylineno++; }
-.			{ fprintf(stderr, "LEXER ERROR: line %d, char %c\n", yylineno, *xmltext);}
+.			{ fprintf(stderr, "LEXER ERROR: line %d, char %c\n", xmllineno, *xmltext);}
 
