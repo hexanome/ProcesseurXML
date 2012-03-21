@@ -60,6 +60,8 @@ static char *split_namespace(char *s) { /* extrait la deuxième partie après l'
    return name;
 }
 
+extern int yylineno;
+
 %}
 
 nl		(\r\n|\r|\n)
@@ -112,5 +114,6 @@ closespecial "?>"{nl}?
 
 <CONTENT>{ws}?{pcdata}		{ xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 
-.			{ fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
+{nl}		{ yylineno++; }
+.			{ fprintf(stderr, "LEXER ERROR: line %d, char %c\n", yylineno, *xmltext);}
 

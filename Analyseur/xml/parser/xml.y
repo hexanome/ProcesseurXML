@@ -9,9 +9,11 @@ using namespace std;
 
 void xmlerror(Document **xdoc, char *msg);
 int xmllex(void);
+int yylineno = 1;
 
 %}
 
+%error-verbose
 %parse-param { Document **xdoc }
 
 %union {
@@ -140,5 +142,5 @@ content_opt
 
 void xmlerror(Document **xdoc, char *msg)
 {
-  fprintf(stderr, "%s\n", msg);
+  fprintf(stderr, "line %d, %s\n", yylineno, msg);
 }
