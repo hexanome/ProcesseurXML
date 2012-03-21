@@ -9,11 +9,12 @@ using namespace std;
 
 void xmlerror(Document **xdoc, char *msg);
 int xmllex(void);
-int yylineno = 1;
+extern int xmllineno;
 
 %}
 
 %error-verbose
+%locations
 %parse-param { Document **xdoc }
 
 %union {
@@ -142,5 +143,5 @@ content_opt
 
 void xmlerror(Document **xdoc, char *msg)
 {
-  fprintf(stderr, "line %d, %s\n", yylineno, msg);
+  fprintf(stderr, "line %d, %s\n", xmllineno,/* xmllloc.last_column,*/ msg);
 }
