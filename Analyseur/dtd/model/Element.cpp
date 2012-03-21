@@ -2,24 +2,21 @@
 
 Element::Element(string name) {
     this->name = name;
-    this->attribut = new vector<Attribut*>();    
+    this->attributs = new vector<Attribut*>();    
 }
 
 Element::~Element(){
-    delete attribut;
+    delete attributs;
 }
 
 Element::Element(string name, string cat) {
     this->name = name;
     this->setCategory(cat);
-    this->attribut = new vector<Attribut*>();
+    this->attributs = new vector<Attribut*>();
 }
 
-vector<Attribut*>* Element::getAttribut(){
-    return this->attribut;
-}
-
-Element::~Element() {
+vector<Attribut*>* Element::getAttributs(){
+    return this->attributs;
 }
 
 void Element::setCategory(string category) {
@@ -27,18 +24,18 @@ void Element::setCategory(string category) {
 }
 
 void  Element::setSerie(Serie* s) {
-	this->serie = s;	
+  this->serie = s;  
 }
 
 void Element::addAttribut(Attribut *a){
-    this->attribut->push_back(a);
+    this->attributs->push_back(a);
 }
 
 vector<Element*> * Element::getElements() {
-	if(category != "") {
-		return new vector<Element*>();
-	}
-    return serie->getElements();
+  if(category != "") {
+    return new vector<Element*>();
+  }
+  return serie->getElements();
 }
 
 string Element::getName() {
@@ -46,14 +43,14 @@ string Element::getName() {
 }
 
 string Element::serialize() {
-	 string s = "<!ELEMENT " + name + " ";
-	 if(category != "") {
-	 	s += category + ">";	 
-	 } else {
-	 	s += serie->getName() + ">" + serie->serialize();
-	 }
-    for (int i = 0; i < attribut->size() ; i++) {
-        s += attribut->at(i)->serialize();
+   string s = "<!ELEMENT " + name + " ";
+   if(category != "") {
+     s += category + ">";   
+   } else {
+     s += serie->getName() + ">" + serie->serialize();
+   }
+    for (int i = 0; i < attributs->size() ; i++) {
+        s += attributs->at(i)->serialize();
     }
-	 return s;
+   return s;
 }

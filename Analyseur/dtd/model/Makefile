@@ -1,7 +1,7 @@
 CC = g++
 TESTEXE = test
 OBJ = Attribut.o Serie.o Choix.o ContenuCompose.o \
-      Doctype.o Document.o Element.o Sequence.o
+      Doctype.o Element.o Sequence.o
 TESTOBJ = ../../../Test/test.o test.o
 
 all: $(OBJ) $(TESTOBJ)
@@ -17,7 +17,6 @@ Serie.o: Serie.cpp Serie.h ../../includes/common.h
 Choix.o: Choix.cpp Choix.h ../../includes/common.h
 ContenuCompose.o: ContenuCompose.cpp ContenuCompose.h ../../includes/common.h
 Doctype.o: Doctype.cpp Doctype.h ../../includes/common.h
-Document.o: Document.cpp Document.h ../../includes/common.h
 Element.o: Element.cpp Element.h ../../includes/common.h
 Sequence.o: Sequence.cpp Sequence.h ../../includes/common.h
 test.o: test.cpp

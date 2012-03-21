@@ -10,7 +10,7 @@ class Document {
     Document();
     ~Document();
     void setRoot(ElementNode *newRoot);
-    bool isValid(Doctype * dtd);
+    bool isValid(Element * e);
     ElementNode* getRoot();
     virtual string serialize();
 

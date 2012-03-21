@@ -10,4 +10,3 @@ TextNode::~TextNode() {
 string TextNode::serialize() {
   return text;
 }
-

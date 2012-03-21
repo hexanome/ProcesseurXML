@@ -112,22 +112,26 @@ bool ElementNode::isValid(Element * e)
 	for (map<string,string>::iterator ii = attributes->begin(); ii != attributes->end(); ++ii) {
 		bool found = false;
 		for (int i = 0 ; i < att->size() && !found ; i++) {
-			found |= (*ii).first == att->at(i).getName());
+			found |= (*ii).first == att->at(i)->getAttributeName();
 		}
 		valid &= found;
 	}
 	
 	vector<Element*> * els = e->getElements();
 	for (int i = 0; i < childNodes->size(); i++) {
-		bool found = false;
-		for (int j = 0 ; j < els->size() && !found ; j++) {
-			if (childNodes->at(i)->getName() == els->at(j).getName()) {
-				valid &= childNodes->at(i)->isValid(els->at(j))
-				found = true;
+		ElementNode * child = dynamic_cast<ElementNode*>(childNodes->at(i));
+		if (child) {
+			bool found = false;
+			for (int j = 0 ; j < els->size() && !found ; j++) {
+				if (child->getName().second == els->at(j)->getName()) {
+					valid &= child->isValid(els->at(j));
+					found = true;
+				}
 			}
+			valid &= found;
 		}
-		valid &= found;
 	}
 	
 	return valid;
 }
+

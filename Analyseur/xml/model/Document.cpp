@@ -28,7 +28,7 @@ string Document::serialize()
 	return root->serialize();
 }
 
-bool Document::isValid(Doctype * dtd)
+bool Document::isValid(Element * e)
 {
-	return root->isValid(dtd);
+	return root->isValid(e);
 }

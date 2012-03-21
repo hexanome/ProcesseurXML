@@ -14,16 +14,16 @@ class Element : public ContenuCompose {
     void setCategory(string category);
     void setSerie(Serie* s);
     void addAttribut(Attribut *a);
-    vector<Attribut*> *getAttribut();
-	string getName();
-	vector<Element*> * getElements();
+    vector<Attribut*> * getAttributs();
+    string getName();
+    vector<Element*> * getElements();
     string serialize();
 
   private:
-  	string name;
-  	string category;
-  	Serie* serie;
-    vector<Attribut*> *attribut;
+    string name;
+    string category;
+    Serie* serie;
+    vector<Attribut*> *attributs;
     
 
 };
@@ -31,3 +31,4 @@ class Element : public ContenuCompose {
 #endif
 
 class Element;
+
