@@ -2,13 +2,9 @@
 
 
 Sequence::Sequence(){
-	this->contenuMixte = new ContenuMixte()
+	this->separator = ",";
 }
 
 Sequence::~Sequence(){
-	delete contenuMixte;
-}
-
-string Sequence::serialize(){
-  string s = "";
+	
 }

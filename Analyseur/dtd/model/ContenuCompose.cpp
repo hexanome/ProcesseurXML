@@ -1,10 +1,8 @@
 #include "ContenuCompose.h"
 
-ContenuCompose::ContenuCompose(){
+
+
+void ContenuCompose::setCardinalite(string card){
+	this->cardinalite = card;
 }
 
-ContenuCompose::~ContenuCompose(){
-}
-string ContenuCompose::serialize() {
-	
-}

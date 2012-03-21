@@ -6,9 +6,11 @@
 class ContenuCompose {
 
   public:
-  	ContenuCompose();
-  	~ContenuCompose();
-  	virtual string serialize();
+  	virtual string serialize() = 0 ;
+  	virtual string getName() = 0 ;
+  	void setCardinalite(string card);
+  protected:
+  	string cardinalite;
 };
 
 #endif

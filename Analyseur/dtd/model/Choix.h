@@ -1,14 +1,14 @@
 #ifndef CHOIX_H
 #define CHOIX_H
 
-#include "Children.h"
+#include "Serie.h"
 
-class Choix : public Children {
+class Choix : public Serie {
 
   public:
     Choix();
     ~Choix();
-    string serialize();
+  
 };
 
 #endif
