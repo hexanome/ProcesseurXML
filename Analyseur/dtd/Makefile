@@ -1,7 +1,9 @@
 
 # TODO: combine the parser and the model into a single executable.
 all: 
+	@echo -e "\n-- DTD Parser --"
 	cd parser; make
+	@echo -e "\n-- DTD Model --"
 	cd model; make
 
 clean:

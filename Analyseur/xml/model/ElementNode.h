@@ -1,6 +1,7 @@
 #ifndef ELEMENTNODE_H
 #define ELEMENTNODE_H
 
+#include "../../includes/common.h"
 #include "Node.h"
 
 typedef vector<Node*> ChildNodes;
@@ -15,12 +16,14 @@ class ElementNode : public Node {
     void appendChild(Node *n);
     string getAttribute(string name);
     void setAttribute(string name, string value);
+    void setNodes(vector<Node*> * nodes);
+    void setAttributes(AttList * attList);
     string serialize();
 
   private:
     ElementName nodeName;
-    AttList attributes;
-    ChildNodes childNodes;
+    AttList * attributes;
+    ChildNodes * childNodes;
 
 };
 
