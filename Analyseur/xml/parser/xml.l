@@ -60,6 +60,11 @@ static char *split_namespace(char *s) { /* extrait la deuxième partie après l'
    return name;
 }
 
+void xmlFlushBuffer()
+{
+  YY_FLUSH_BUFFER;
+}
+
 extern int yylineno;
 
 %}

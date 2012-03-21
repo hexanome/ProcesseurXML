@@ -5,22 +5,22 @@ bool testParseFile1()
 {
 	FILE *xmlfd = fopen("rap1.xml", "r");
 
-	XmlParser::parseStream(xmlfd);
+	Document *xdoc = XmlParser::parseStream(xmlfd);
 
 	fclose(xmlfd);
 
-	return true;	
+	return (xdoc != NULL);	
 }
 
 bool testParseFile2()
 {
 	FILE *xmlfd = fopen("rap2.xml", "r");
 
-	XmlParser::parseStream(xmlfd);
+	Document *xdoc = XmlParser::parseStream(xmlfd);
 
 	fclose(xmlfd);
 
-	return true;
+	return (xdoc != NULL);
 }
 
 int main()

@@ -6,6 +6,7 @@
 
 extern FILE* xmlin;
 extern int xmlparse(Document **xdoc);
+extern void xmlFlushBuffer();
 
 class XmlParser
 {
@@ -14,4 +15,3 @@ class XmlParser
 };
 
 #endif
-

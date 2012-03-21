@@ -15,7 +15,6 @@
 	généralement des instructions en langage machine. L'ordinateur qui 
 	doit exécuter le programme ainsi traduit est appelé machine cible.</p>
    </section>
-
    <section titre="Réalisation d'un compilateur">
     <p>Comme l'écriture d'un compilateur est une tâche fort complexe, 
 	le programmateur a tout intérêt à travailler en utilisant un langage 
