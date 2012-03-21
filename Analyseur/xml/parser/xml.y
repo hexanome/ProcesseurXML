@@ -54,15 +54,21 @@ declaration
 xml_element
  : start attributes_opt empty_or_content 
  { 
-    ElementNode *xnode = new ElementNode("test", "test2");
-    //(*xdoc)->setRoot(xnode);
-
+    ElementNode *xnode = new ElementNode("", "");
     $$ = xnode;
  }
  ;
 start
- : START
+ : START 
+ {
+    ElementName *start = new ElementName($1, NULL);
+    $$ = start;
+ }
  | NSSTART	
+ {
+    ElementName *nsstart = new ElementName(nameSpace($1), split_namespace($1));
+    $$ = nsstart;
+ }
  ;
 attributes_opt
  : attributes_opt attribute
