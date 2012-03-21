@@ -1,6 +1,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include "ContenuCompose.h"
 #include "Serie.h"
 #include "Attribut.h"
 
@@ -13,17 +14,21 @@ class Element : public ContenuCompose {
     void setCategory(string category);
     void setSerie(Serie* s);
     void addAttribut(Attribut *a);
-    vector<Attribut*> *getAttribut();
-	string getName();
+    vector<Attribut*> * getAttributs();
+    string getName();
+    vector<Element*> * getElements();
     string serialize();
 
   private:
-  	string name;
-  	string category;
-  	Serie* serie;
-    vector<Attribut*> *attribut;
+    string name;
+    string category;
+    Serie* serie;
+    vector<Attribut*> *attributs;
     
 
 };
 
 #endif
+
+class Element;
+
