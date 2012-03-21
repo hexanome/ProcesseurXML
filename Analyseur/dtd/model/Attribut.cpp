@@ -10,8 +10,11 @@ Attribut::Attribut(string elementName,string attributeName){
 }
 Attribut::~Attribut() {
 }
-
+string Attribut::getAttributeName(){
+    return this->attributeName;
+}
 string Attribut::serialize(){
+    cout<<"oki"<<endl;
   string s = "<!ATTLIST";
   s += " " + elementName + " " + attributeName + " " + attributeType + " " + defaultValue;
   s += ">";
