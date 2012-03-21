@@ -14,3 +14,5 @@ class ContenuCompose {
 };
 
 #endif
+
+class ContenuCompose;

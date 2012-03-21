@@ -9,6 +9,9 @@ Element::Element(string name, string cat) {
   this->setCategory(cat);
 }
 
+Element::~Element() {
+}
+
 void Element::setCategory(string category) {
   this->category = category;
 }
@@ -21,9 +24,12 @@ string Element::getName() {
   return this->name;
 }
 
-Element::~Element() {
+vector<Element*> * Element::getElements() {
+	if(category != "") {
+		return new vector<Element*>();
+	}
+    return serie->getElements();
 }
-
 
 string Element::serialize() {
 	 string s = "<!ELEMENT " + name + " ";

@@ -27,3 +27,8 @@ string Document::serialize()
 
 	return root->serialize();
 }
+
+bool Document::isValid(Doctype * dtd)
+{
+	return root->isValid(dtd);
+}

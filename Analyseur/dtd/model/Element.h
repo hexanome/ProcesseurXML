@@ -1,6 +1,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include "ContenuCompose.h"
 #include "Serie.h"
 
 class Element : public ContenuCompose {
@@ -12,6 +13,7 @@ class Element : public ContenuCompose {
     void setCategory(string category);
     void setSerie(Serie* s);
 	string getName();
+	vector<Element*> * getElements();
     string serialize();
 
   private:
@@ -22,3 +24,5 @@ class Element : public ContenuCompose {
 };
 
 #endif
+
+class Element;

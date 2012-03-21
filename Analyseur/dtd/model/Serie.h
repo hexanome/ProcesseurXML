@@ -2,6 +2,7 @@
 #define SERIE_H
 
 #include "ContenuCompose.h"
+#include "Element.h"
 
 class Serie : public ContenuCompose {
 
@@ -10,12 +11,15 @@ class Serie : public ContenuCompose {
     ~Serie();
     string serialize();
     string getName();
+    vector<Element*> * getElements();
     void addContenuCompose(ContenuCompose *co);
 
   protected:
-  vector<ContenuCompose*> *contenu;
-  string separator;
+    vector<ContenuCompose*> * contenu;
+    string separator;
 
 };
 
 #endif
+
+class Serie;
