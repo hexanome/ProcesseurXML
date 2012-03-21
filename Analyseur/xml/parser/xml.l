@@ -4,6 +4,7 @@
 %{
 #include "../../includes/common.h"
 #include "../model/Document.h"
+#include "../model/TextNode.h"
 #include "yy.tab.h"
 
 static char* skipSpace(char *s) {

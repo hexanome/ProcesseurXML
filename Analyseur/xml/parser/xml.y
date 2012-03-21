@@ -5,6 +5,7 @@ using namespace std;
 #include <string.h>
 #include "../../includes/common.h"
 #include "../model/Document.h"
+#include "../model/TextNode.h"
 
 void xmlerror(Document **xdoc, char *msg);
 int xmllex(void);
@@ -16,14 +17,19 @@ int xmllex(void);
 %union {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
-   ElementNode * node;
+   ElementNode * elNode;
+   vector<Node*> * nodeList;
+   AttList * attList;
 }
 
 %token EQ SLASH CLOSE CLOSESPECIAL DOCTYPE
 %token <s> ENCODING STRING DATA COMMENT IDENT NSIDENT
 %token <en> NSSTART START STARTSPECIAL END NSEND
 
-%type <node> xml_element
+%type <elNode> xml_element
+%type <en> start attribute
+%type <nodeList> content_opt close_content_and_end empty_or_content
+%type <attList> attributes_opt
 
 %%
 
@@ -54,41 +60,81 @@ declaration
 xml_element
  : start attributes_opt empty_or_content 
  { 
-    ElementNode *xnode = new ElementNode("", "");
+    ElementNode *xnode = new ElementNode($1->first, $1->second);
+    
+    xnode->setAttributes($2);
+    xnode->setNodes($3);
+
     $$ = xnode;
  }
  ;
 start
- : START 
- {
-    ElementName *start = new ElementName($1, NULL);
-    $$ = start;
- }
- | NSSTART	
- {
-    ElementName *nsstart = new ElementName(nameSpace($1), split_namespace($1));
-    $$ = nsstart;
- }
+ : START
+ | NSSTART
  ;
 attributes_opt
  : attributes_opt attribute
+ {
+    AttList *attList = $1;
+
+    attList->insert(*($2));
+
+    $$ = attList;
+ }
  | /*empty*/
+ {
+    $$ = new AttList();
+ }
  ;
 attribute
  : IDENT EQ STRING
+ {
+    $$ = new ElementName($1, $3);
+ }
  ;
 empty_or_content
  : SLASH CLOSE	
+ {
+    $$ = NULL;
+ }
  | close_content_and_end CLOSE 
+ {
+    $$ = $1;
+ }
  ;
 close_content_and_end
- : CLOSE	content_opt END 
+ : CLOSE content_opt END
+ {
+    $$ = $2;
+ }
  ;
 content_opt 
- : content_opt DATA		
- | content_opt comment        
- | content_opt xml_element      
- | /*empty*/         
+ : content_opt DATA
+ {
+    TextNode *textNode = new TextNode($2);
+
+    vector<Node*> * nodes = $1;
+    nodes->push_back(textNode);
+
+    $$ = nodes;
+ }
+ | content_opt comment
+ {
+    $$ = $1;
+ }   
+ | content_opt xml_element   
+ {
+    ElementNode *elementNode = $2;
+    vector<Node*> * nodes = $1;
+
+    nodes->push_back(elementNode);
+
+    $$ = nodes;
+ }   
+ | /*empty*/   
+ {
+    $$ = new vector<Node*>();
+ }      
  ;
 %%
 
