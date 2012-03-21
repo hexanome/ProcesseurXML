@@ -1,12 +1,22 @@
 #include "Element.h"
 
 Element::Element(string name) {
-  this->name = name;
+    this->name = name;
+    this->attribut = new vector<Attribut*>();    
+}
+
+Element::~Element(){
+    delete attribut;
 }
 
 Element::Element(string name, string cat) {
-  this->name = name;
-  this->setCategory(cat);
+    this->name = name;
+    this->setCategory(cat);
+    this->attribut = new vector<Attribut*>();
+}
+
+vector<Attribut*>* Element::getAttribut(){
+    return this->attribut;
 }
 
 void Element::setCategory(string category) {
@@ -17,13 +27,13 @@ void  Element::setSerie(Serie* s) {
 	this->serie = s;	
 }
 
+void Element::addAttribut(Attribut *a){
+    this->attribut->push_back(a);
+}
+
 string Element::getName() {
   return this->name;
 }
-
-Element::~Element() {
-}
-
 
 string Element::serialize() {
 	 string s = "<!ELEMENT " + name + " ";
@@ -32,5 +42,8 @@ string Element::serialize() {
 	 } else {
 	 	s += serie->getName() + ">" + serie->serialize();
 	 }
+    for (int i = 0; i < attribut->size() ; i++) {
+        s += attribut->at(i)->serialize();
+    }
 	 return s;
 }

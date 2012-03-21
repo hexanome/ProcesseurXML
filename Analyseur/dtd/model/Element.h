@@ -2,6 +2,7 @@
 #define ELEMENT_H
 
 #include "Serie.h"
+#include "Attribut.h"
 
 class Element : public ContenuCompose {
 
@@ -11,6 +12,8 @@ class Element : public ContenuCompose {
     ~Element();
     void setCategory(string category);
     void setSerie(Serie* s);
+    void addAttribut(Attribut *a);
+    vector<Attribut*> *getAttribut();
 	string getName();
     string serialize();
 
@@ -18,6 +21,8 @@ class Element : public ContenuCompose {
   	string name;
   	string category;
   	Serie* serie;
+    vector<Attribut*> *attribut;
+    
 
 };
 
