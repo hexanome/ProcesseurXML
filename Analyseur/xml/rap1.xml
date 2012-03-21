@@ -1,6 +1,6 @@
 <!DOCTYPE rapport SYSTEM "rap1.dtd">
 <rapport>
-  <titre test="HAHA">Réaliser un compilateur</titre>
+  <titre>Réaliser un compilateur</titre>
   <auteur>
     <prenom> Nino </prenom>
     <nom> Silverio </nom>

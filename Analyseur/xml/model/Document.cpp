@@ -5,6 +5,7 @@ Document::Document() {
 }
 
 Document::~Document() {
+	delete root;
 }
 
 void Document::setRoot(ElementNode *newRoot) 
