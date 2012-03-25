@@ -8,8 +8,21 @@
 
 // Testing XML and DTD models on XML/DTD validation
 
-bool modelValidate() {
-  return true;
+bool validateXmlDtd() {
+  // XML 
+  TextNode *text = new TextNode("bonjour");
+  ElementNode *element = new ElementNode("", "element");
+  element->appendChild(text);
+
+  // DTD
+  Element* e = new Element("element");
+  e->setCategory("ANY");
+
+  // Validate
+  bool valid = element->isValid(e);
+
+  delete text; delete element; delete e;
+  return valid;
 }
   
 
@@ -18,7 +31,7 @@ bool modelValidate() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  //test->run("serializeElementMegaComplexe", serializeElementMegaComplexe);
+  test->run("validateXmlDtd", validateXmlDtd);
   test->end();
   delete test;
   return 0;
