@@ -108,77 +108,141 @@ content_spec
 
   }
   | children
+  {
+    // We create a new Element and add the Serie to it.
+    Element * newEl = new Element();
+    newEl.setSerie($1);
+
+    $$ = newEl;
+  }
   ;
 
 children
   : choice card
   {
-    // We create a new Element with a Choice serie.
-    Element * newEl = new Element();
-    newEl.setSerie($1);
-    newEl.setCardinalite($2);
+    // We set the card of the choice Serie.
+    Serie * choiceSerie = $1;
+    choiceSerie.setCardinalite($2);
 
-    $$ = newEl;
+    $$ = choiceSerie;
   }
   | sequence card
   {
-    // We create a new Element with a sequence serie.
+    // We set the card of the sequence Serie.
+    Serie * choiceSerie = $1;
+    choiceSerie.setCardinalite($2);
+
+    $$ = choiceSerie;
+  }
+  ;
+ 
+item_card
+  : item card
+  {
+    ContenuCompose * contenu = $1;
+    contenu.setCardinalite($2);
+
+    $$ = contenu;
+  }
+  ; 
+ 
+item
+  : choice
+  {
+    $$ = $1;
+  }
+  | sequence
+  {
+    $$ = $1;
+  }
+  | IDENT
+  {
+    // We create a ...
     Element * newEl = new Element();
-    newEl.setSerie($1);
-    newEl.setCardinalite($2);
+    newEl.setName($1);
 
     $$ = newEl;
   }
   ;
  
-item_card
- : item card
- ; 
- 
-item
- : choice
- | sequence
- | IDENT
- ;
- 
 card
- : PLUS 
- | QMARK
- | AST
- | /*empty*/ 
- ;
+  : PLUS 
+  | QMARK
+  | AST
+  | /*empty*/ 
+  {
+    $$ = "";
+  }
+  ;
 
 choice
- : OPENPAR list_choice_plus CLOSEPAR
- ;
+  : OPENPAR list_choice_plus CLOSEPAR
+  {
+    $$ = $2;
+  }
+  ;
 
 list_choice_plus
- : item_card PIPE list_choice
- ;
+  : item_card PIPE list_choice
+  {
+    Serie * choiceSerie = $3;
+    choiceSerie.addContenuCompose($1);
+
+    $$ = choiceSerie;
+  }
+  ;
  
 list_choice
- : list_choice PIPE item_card
- | item_card
- ;
+  : list_choice PIPE item_card
+  {
+    Serie * choiceSerie = $1;
+    choiceSerie.addContenuCompose($3);
+
+    $$ = choiceSerie;
+  }
+  | item_card
+  {
+    // We create a new Choice Serie with this item.
+    Choice * choiceSerie = new Choice();
+    choiceSerie.addContenuCompose($1);
+
+    $$ = choiceSerie;
+  }
+  ;
     
 sequence
- : OPENPAR list_sequence CLOSEPAR
- ;
+  : OPENPAR list_sequence CLOSEPAR
+  {
+    $$ = $2;
+  }
+  ;
  
 list_sequence
- : list_sequence COMMA item_card
- | item_card
- ;
+  : list_sequence COMMA item_card
+  {
+    Serie * sequenceSerie = $1;
+    sequenceSerie.addContenuCompose($2);
+
+    $$ = sequenceSerie;
+  }
+  | item_card
+  {
+    Sequence * sequenceSerie = new Sequence();
+    sequenceSerie.addContenuCompose($1);
+
+    $$ = sequenceSerie;
+  }
+  ;
  
 mixed
- : OPENPAR PCDATA mixed_content CLOSEPAR AST
- | OPENPAR PCDATA CLOSEPAR
- ;
+  : OPENPAR PCDATA mixed_content CLOSEPAR AST
+  | OPENPAR PCDATA CLOSEPAR
+  ;
  
 mixed_content
- : mixed_content PIPE IDENT
- | IDENT
- ;
+  : mixed_content PIPE IDENT
+  | IDENT
+  ;
  
 att_definition_opt
   : att_definition_opt attribute
@@ -201,7 +265,11 @@ att_definition_opt
 attribute
   : IDENT att_type default_declaration
   {
-      Attribute * att = new Attribute($1, $2, $3);
+      Attribute * att = new Attribute();
+      att.setAttributeName($1);
+      att.setDefaultValue($3);
+
+      $$ = att;
   }
   ;
 
