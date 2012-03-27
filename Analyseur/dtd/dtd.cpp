@@ -1,6 +1,6 @@
 #include "dtd.h"
 
-Document* DtdParser::parseStream(FILE* fd)
+Doctype* DtdParser::parseStream(FILE* fd)
 {
 	// Specify the stream to use by the parser.
 	dtdFlushBuffer();

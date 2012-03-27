@@ -4,7 +4,7 @@
 bool testParseFile1()
 {
 	FILE *dtdfd = fopen("rap1.dtd", "r");
-	Document *ddoc = DtdParser::parseStream(dtdfd);
+	Doctype *ddoc = DtdParser::parseStream(dtdfd);
 
 	fclose(dtdfd);
 

@@ -1,5 +1,8 @@
 #include "Element.h"
 
+Element::Element() {
+}
+
 Element::Element(string name) {
     this->name = name;
     this->serie = 0;
@@ -23,6 +26,10 @@ Element::~Element(){
 
 vector<Attribut*>* Element::getAttributs(){
     return this->attributs;
+}
+
+void Element::setName(string name) {
+  this->name = name;
 }
 
 void Element::setCategory(string category) {

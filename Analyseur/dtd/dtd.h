@@ -5,7 +5,7 @@
 #include "model/Doctype.h"
 
 extern FILE* dtdin;
-extern int dtdparse(Document **ddoc);
+extern int dtdparse(Doctype **ddoc);
 extern void dtdFlushBuffer();
 
 class DtdParser

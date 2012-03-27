@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "../../includes/common.h"
-#include "../model/Document.h"
+#include "../model/Doctype.h"
 #include "yy.tab.h"
 
 static char* skipSpace(char *s) {

@@ -21,6 +21,15 @@ void Attribut::setAttributeName(string attributeName) {
   this->attributeName = attributeName;
 }
 
+void Attribut::setDefaultValue(string def) {
+  this->defaultValue = def;
+}
+
+void Attribut::setTypes(vector<string> *types) {
+  delete this->attributeTypes;
+  this->attributeTypes = types;
+}
+
 void Attribut::addType(string type) {
   this->attributeTypes->push_back(type);
 }

@@ -8,9 +8,11 @@
 class Element : public ContenuCompose {
 
   public:
+    Element();
     Element(string name);
     Element(string name, string cat);
     ~Element();
+    void setName(string name);
     void setCategory(string category);
     void setSerie(Serie* s);
     void setMixed(vector<string> * m);

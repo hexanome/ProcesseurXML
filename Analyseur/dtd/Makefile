@@ -1,5 +1,5 @@
 PARSE_OBJ = lex.dtd.o dtd.tab.o dtd.o
-MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Definitions.o model/Document.o model/Element.o model/Sequence.o model/Serie.o
+MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Definitions.o model/Element.o model/Sequence.o model/Serie.o
 TEST_EXE = test
 
 all:

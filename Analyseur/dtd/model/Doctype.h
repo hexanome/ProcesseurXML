@@ -9,6 +9,7 @@ class Doctype {
     Doctype();
     Doctype(string name);
     ~Doctype();
+    void setElements(vector<Element*> * els);
     string getName();
 
   private:

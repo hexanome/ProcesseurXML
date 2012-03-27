@@ -10,7 +10,12 @@ Doctype::Doctype(string name) {
 }
 
 Doctype::~Doctype() {
-    delete elements;
+    delete this->elements;
+}
+
+void Doctype::setElements(vector<Element*> * els) {
+	delete this->elements;
+	this->elements = els;
 }
 
 string Doctype::getName() {

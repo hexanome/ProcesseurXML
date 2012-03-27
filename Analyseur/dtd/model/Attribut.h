@@ -12,6 +12,8 @@ class Attribut {
     string serialize();
     void setElementName(string elementName);
     void setAttributeName(string attributeName);
+    void setDefaultValue(string def);
+    void setTypes(vector<string> *types);
     void addType(string type);
     string getElementName();
     string getAttributeName();
