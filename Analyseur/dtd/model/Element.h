@@ -14,16 +14,19 @@ class Element : public ContenuCompose {
     void setCategory(string category);
     void setSerie(Serie* s);
     void addAttribut(Attribut *a);
+    void addMixed(string mixed);
     vector<Attribut*> * getAttributs();
     string getName();
     vector<Element*> * getElements();
+    vector<string> * getMixed();
     string serialize();
 
   private:
     string name;
     string category;
     Serie* serie;
-    vector<Attribut*> *attributs;
+    vector<Attribut*> * attributs;
+    vector<string> * mixed;
     
 
 };

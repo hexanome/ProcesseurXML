@@ -2,11 +2,13 @@
 
 Element::Element(string name) {
     this->name = name;
-    this->attributs = new vector<Attribut*>();    
+    this->attributs = new vector<Attribut*>();
+    this->mixed = new vector<string>();
 }
 
 Element::~Element(){
     delete attributs;
+    delete mixed;
 }
 
 Element::Element(string name, string cat) {
@@ -31,11 +33,19 @@ void Element::addAttribut(Attribut *a){
     this->attributs->push_back(a);
 }
 
+void Element::addMixed(string mixed) {
+  this->mixed->push_back(mixed);
+}
+
 vector<Element*> * Element::getElements() {
   if(category != "") {
     return new vector<Element*>();
   }
   return serie->getElements();
+}
+
+vector<string> * Element::getMixed() {
+  return this->mixed;
 }
 
 string Element::getName() {
@@ -46,11 +56,17 @@ string Element::serialize() {
    string s = "<!ELEMENT " + name + " ";
    if(category != "") {
      s += category + ">";   
-   } else {
+   } else if (serie->getElements()->size() > 0) {
      s += serie->getName() + ">" + serie->serialize();
+   } else {
+     s += "(#PCDATA";
+     for (int i = 0; i < mixed->size(); i++) {
+       s += "|" + mixed->at(i);
+     }
+     s += ")>";
    }
-    for (int i = 0; i < attributs->size() ; i++) {
-        s += attributs->at(i)->serialize();
-    }
+   for (int i = 0; i < attributs->size(); i++) {
+     s += attributs->at(i)->serialize();
+   }
    return s;
 }
