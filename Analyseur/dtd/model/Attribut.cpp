@@ -10,6 +10,9 @@ Attribut::Attribut(string elementName,string attributeName){
 }
 Attribut::~Attribut() {
 }
+string Attribut::getElementName(){
+    return this->elementName;
+}
 string Attribut::getAttributeName(){
     return this->attributeName;
 }
