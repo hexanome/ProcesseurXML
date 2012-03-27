@@ -105,7 +105,11 @@ content_spec
   }
   | mixed
   {
+    // We create a new Element with a "Mixed" Serie.
+    Element * newEl = new Element();
+    newEl.setSerie($1);
 
+    $$ = newEl;
   }
   | children
   {
@@ -266,7 +270,9 @@ attribute
   : IDENT att_type default_declaration
   {
       Attribute * att = new Attribute();
+
       att.setAttributeName($1);
+      att.setTypes($2);
       att.setDefaultValue($3);
 
       $$ = att;
@@ -274,22 +280,52 @@ attribute
   ;
 
 att_type
-  : CDATA    
+  : CDATA
+  {
+    vector<string> * types = new vector<string>();
+    types.push_back("CDATA");
+
+    $$ = types;
+  }
   | TOKENTYPE
   | enumerate
+  {
+    $$ = $1;
+  }
   ;
 
 enumerate
   : OPENPAR enum_list_plus CLOSEPAR
+  {
+    $$ = $2;
+  }
   ;
 
 enum_list_plus
   : enum_list PIPE item_enum
+  {
+    vector<string> * types = $1;
+    types.push_back($3);
+
+    $$ = $1;
+  }
   ;
 
 enum_list
-  : item_enum               
+  : item_enum
+  {
+    vector<string> * types = new vector<string>();
+    types.push_back($1);
+
+    $$ = types;
+  }              
   | enum_list PIPE item_enum
+  {
+    vector<string> * types = $1;
+    types.push_back($3);
+
+    $$ = types;
+  }
   ;
 
 item_enum
