@@ -1,7 +1,9 @@
+#include "../../../Test/test.h"
 #include "../../includes/common.h"
 #include "ElementNode.h"
 #include "TextNode.h"
-#include "../../../Test/test.h"
+
+// Testing XML services and serialization
 
 bool serializeTextNode() {
   TextNode *text = new TextNode("bonjour");
@@ -48,18 +50,20 @@ bool serializeComplex() {
 }
 
 bool serializeElementNodeWithAttList() {
-	TextNode *textNode1 = new TextNode("beau temps");
-	ElementNode *elementNode1 = new ElementNode("","Date");
-	elementNode1->setAttribute("Annee","2013");
-	elementNode1->setAttribute("Heure","13");
-	elementNode1->appendChild(textNode1);
-	
-	string xml = elementNode1->serialize();
-	delete elementNode1;
-	delete textNode1;
-	cout << endl << xml << endl;
-	return xml == "<Date Annee=\"2013\" Heure=\"13\">beau temps</Date>";
+  TextNode *textNode1 = new TextNode("beau temps");
+  ElementNode *elementNode1 = new ElementNode("","Date");
+  elementNode1->setAttribute("Annee","2013");
+  elementNode1->setAttribute("Heure","13");
+  elementNode1->appendChild(textNode1);
+  
+  string xml = elementNode1->serialize();
+  delete elementNode1;
+  delete textNode1;
+  cout << endl << xml << endl;
+  return xml == "<Date Annee=\"2013\" Heure=\"13\">beau temps</Date>";
 }
+
+// Run the tests
 
 int main(int argc, char ** argv) {
   int passed = 0;
@@ -70,6 +74,6 @@ int main(int argc, char ** argv) {
   test->run("serializeComplex", serializeComplex);
   test->run("serializeElementNodeWithAttList", serializeElementNodeWithAttList);
   test->end();
-	delete test;
+  delete test;
   return 0;
 }

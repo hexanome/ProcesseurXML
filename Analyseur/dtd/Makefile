@@ -4,7 +4,7 @@ TEST_EXE = test
 
 all:
 	@echo -e "\n-- DTD Parser --"
-	cd parser; make
+	@cd parser; make
 	@echo -e "\n-- DTD Model --"
 	cd model; make
 	# TODO: make the actual program.

@@ -18,6 +18,12 @@ ElementNode::~ElementNode() {
 }
 
 
+// Get the element's name with namespace
+ElementName ElementNode::getName() {
+	return nodeName;
+}
+
+
 // Get the first subnode
 Node *ElementNode::firstChild() {
   return childNodes->front();
@@ -97,3 +103,35 @@ string ElementNode::serialize() {
 
   return s;
 }
+
+bool ElementNode::isValid(Element * e)
+{
+	bool valid = nodeName.second == e->getName();
+	
+	vector<Attribut*>* att = e->getAttributs();
+	for (map<string,string>::iterator ii = attributes->begin(); ii != attributes->end(); ++ii) {
+		bool found = false;
+		for (int i = 0 ; i < att->size() && !found ; i++) {
+			found |= (*ii).first == att->at(i)->getAttributeName();
+		}
+		valid &= found;
+	}
+	
+	vector<Element*> * els = e->getElements();
+	for (int i = 0; i < childNodes->size(); i++) {
+		ElementNode * child = dynamic_cast<ElementNode*>(childNodes->at(i));
+		if (child) {
+			bool found = false;
+			for (int j = 0 ; j < els->size() && !found ; j++) {
+				if (child->getName().second == els->at(j)->getName()) {
+					valid &= child->isValid(els->at(j));
+					found = true;
+				}
+			}
+			valid &= found;
+		}
+	}
+	
+	return valid;
+}
+

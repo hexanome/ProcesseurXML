@@ -6,11 +6,15 @@
 class ContenuCompose {
 
   public:
-  	virtual string serialize() = 0 ;
-  	virtual string getName() = 0 ;
-  	void setCardinalite(string card);
+    virtual string serialize() = 0 ;
+    virtual string getName() = 0 ;
+    void setCardinalite(string card);
+        
   protected:
-  	string cardinalite;
+    string cardinalite;
 };
 
 #endif
+
+class ContenuCompose;
+

@@ -3,7 +3,7 @@ DIRS = AnalyseurXML/ Analyseur/
 TESTDIRS = Analyseur/
 
 all:
-	for d in $(DIRS); do  \
+	@for d in $(DIRS); do  \
 		echo -e "\n--- Making: $$d :dearly ---";  \
 		cd $$d;  \
 		make;  \
@@ -11,7 +11,7 @@ all:
 	done
 
 test: Test/test.o all
-	for d in $(TESTDIRS); do  \
+	@for d in $(TESTDIRS); do  \
 		echo -e "\n--- Testing: $$d :dearly ---";  \
 		cd $$d;  \
 		make test;  \
@@ -19,6 +19,6 @@ test: Test/test.o all
 	done
 
 Test/test.o: Test/test.cpp Test/test.h
-	$(CC) -c Test/test.cpp -o Test/test.o
+	@$(CC) -c Test/test.cpp -o Test/test.o
 
 .PHONY: all test

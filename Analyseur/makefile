@@ -1,11 +1,11 @@
 all:
-	cd xml; make
-	cd dtd; make
+	@cd dtd; make
+	@cd xml; make
 
 test:
-	@echo -e "\n--- Testing XML dearly ---"
-	cd xml; make test
-	@echo -e "\n--- Testing DTD dearly ---"
-	cd dtd; make test
+	@echo -e "\n--- Testing DTD ---"
+	@cd dtd; make test
+	@echo -e "\n--- Testing XML ---"
+	@cd xml; make test
 
 .PHONY: all test

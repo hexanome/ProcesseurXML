@@ -27,3 +27,8 @@ string Document::serialize()
 
 	return root->serialize();
 }
+
+bool Document::isValid(Element * e)
+{
+	return root->isValid(e);
+}
