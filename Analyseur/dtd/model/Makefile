@@ -5,7 +5,7 @@ OBJ = Attribut.o Serie.o Choix.o ContenuCompose.o \
 TESTOBJ = ../../../Test/test.o test.o
 
 all: $(OBJ) $(TESTOBJ)
-	$(CC) -o $(TESTEXE) $^
+	@$(CC) -o $(TESTEXE) $^
 
 # Testing ...
 
