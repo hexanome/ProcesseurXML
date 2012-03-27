@@ -16,7 +16,6 @@ int dtdlex(void);
 
 %union {
   char *s;
-
 }
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA
@@ -24,7 +23,6 @@ int dtdlex(void);
 %%
 
 main: dtd_list_opt
-  
     ;
 
 dtd_list_opt
