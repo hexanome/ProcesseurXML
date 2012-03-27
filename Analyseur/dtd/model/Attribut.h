@@ -10,13 +10,17 @@ class Attribut {
     ~Attribut();
     Attribut(string elementName, string attributeName);
     string serialize();
+    void setElementName(string elementName);
+    void setAttributeName(string attributeName);
+    void addType(string type);
     string getElementName();
     string getAttributeName();
+    vector<string> * getTypes();
 
   private:
     string elementName;
     string attributeName;
-    string attributeType;
+    vector<string> * attributeTypes;
     string defaultValue;
   
 };

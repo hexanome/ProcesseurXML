@@ -11,7 +11,6 @@ bool serializeElementCategory() {
   e->setCategory("ANY");
   string xml = e->serialize();
   delete e;
-  cout<<endl<<xml<<endl;
   return xml == "<!ELEMENT note ANY>";  
 }
 
@@ -24,29 +23,27 @@ bool serializeElementComplexe() {
   s->addContenuCompose(new Element("body","(#PCDATA)"));
   e->setSerie(s);  
   string xml = e->serialize();
-  cout<<endl<<xml<<endl;
   delete e;
   return xml == "<!ELEMENT note (to,from,heading,body)><!ELEMENT to (#PCDATA)><!ELEMENT from (#PCDATA)><!ELEMENT heading (#PCDATA)><!ELEMENT body (#PCDATA)>";  
 }
 
 bool serializeElementMegaComplexe() {
   Element* e = new Element("TVSCHEDULE");
-    Element* c = new Element("CHANNEL");
+  Element* c = new Element("CHANNEL");
   Sequence* s = new Sequence();
-    c->setCardinalite("+");
-    s->addContenuCompose(c);
-    e->setSerie(s);
+  c->setCardinalite("+");
+  s->addContenuCompose(c);
+  e->setSerie(s);
 
    
-    Sequence* s2 = new Sequence();    
-    s2->addContenuCompose(new Element("to","(#PCDATA)"));
+  Sequence* s2 = new Sequence();    
+  s2->addContenuCompose(new Element("to","(#PCDATA)"));
   s2->addContenuCompose(new Element("from","(#PCDATA)"));
-    c->setSerie(s2);
-    c->addAttribut(new Attribut("CHANNEL","CHAN"));
-    e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
+  c->setSerie(s2);
+  c->addAttribut(new Attribut("CHANNEL","CHAN"));
+  e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
     
   string xml = e->serialize();
-  cout<<endl<<xml<<endl;
   delete e;
   return xml == "<!ELEMENT TVSCHEDULE (CHANNEL)><!ELEMENT CHANNEL (to,from)><!ELEMENT to (#PCDATA)><!ELEMENT from (#PCDATA)><!ATTLIST CHANNEL CHAN CDATA #IMPLIED><!ATTLIST TVSCHEDULE NAME CDATA #IMPLIED>";  
 }
@@ -55,7 +52,6 @@ bool serializeAttList() {
   Attribut* a = new Attribut("elementTest","taille");
   string xml = a->serialize();
   delete a;
-    cout<<endl<<xml<<endl;
   return xml == "<!ATTLIST elementTest taille CDATA #IMPLIED>";  
 }
 
