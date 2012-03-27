@@ -17,10 +17,10 @@ bool serializeElementCategory() {
 bool serializeElementComplexe() {
   Element* e = new Element("note");
   Sequence* s = new Sequence();
-  s->addContenuCompose(new Element("to","(#PCDATA)"));
-  s->addContenuCompose(new Element("from","(#PCDATA)"));
-  s->addContenuCompose(new Element("heading","(#PCDATA)"));
-  s->addContenuCompose(new Element("body","(#PCDATA)"));
+  s->addContenuCompose(new Element("to"));
+  s->addContenuCompose(new Element("from"));
+  s->addContenuCompose(new Element("heading"));
+  s->addContenuCompose(new Element("body"));
   e->setSerie(s);  
   string xml = e->serialize();
   delete e;
@@ -37,8 +37,8 @@ bool serializeElementMegaComplexe() {
 
    
   Sequence* s2 = new Sequence();    
-  s2->addContenuCompose(new Element("to","(#PCDATA)"));
-  s2->addContenuCompose(new Element("from","(#PCDATA)"));
+  s2->addContenuCompose(new Element("to"));
+  s2->addContenuCompose(new Element("from"));
   c->setSerie(s2);
   c->addAttribut(new Attribut("CHANNEL","CHAN"));
   e->addAttribut(new Attribut("TVSCHEDULE","NAME"));

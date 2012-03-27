@@ -2,6 +2,16 @@
 
 Element::Element(string name) {
     this->name = name;
+    this->serie = 0;
+    this->setCategory("");
+    this->attributs = new vector<Attribut*>();
+    this->mixed = new vector<string>();
+}
+
+Element::Element(string name, string cat) {
+    this->name = name;
+    this->serie = 0;
+    this->setCategory(cat);
     this->attributs = new vector<Attribut*>();
     this->mixed = new vector<string>();
 }
@@ -9,12 +19,6 @@ Element::Element(string name) {
 Element::~Element(){
     delete attributs;
     delete mixed;
-}
-
-Element::Element(string name, string cat) {
-    this->name = name;
-    this->setCategory(cat);
-    this->attributs = new vector<Attribut*>();
 }
 
 vector<Attribut*>* Element::getAttributs(){
@@ -56,7 +60,7 @@ string Element::serialize() {
    string s = "<!ELEMENT " + name + " ";
    if(category != "") {
      s += category + ">";   
-   } else if (serie->getElements()->size() > 0) {
+   } else if (serie != 0 && serie->getElements()->size() > 0) {
      s += serie->getName() + ">" + serie->serialize();
    } else {
      s += "(#PCDATA";
