@@ -13,6 +13,7 @@ class Element : public ContenuCompose {
     ~Element();
     void setCategory(string category);
     void setSerie(Serie* s);
+    void setMixed(vector<string> * m);
     void addAttribut(Attribut *a);
     void addMixed(string mixed);
     vector<Attribut*> * getAttributs();

@@ -33,6 +33,11 @@ void  Element::setSerie(Serie* s) {
   this->serie = s;  
 }
 
+void Element::setMixed(vector<string> * m) {
+  delete this->mixed;
+  this->mixed = m;
+}
+
 void Element::addAttribut(Attribut *a){
     this->attributs->push_back(a);
 }

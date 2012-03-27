@@ -107,7 +107,7 @@ content_spec
   {
     // We create a new Element with a "Mixed" Serie.
     Element * newEl = new Element();
-    newEl.setSerie($1);
+    newEl.setMixed($1);
 
     $$ = newEl;
   }
@@ -240,12 +240,28 @@ list_sequence
  
 mixed
   : OPENPAR PCDATA mixed_content CLOSEPAR AST
+  {
+    $$ = $3;
+  }
   | OPENPAR PCDATA CLOSEPAR
+  {
+    $$ = new vector<string>();
+  }
   ;
  
 mixed_content
   : mixed_content PIPE IDENT
+  {
+    vector<string> * mixed = $1;
+    mixed.push_back($3);
+
+    $$ = mixed;
+  }
   | IDENT
+  {
+    vector<string> * mixed = new vector<string>();
+    mixed.push_back($1);
+  }
   ;
  
 att_definition_opt
