@@ -10,7 +10,7 @@ all: $(OBJ) $(TESTOBJ)
 # Testing ...
 
 test: all
-	./$(TESTEXE)
+	@./$(TESTEXE)
 
 Attribut.o: Attribut.cpp Attribut.h ../../includes/common.h
 Serie.o: Serie.cpp Serie.h ../../includes/common.h
@@ -22,11 +22,11 @@ Sequence.o: Sequence.cpp Sequence.h ../../includes/common.h
 test.o: test.cpp
 
 %.o: %.cpp
-	$(CC) -c $<
+	@$(CC) -c $<
 
 
 clean:
-	rm *.o $(TESTEXE)
+	@rm *.o $(TESTEXE)
 
 
 .PHONY: all test clean
