@@ -1,0 +1,11 @@
+<!ELEMENT xsl:stylesheet xsl:template+>
+<!ATTLIST xsl:stylesheet version NMTOKEN #REQUIRED>
+
+<!ELEMENT xsl:template (#PCDATA)>
+<!ATTLIST xsl:template match CDATA #REQUIRED>
+
+<!ELEMENT xsl:apply-templates EMPTY>
+
+
+
+
