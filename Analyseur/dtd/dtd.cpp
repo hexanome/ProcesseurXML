@@ -7,7 +7,7 @@ Document* DtdParser::parseStream(FILE* fd)
 	dtdin = fd;
 
 	// Start the parsing of the document.
-	Document *ddoc = NULL;
+	Doctype *ddoc = NULL;
 	int dtdErr = dtdparse(&ddoc);
 
 	if (ddoc != NULL) 
@@ -15,5 +15,5 @@ Document* DtdParser::parseStream(FILE* fd)
 		// cout << ddoc->serialize() << endl;
 	}
 
-	//return ddoc;
+	return ddoc;
 }
