@@ -8,4 +8,8 @@ test:
 	@echo -e "\n--- Testing XML ---"
 	@cd xml; make test
 
-.PHONY: all test
+clean:
+	@cd dtd; make clean
+	@cd xml; make clean
+
+.PHONY: all test clean
