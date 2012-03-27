@@ -25,7 +25,31 @@ bool validateXmlDtd() {
   return valid;
 }
   
-
+bool validateComplexDtd () {
+	
+	
+	// XML 
+  	TextNode *text = new TextNode("bonjour");
+  	ElementNode *element = new ElementNode("", "element");
+  	element->appendChild(text);	
+	
+	// DTD
+	Element* e = new Element("TVSCHEDULE");
+    Element* c = new Element("CHANNEL");
+    Sequence* s = new Sequence();
+    c->setCardinalite("+");
+    s->addContenuCompose(c);
+    e->setSerie(s);
+   
+    Sequence* s2 = new Sequence();    
+    s2->addContenuCompose(new Element("to","(#PCDATA)"));
+  	s2->addContenuCompose(new Element("from","(#PCDATA)"));
+    c->setSerie(s2);
+    c->addAttribut(new Attribut("CHANNEL","CHAN"));
+    e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
+    
+    
+}
 // Run the tests
 
 int main(int argc, char ** argv) {
