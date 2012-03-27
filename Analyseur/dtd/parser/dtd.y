@@ -1,19 +1,30 @@
 %{
 
+using namespace std;
+#include <ctype.h>
+#include <string.h>
+#include "../../includes/common.h"
+#include "../model/Document.h"
+
 void dtderror(char *msg);
 int dtdlex(void);
-
+  
 %}
 
-%union { 
-   char *s; 
-   }
+%error-verbose
+%parse-param { Document **ddoc }
+
+%union {
+  char *s;
+
+}
 
 %token ELEMENT ATTLIST CLOSE OPENPAR CLOSEPAR COMMA PIPE FIXED EMPTY ANY PCDATA AST QMARK PLUS CDATA
 %token <s> IDENT TOKENTYPE DECLARATION STRING
 %%
 
-main: dtd_list_opt 
+main: dtd_list_opt
+  
     ;
 
 dtd_list_opt
@@ -121,25 +132,6 @@ default_declaration
 | FIXED STRING 
 ;
 %%
-
-/*
-int main(int argc, char **argv)
-{
-  int err;
-
-  dtddebug = 1; // pour désactiver l'affichage de l'exécution du parser LALR, commenter cette ligne
-
-  err = dtdparse();
-  if (err != 0) printf("Parse ended with %d error(s)\n", err);
-        else  printf("Parse ended with success\n", err);
-  return 0;
-}
-
-int dtdwrap(void)
-{
-  return 1;
-}
-*/
 
 void dtderror(char *msg)
 {

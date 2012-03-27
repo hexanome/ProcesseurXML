@@ -26,4 +26,3 @@ parser:
 	g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
 
 .PHONY: all parser clean test
-
