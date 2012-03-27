@@ -10,6 +10,7 @@ class Attribut {
     ~Attribut();
     Attribut(string elementName, string attributeName);
     string serialize();
+    string getElementName();
     string getAttributeName();
 
   private:
