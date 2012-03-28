@@ -32,5 +32,6 @@ bool Document::isValid(Doctype * d)
 		s->addContenuCompose(d->getElements()->at(i));
 	}
 	e->setSerie(s);
-	return root->isValid(e);
+	bool valid = root->isValid(e);
+	return valid;
 }

@@ -61,11 +61,12 @@ void Element::addMixed(string mixed) {
   this->mixed->push_back(mixed);
 }
 
-vector<Element*> * Element::getElements() {
-  if(category != "") {
-    return new vector<Element*>();
+vector<Element*> * Element::getElements() { 
+  if (category == "" && serie != NULL) { 
+    return serie->getElements();
+  } else {
+  	return new vector<Element*>();
   }
-  return serie->getElements();
 }
 
 vector<string> * Element::getMixed() {
