@@ -10,6 +10,7 @@ all: $(OBJ) $(TESTOBJ)
 # Testing ...
 
 test: all
+	@echo "\n--- Testing dtd/model ---"
 	@./$(TESTEXE)
 
 Attribut.o: Attribut.cpp Attribut.h ../../includes/common.h

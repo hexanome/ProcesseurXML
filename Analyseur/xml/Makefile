@@ -17,6 +17,7 @@ clean:
 
 test: all $(PARSE_OBJ)
 	@cd model; make test
+	@echo "\n --- Testing xml ---"
 	@g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	@./test
 
