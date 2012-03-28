@@ -9,6 +9,7 @@ all: $(OBJ) $(TESTOBJ)
 # Testing ...
 
 test: all
+	@echo "\n--- Testing xml/model ---"
 	@./$(TESTEXE)
 
 TextNode.o: TextNode.cpp TextNode.h Node.h ../../includes/common.h
