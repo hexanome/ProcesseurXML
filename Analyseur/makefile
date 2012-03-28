@@ -5,6 +5,7 @@ TESTOBJ = test.o ../Test/test.o
 all: $(OBJ)
 	@cd dtd; make
 	@cd xml; make
+	@cd xslt; make
 
 xml/model/%.o: xml/model/%.cpp
 	@cd xml/model; make
@@ -25,7 +26,8 @@ test.o: test.cpp
 test: $(TESTOBJ)
 	@cd dtd; make test
 	@cd xml; make test
-	@echo "\n--- Testing Analyseur ---"
+	@cd xslt; make test
+	@echo "--- Testing Analyseur ---"
 	@$(CC) -o test $(OBJ) $(TESTOBJ)
 	@./test
 
@@ -33,5 +35,6 @@ clean:
 	@rm -f *.o ./test
 	@cd dtd; make clean
 	@cd xml; make clean
+	@cd xslt; make clean
 
 .PHONY: all test clean

@@ -68,10 +68,10 @@ bool serializeAttList() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  test->run("serializeElementCategory", serializeElementCategory);
-  test->run("serializeElementComplexe", serializeElementComplexe);
-  test->run("serializeAttribut", serializeAttList);
-  test->run("serializeElementMegaComplexe", serializeElementMegaComplexe);
+  test->run("Serialisation d'un Element avec Category", serializeElementCategory);
+  test->run("Serialisation d'un Element Complexe", serializeElementComplexe);
+  test->run("Serialisation d'une liste d'Attributs", serializeAttList);
+  test->run("Serialisation d'une DTD complexe", serializeElementMegaComplexe);
   test->end();
   delete test;
   return 0;
