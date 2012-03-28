@@ -2,6 +2,7 @@
 #define ELEMENTNODE_H
 
 #include "../../includes/common.h"
+#include "../../dtd/model/Doctype.h"
 #include "../../dtd/model/Element.h"
 #include "../../dtd/model/Attribut.h"
 #include "Node.h"
@@ -24,7 +25,7 @@ class ElementNode : public Node {
     void setAttribute(string name, string value);
     void setNodes(vector<Node*> * nodes);
     void setAttributes(AttList * attList);
-    bool isValid(Element * e);
+    bool isValid(Element * e, Doctype * d);
     string serialize();
 
   private:

@@ -82,6 +82,10 @@ string Element::getName() {
   return this->name + this->cardinalite;
 }
 
+string Element::getNameSimple() {
+  return this->name;
+}
+
 string Element::serialize() {
   string s = "<!ELEMENT " + name + " ";
   if(category != "") {

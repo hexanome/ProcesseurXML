@@ -10,8 +10,10 @@ class Doctype {
     Doctype();
     Doctype(string name);
     ~Doctype();
+    void addElement(Element * e);
     void setElements(vector<Element*> * els);
     vector<Element*> * getElements();
+    Element * getElementByName(string name);
     string getName();
     string serialize();
 

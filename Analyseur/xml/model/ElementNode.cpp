@@ -124,7 +124,7 @@ string ElementNode::serialize() {
   return s;
 }
 
-bool ElementNode::isValid(Element * e)
+bool ElementNode::isValid(Element * e, Doctype * d)
 {
 	bool valid = nodeName.second == e->getName();
 	
@@ -156,9 +156,13 @@ bool ElementNode::isValid(Element * e)
 			cout << "looking for child " << child->getName().second << " in " << nodeName.second << "'s " << els->size() << " children" << endl;
 			for (int j = 0 ; j < els->size() && !found ; j++) {
 				cout << "is it " << els->at(j)->getName() << "?" << endl;
-				if (child->getName().second == els->at(j)->getName()) {
-					valid &= child->isValid(els->at(j));
-					found = true;
+				if (child->getName().second == els->at(j)->getNameSimple()) {
+					Element * realEl = d->getElementByName(els->at(j)->getNameSimple());
+
+					if (realEl != NULL) {
+						valid &= child->isValid(realEl, d);
+						found = true;
+					}
 				}
 			}
 			valid &= found;
