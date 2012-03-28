@@ -24,7 +24,7 @@ bool validateXmlDtd() {
     e->setCategory("ANY");
 
     // Validate
-    bool valid = element->isValid(e);
+    bool valid = element->isValid(e, NULL);
 
     delete element; delete e;
     return valid;
@@ -55,14 +55,23 @@ bool validateComplexDtd () {
     e->setSerie(s);
    
     Sequence* s2 = new Sequence();    
-    s2->addContenuCompose(new Element("to"));
-  	s2->addContenuCompose(new Element("from"));
+    Element * toEl = new Element("to");
+    Element * fromEl = new Element("from");
+    s2->addContenuCompose(toEl);
+  	s2->addContenuCompose(fromEl);
+
     c->setSerie(s2);
     c->addAttribut(new Attribut("CHANNEL","CHAN"));
     e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
 
+  Doctype* d = new Doctype();
+  d->addElement(e);
+  d->addElement(c);
+  d->addElement(toEl);
+  d->addElement(fromEl);
+
     // VALIDATE
-    bool valid = element3->isValid(e);
+    bool valid = element3->isValid(e, d);
   	delete element3;
   	return valid;    
   	
@@ -86,7 +95,6 @@ bool validateComplexDtd () {
 bool testValidationFile1() {
   FILE *dtdfd = fopen("rap1.dtd", "r");
   Doctype *ddoc = DtdParser::parseStream(dtdfd);
-  cout << ddoc->serialize() << endl;
 
   FILE *xmlfd = fopen("rap1.xml", "r");
   Document *xdoc = XmlParser::parseStream(xmlfd);
@@ -104,9 +112,9 @@ bool testValidationFile1() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  test->run("validateXmlDtd", validateXmlDtd);
-  test->run("validateComplexDtd",validateComplexDtd);
-  test->run("testValidationFile1", testValidationFile1);
+  test->run("Validation 1: Validation d'un élément XML simple par une DTD.", validateXmlDtd);
+  test->run("Validation 2: Validation de plusieurs éléments XML par une DTD plus compliquée.",validateComplexDtd);
+  test->run("Validation 3: Validation d'un fichier XML par une DTD présente dans un autre fichier.", testValidationFile1);
   test->end();
   delete test;
   return 0;

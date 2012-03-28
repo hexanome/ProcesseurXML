@@ -17,12 +17,15 @@ clean:
 
 test: all $(PARSE_OBJ)
 	@cd model; make test
+	@echo "\n --- Testing xml ---"
 	@g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	@./test
 
 lex.xml.o: parser
 xml.tab.o: parser
 xml.o: parser
+	
+
 parser:
 	@g++ -Wno-write-strings -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
 

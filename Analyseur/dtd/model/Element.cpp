@@ -62,11 +62,8 @@ void Element::addMixed(string mixed) {
 }
 
 vector<Element*> * Element::getElements() {
-	cout << "Element::getElements " << category << " " << serie;
 	for (int i = 0; i < mixed->size(); i++) {
-		cout << " " << mixed->at(i);
 	}
-	cout << endl; 
   if (category == "" && serie != NULL) { 
     return serie->getElements();
   } else {
@@ -80,6 +77,10 @@ vector<string> * Element::getMixed() {
 
 string Element::getName() {
   return this->name + this->cardinalite;
+}
+
+string Element::getNameSimple() {
+  return this->name;
 }
 
 string Element::serialize() {

@@ -19,12 +19,15 @@ clean:
 
 test: all $(PARSE_OBJ)
 	@cd model; make test
+	@echo "\n--- Testing dtd ---"
 	@g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	@./test
 
 lex.dtd.o: parser
 dtd.tab.o: parser
 dtd.o: parser
+	
+
 parser:
 	@$(CC) $(CCFLAGS) -g -DYYDEBUG=1 -c parser/lex.dtd.c parser/dtd.tab.c test.cpp dtd.cpp
 

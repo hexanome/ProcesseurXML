@@ -20,6 +20,7 @@ class Element : public ContenuCompose {
     void addMixed(string mixed);
     vector<Attribut*> * getAttributs();
     string getName();
+    string getNameSimple();
     vector<Element*> * getElements();
     vector<string> * getMixed();
     string serialize();

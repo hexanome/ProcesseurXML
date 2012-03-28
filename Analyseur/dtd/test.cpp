@@ -13,7 +13,6 @@ bool testParseFile1()
 
 bool testParseFile2()
 {
-  cout << "THIS TEST WILL SEGFAULT BECAUSE OF rap2.dtd" << endl;
 	FILE *dtdfd = fopen("rap2.dtd", "r");
 	Doctype *ddoc = DtdParser::parseStream(dtdfd);
 
@@ -36,9 +35,9 @@ int main()
 {
 	Test *t = new Test();
 
-	t->run("Test de parse de stream DTD 1.", testParseFile1);
-	//t->run("Test de parse de stream DTD 2.", testParseFile2);
-	//t->run("Test de parse de stream DTD 3.", testParseFile3);
+	t->run("DTD 1: Parse de rap1.dtd.", testParseFile1);
+	t->run("DTD 2: Parse de rap2.dtd (fichier non valide).", testParseFile2);
+	t->run("DTD 3: Parse de rap3.dtd.", testParseFile3);
 	t->end();
 
 	return 0;
