@@ -40,7 +40,7 @@ bool transformXMLlight() {
   Transformer * transformer = new Transformer(xsl);
   Document* xHtml = transformer->transformXML(xml);
   string test = xHtml->serialize();
-  cout<<test<<endl;
+  //cout<<test<<endl;
   
   return test == "<html><head><title></title></head><body></body></html>";
 }
@@ -120,7 +120,7 @@ bool transformXMLhard() {
   Document* xHtml = transformer->transformXML(xml);
   
   string test = xHtml->serialize();
-  cout<<test<<endl;
+  //cout<<test<<endl;
   
   return test == "<html><head><title></title></head><body>ceci est un titre<br>Jean Marc : ceci est un auteur<br><br>ceci est un chapitre<br><br>bibibi : ceci est un paragraphe<br>houba : ceci est un paragraphe<br></body></html>";
 }
@@ -131,8 +131,8 @@ bool transformXMLhard() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  test->run("transformXMLlight", transformXMLlight);
-  test->run("transformXMLhard", transformXMLhard);
+  test->run("Transformation XML simple", transformXMLlight);
+  test->run("Transformation XML complexe", transformXMLhard);
   test->end();
   delete test;
   return 0;

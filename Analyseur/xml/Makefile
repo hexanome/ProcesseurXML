@@ -3,10 +3,10 @@ MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Ele
 TEST_EXE = test
 
 all:
-	@echo; echo "-- Making: XML Parser --"
+	@echo "-- Making: XML Parser --"
 	@cd parser; make
 	@make parser
-	@echo; echo "-- Making: XML Model --"
+	@echo "-- Making: XML Model --"
 	@cd model; make
 
 clean:
@@ -17,7 +17,7 @@ clean:
 
 test: all $(PARSE_OBJ)
 	@cd model; make test
-	@echo "\n --- Testing xml ---"
+	@echo "--- Testing xml ---"
 	@g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	@./test
 
