@@ -23,6 +23,8 @@ test: all $(PARSE_OBJ)
 lex.xml.o: parser
 xml.tab.o: parser
 xml.o: parser
+	
+
 parser:
 	@g++ -Wno-write-strings -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
 
