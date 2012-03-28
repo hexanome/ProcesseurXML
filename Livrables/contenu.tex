@@ -21,6 +21,18 @@
 
 \subsection{Algorithmes de Validation}
 
+\begin{algorithm}
+\caption{isValid(DocType)}
+\begin{algorithmic}
+\STATE $sequence \leftarrow new sequence$
+\FORALL{$element de DocType$}
+\STATE $sequence \leftarrow ajout du contenu composé (element de la DocType)$
+\ENDFOR
+\STATE $element \leftarrow new Element avec comme serie(sequence) $
+\STATE $retour nodeDuXML.isValid(element,DocType)$
+end{algorithmic}
+\end{algorithm}
+
 \subsection{Algorithmes de Transformation}
 
 \begin{algorithm}
