@@ -11,12 +11,13 @@
 class ElementNode : public Node {
 
   public:
+    ElementNode(string n);
     ElementNode(string ns, string n);
     ~ElementNode();
     ElementName getName();
     Node *firstChild();
     Node *lastChild();
-    vector<Node*> getChildren();
+    vector<Node*> *getChildren();
     void appendChild(Node *n);
     string getAttribute(string name);
     AttList * getAttributes();
