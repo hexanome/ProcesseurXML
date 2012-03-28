@@ -13,8 +13,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template match="cd">
   <p>
-  <xsl:apply-templates select="title"/>
-  <xsl:apply-templates select="artist"/>
+  <xsl:apply-templates/>
   </p>
 </xsl:template>
 
