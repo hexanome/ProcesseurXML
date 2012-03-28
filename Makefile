@@ -4,15 +4,15 @@ TESTDIRS = Analyseur/
 
 all:
 	@for d in $(DIRS); do  \
-		echo; echo "--- Making: $$d ---";  \
+		echo; echo "--- Making the $$d ---";  \
 		cd $$d;  \
 		make;  \
 		cd ..;  \
 	done
 
-test: Test/test.o all
+test: Test/test.o
 	@for d in $(TESTDIRS); do  \
-		echo; echo "--- Testing: $$d ---";  \
+		echo; echo "--- Dealing with $$d ---";  \
 		cd $$d;  \
 		make test;  \
 		cd ..;  \
