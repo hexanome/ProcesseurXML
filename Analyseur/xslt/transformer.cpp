@@ -14,7 +14,7 @@ Document* Transformer::transformXML(Document *xml)
   
   ElementNode* rootTemplate;
   for (vector<ElementNode*>::iterator ik = templates->begin(); ik != templates->end(); ++ik) {
-    if((*ik)->getAttribute("match").compare("//")==0)
+    if((*ik)->getAttribute("match").compare("/")==0)
     {
       result->setRoot((ElementNode*)transformTemplate(*ik,root)->back());
     }
@@ -26,6 +26,20 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 {
   vector<Node*> *children = unTemplate->getChildren();
   vector<Node*>* result = new vector<Node*>();
+  vector<Node*>* resultInt = new vector<Node*>();
+  bool resultInter=false;
+  ElementNode* node=NULL;
+  if(unTemplate->getName().first != "xsl")
+  {
+    node = new ElementNode(unTemplate->getName().first,unTemplate->getName().second);
+   
+    node->setAttributes(new map<string,string>(*(unTemplate->getAttributes())));
+    
+    result->push_back(node);
+    resultInter=true;
+     
+  }
+  
   for (vector<Node*>::iterator ii = children->begin(); ii != children->end(); ++ii) {
 	ElementNode * child = dynamic_cast<ElementNode*>(*ii);
 	if (child) {
@@ -38,18 +52,50 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 		ElementNode * childNode = dynamic_cast<ElementNode*>(*ij);
 		if (childNode) {
 		  for (vector<ElementNode*>::iterator ik = templates->begin(); ik != templates->end(); ++ik) {
-		    if(child->getName().second.compare((*ik)->getAttribute("match")))
+		    if(childNode->getName().second.compare((*ik)->getAttribute("match"))==0)
 		    {
 		      vector<Node*> * subResult = transformTemplate(*ik,childNode);
-		      result->insert(result->end(), subResult->begin(), subResult->end());
+                      if(resultInter)
+		      {
+			resultInt->insert(resultInt->end(), subResult->begin(), subResult->end());
+		      }
+		      else
+		      {
+			result->insert(result->end(), subResult->begin(), subResult->end());
+		      }
 		    }
 		  }
 		}
 	      }
 	    }
+	    if(child->getName().second.compare("value-of")==0)
+	    {
+	      if(resultInter)
+	      {
+		resultInt->insert(resultInt->end(), xmlChild->getChildren()->begin(), xmlChild->getChildren()->end());
+	      }
+	      else
+	      {
+		result->insert(result->end(), xmlChild->getChildren()->begin(), xmlChild->getChildren()->end());
+	      }
+	    }
 	  }
 	  else 
 	  {
+	    vector<Node*>* subResult = transformTemplate(child,xmlChild);
+	    if(resultInter)
+	    {
+	      resultInt->insert(resultInt->end(), subResult->begin(), subResult->end());
+	    }
+	    else
+	    {
+	      result->insert(result->end(), subResult->begin(), subResult->end());
+	    }
+	    
+	    
+	    
+	    
+	    /*cout<<"CHILD : "<<child->getName().second<<endl;
 	    ElementNode* node = new ElementNode(child->getName().first,child->getName().second);
 	    node->setAttributes(new map<string,string>(*(child->getAttributes())));
 	    vector<Node*>* subChildren = child->getChildren();
@@ -66,13 +112,19 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 	      }
 	    }
 	    node->setNodes(subNode);
-	    result->push_back(node);
+	    string xslText = node->serialize();
+	    cout<<xslText<<endl;
+	    result->push_back(node);*/
 	  }
 	}
 	else
 	{
 	  result->push_back(*ii);
 	}
+    }
+    if(resultInter)
+    {
+      ((ElementNode*)result->back())->setNodes(resultInt);
     }
     return result;
 }
