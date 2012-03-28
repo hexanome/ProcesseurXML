@@ -25,6 +25,8 @@ test: all $(PARSE_OBJ)
 lex.dtd.o: parser
 dtd.tab.o: parser
 dtd.o: parser
+	
+
 parser:
 	@$(CC) $(CCFLAGS) -g -DYYDEBUG=1 -c parser/lex.dtd.c parser/dtd.tab.c test.cpp dtd.cpp
 
