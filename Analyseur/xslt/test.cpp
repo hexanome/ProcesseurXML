@@ -101,9 +101,10 @@ bool transformXMLhard() {
   
   ElementNode * template4 = new ElementNode("xsl","template");
   template4->setAttribute("match","paragraphe");
-  template4->appendChild(value1);
-  template4->appendChild(new TextNode("ceci est un paragraphe<br>"));
   ElementNode * value1 = new ElementNode("xsl","value-of");
+  template4->appendChild(value1);
+  template4->appendChild(new TextNode(" : ceci est un paragraphe<br>"));
+  
   
   rootXSL->appendChild(template4);
   
@@ -111,7 +112,7 @@ bool transformXMLhard() {
   template5->setAttribute("match","auteur");
   ElementNode * value2 = new ElementNode("xsl","value-of");
   template5->appendChild(value2);
-  template5->appendChild(new TextNode("ceci est un auteur<br><br>"));
+  template5->appendChild(new TextNode(" : ceci est un auteur<br><br>"));
   rootXSL->appendChild(template5);
   
   string test1 = xml->serialize();
