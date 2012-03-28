@@ -5,6 +5,9 @@ Serie::Serie() {
 }
 
 Serie::~Serie() {
+	for (int i = 0 ; i < contenu->size() ; i++) {
+		delete contenu->at(i);
+	}
   delete this->contenu;
 }
 

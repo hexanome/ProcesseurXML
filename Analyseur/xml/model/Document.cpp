@@ -1,7 +1,7 @@
 #include "Document.h"
 
 Document::Document() {
-	root = NULL;
+	root = new ElementNode("","");
 }
 
 Document::~Document() {
@@ -10,6 +10,7 @@ Document::~Document() {
 
 void Document::setRoot(ElementNode *newRoot) 
 {
+	delete root;
 	root = newRoot;
 }
 
@@ -20,15 +21,16 @@ ElementNode* Document::getRoot()
 
 string Document::serialize()
 {
-	if (root == NULL)
-	{
-		return "";
-	}
-
 	return root->serialize();
 }
 
-bool Document::isValid(Element * e)
+bool Document::isValid(Doctype * d)
 {
+	Element * e = new Element(d->getName());
+	Sequence * s = new Sequence();
+	for (int i = 0 ; i < d->getElements()->size() ; i++) {
+		s->addContenuCompose(d->getElements()->at(i));
+	}
+	e->setSerie(s);
 	return root->isValid(e);
 }

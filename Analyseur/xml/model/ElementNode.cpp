@@ -13,6 +13,9 @@ ElementNode::ElementNode(string ns, string n) {
 
 // Destructor
 ElementNode::~ElementNode() {
+	for (int i = 0 ; i < childNodes->size() ; i++) {
+		delete childNodes->at(i);
+	}
   delete childNodes;
   delete attributes;
 }
