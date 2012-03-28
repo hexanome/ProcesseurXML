@@ -11,6 +11,7 @@
 class ElementNode : public Node {
 
   public:
+    ElementNode(string n);
     ElementNode(string ns, string n);
     ~ElementNode();
     ElementName getName();

@@ -1,7 +1,7 @@
 #include "ElementNode.h"
 
 
-// Constructor
+// Constructors
 ElementNode::ElementNode(string ns, string n) {
   nodeName.first = ns;
   nodeName.second = n;
@@ -10,6 +10,13 @@ ElementNode::ElementNode(string ns, string n) {
   attributes = new AttList();
 }
 
+ElementNode::ElementNode(string n) {
+  nodeName.first = "";
+  nodeName.second = n;
+
+  childNodes = new vector<Node*>();
+  attributes = new AttList();
+}
 
 // Destructor
 ElementNode::~ElementNode() {
