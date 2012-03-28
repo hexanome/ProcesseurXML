@@ -22,6 +22,10 @@ dtd/%.o:
 main.o: main.cpp main.h
 test.o: test.cpp
 
+tool:
+	$(CC) -c tool/main.cpp
+	$(CC) -o parse tool/main.o $(OBJ)
+
 test: $(TESTOBJ)
 	@echo; echo "--- Testing DTD ---"
 	@cd dtd; make test
@@ -35,4 +39,4 @@ clean:
 	@cd dtd; make clean
 	@cd xml; make clean
 
-.PHONY: all test clean
+.PHONY: all test clean tool

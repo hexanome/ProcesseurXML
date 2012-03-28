@@ -1,5 +1,5 @@
 PARSE_OBJ = lex.xml.o xml.tab.o xml.o
-MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Element.o ../dtd/model/Attribut.o ../dtd/model/Serie.o ../dtd/model/Doctype.o ../dtd/model/Sequence.o
+MOD_OBJ = .model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Element.o ../dtd/model/Attribut.o ../dtd/model/Serie.o ../dtd/model/Doctype.o ../dtd/model/Sequence.o
 TEST_EXE = test
 
 all:
