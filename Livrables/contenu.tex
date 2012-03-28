@@ -2,14 +2,21 @@
 %\setlength{\parindent}{1cm}    
 
 \section{Structures de données}
+
+Voici la description des structures de données que nous avons utilisées dans le cadre de ce projet :
+
 \subsection{Diagrammes UML détaillés}
-\subsubsection{Structure XML}
+
+\subsubsection{Modèle XML}
+
 \medskip
 \begin {center}
 \includegraphics[width=\textwidth]{UMLXML.png}
 \end {center}
 \medskip
-\subsubsection{Structure DTD}
+
+\subsubsection{Modèle DTD}
+
 \medskip
 \begin {center}
 \includegraphics[width=\textwidth]{UMLDTD.png}
@@ -29,7 +36,7 @@
 \STATE $sequence \leftarrow ajout du contenu composé (element de la DocType)$
 \ENDFOR
 \STATE $element \leftarrow new Element avec comme serie(sequence)$
-\STATE $retour nodeDuXML.isValid(element,DocType)$
+\RETURN $nodeDuXML.isValid(element,DocType)$
 \end{algorithmic}
 \end{algorithm}
 
@@ -51,7 +58,7 @@
 \STATE $resultat.racine \leftarrow transformTemplate(templateRacine,elementNode de documentXML$
 \ENDIF
 \ENDFOR
-\STATE $retour resultat$
+\RETURN $resultat$
 \end{algorithmic}
 \end{algorithm}
 
@@ -80,6 +87,6 @@
 \STATE $result \leftarrow enfant du template$
 \ENDIF
 \ENDFOR
-\STATE $retour result$
+\RETURN $result$
 \end{algorithmic}
 \end{algorithm}
