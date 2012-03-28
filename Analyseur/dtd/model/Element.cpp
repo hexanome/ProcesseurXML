@@ -1,31 +1,36 @@
 #include "Element.h"
 
 Element::Element() {
+  this->name = "";
+  this->serie = NULL;
+  this->setCategory("");
+  this->attributs = new vector<Attribut*>();
+  this->mixed = new vector<string>();
 }
 
 Element::Element(string name) {
-    this->name = name;
-    this->serie = 0;
-    this->setCategory("");
-    this->attributs = new vector<Attribut*>();
-    this->mixed = new vector<string>();
+  this->name = name;
+  this->serie = NULL;
+  this->setCategory("");
+  this->attributs = new vector<Attribut*>();
+  this->mixed = new vector<string>();
 }
 
 Element::Element(string name, string cat) {
-    this->name = name;
-    this->serie = 0;
-    this->setCategory(cat);
-    this->attributs = new vector<Attribut*>();
-    this->mixed = new vector<string>();
+  this->name = name;
+  this->serie = NULL;
+  this->setCategory(cat);
+  this->attributs = new vector<Attribut*>();
+  this->mixed = new vector<string>();
 }
 
 Element::~Element(){
-    delete attributs;
-    delete mixed;
+  delete attributs;
+  delete mixed;
 }
 
 vector<Attribut*>* Element::getAttributs(){
-    return this->attributs;
+  return this->attributs;
 }
 
 void Element::setName(string name) {
@@ -65,24 +70,26 @@ vector<string> * Element::getMixed() {
 }
 
 string Element::getName() {
-  return this->name;
+  return this->name + this->cardinalite;
 }
 
 string Element::serialize() {
-   string s = "<!ELEMENT " + name + " ";
-   if(category != "") {
-     s += category + ">";   
-   } else if (serie != 0 && serie->getElements()->size() > 0) {
-     s += serie->getName() + ">" + serie->serialize();
-   } else {
-     s += "(#PCDATA";
-     for (int i = 0; i < mixed->size(); i++) {
-       s += "|" + mixed->at(i);
-     }
-     s += ")>";
-   }
-   for (int i = 0; i < attributs->size(); i++) {
-     s += attributs->at(i)->serialize();
-   }
-   return s;
+  string s = "<!ELEMENT " + name + " ";
+  if(category != "") {
+    s += category + ">";   
+  } else if (serie != NULL && serie->getElements()->size() > 0) {
+    s += serie->getName() + ">" + serie->serialize();
+  } else {
+    s += "(#PCDATA";
+    for (int i = 0; i < mixed->size(); i++) {
+      s += "|" + mixed->at(i);
+    }
+    s += ")>";
+  }
+
+  for (int i = 0; i < attributs->size(); i++) {
+    s += attributs->at(i)->serialize();
+  }
+
+  return s;
 }

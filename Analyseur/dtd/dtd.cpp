@@ -12,7 +12,7 @@ Doctype* DtdParser::parseStream(FILE* fd)
 
 	if (ddoc != NULL) 
 	{
-		// cout << ddoc->serialize() << endl;
+		cout << ddoc->serialize() << endl;
 	}
 
 	return ddoc;

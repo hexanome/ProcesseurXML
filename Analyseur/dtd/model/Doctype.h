@@ -1,6 +1,7 @@
 #ifndef DOCTYPE_H
 #define DOCTYPE_H
 
+#include "../../includes/common.h"
 #include "Element.h"
 
 class Doctype {
@@ -11,6 +12,7 @@ class Doctype {
     ~Doctype();
     void setElements(vector<Element*> * els);
     string getName();
+    string serialize();
 
   private:
     string name;
