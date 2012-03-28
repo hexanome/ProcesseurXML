@@ -1,12 +1,15 @@
-#include "../../../Test/test.h"
-#include "../../includes/common.h"
+#include "../../Test/test.h"
+#include "../includes/common.h"
 #include "../xml/model/Document.h"
+#include "../xml/model/TextNode.h"
+#include "../xml/model/ElementNode.h"
+#include "transformer.h"
 
 bool transformXMLlight() {
   Document * xml = new Document();
   ElementNode * root = new ElementNode("livre");
   xml->setRoot(root);
-  ElementNode * titre = new ElementNode"titre");
+  ElementNode * titre = new ElementNode("titre");
   root->appendChild(titre);
   ElementNode * auteur = new ElementNode("auteur");
   titre->appendChild(auteur);
@@ -16,36 +19,39 @@ bool transformXMLlight() {
   chapitre->appendChild(paragraphe);
 
   Document * xsl = new Document();
-  ElementNode * root = new ElementNode("xsl","stylesheet");
-  xsl->setRoot(root);
+  ElementNode * rootXSL = new ElementNode("xsl","stylesheet");
+  
+  cout<<"create xsl"<<endl;
+  xsl->setRoot(rootXSL);
   ElementNode * template1 = new ElementNode("xsl","template");
   template1->setAttribute("match","/");
-  root->appendChild(template1);
   
-  ElementNode * html = new ElementNode("", "html");
-  d->setRoot(html);
-  ElementNode * head = new ElementNode("", "head");
+  rootXSL->appendChild(template1);
+  
+  ElementNode * html = new ElementNode("html");
+  template1->appendChild(html);
+  ElementNode * head = new ElementNode("head");
   html->appendChild(head);
-  ElementNode * title = new ElementNode("", "title");
+  ElementNode * title = new ElementNode("title");
   head->appendChild(title);
-  ElementNode * body = new ElementNode("", "body");
+  ElementNode * body = new ElementNode("body");
   html->appendChild(body);
+  
   template1->appendChild(html);
   
   Transformer * transformer = new Transformer(xsl);
   Document* xHtml = transformer->transformXML(xml);
-  
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return True;
+  return true;
 }
 
 bool transformXMLhard() {
   Document * xml = new Document();
   ElementNode * root = new ElementNode("livre");
   xml->setRoot(root);
-  ElementNode * titre = new ElementNode"titre");
+  ElementNode * titre = new ElementNode("titre");
   root->appendChild(titre);
   ElementNode * auteur = new ElementNode("auteur");
   titre->appendChild(auteur);
@@ -57,46 +63,47 @@ bool transformXMLhard() {
   chapitre->appendChild(paragraphe2);
   
   Document * xsl = new Document();
-  ElementNode * root = new ElementNode("xsl","stylesheet");
-  xsl->setRoot(root);
+  ElementNode * rootXSL = new ElementNode("xsl","stylesheet");
+  xsl->setRoot(rootXSL);
   ElementNode * template1 = new ElementNode("xsl","template");
   template1->setAttribute("match","/");
-  root->appendChild(template1);
+  rootXSL->appendChild(template1);
   
-  ElementNode * html = new ElementNode("", "html");
-  d->setRoot(html);
-  ElementNode * head = new ElementNode("", "head");
+  ElementNode * html = new ElementNode("html");
+  template1->appendChild(html);
+  ElementNode * head = new ElementNode("head");
   html->appendChild(head);
-  ElementNode * title = new ElementNode("", "title");
+  ElementNode * title = new ElementNode("title");
   head->appendChild(title);
-  ElementNode * body = new ElementNode("", "body");
+  ElementNode * body = new ElementNode("body");
   html->appendChild(body);
-  ElementNode * apply = new ElementNode("xsl", "apply_templates");
+  ElementNode * apply = new ElementNode("apply_templates");
   body->appendChild(apply);
   template1->appendChild(html);
   
   ElementNode * template2 = new ElementNode("xsl","template");
   template2->setAttribute("match","titre");
-  template2->appendChild(new textNode("ceci est un titre");
+  Node* nodeTitre = new TextNode("ceci est un titre");
+  template2->appendChild(nodeTitre);
   ElementNode * apply2 = new ElementNode("xsl", "apply_templates");
   template2->appendChild(apply2);
   root->appendChild(template2);
   
   ElementNode * template3 = new ElementNode("xsl","template");
   template3->setAttribute("match","chapitre");
-  template3->appendChild(new textNode("ceci est un chapitre");
+  template3->appendChild(new TextNode("ceci est un chapitre"));
   ElementNode * apply3 = new ElementNode("xsl", "apply_templates");
   template3->appendChild(apply3);
   root->appendChild(template3);
   
   ElementNode * template4 = new ElementNode("xsl","template");
   template4->setAttribute("match","paragraphe");
-  template4->appendChild(new textNode("ceci est un paragraphe");
+  template4->appendChild(new TextNode("ceci est un paragraphe"));
   root->appendChild(template4);
   
   ElementNode * template5 = new ElementNode("xsl","template");
   template5->setAttribute("match","auteur");
-  template5->appendChild(new textNode("ceci est un auteur");
+  template5->appendChild(new TextNode("ceci est un auteur"));
   root->appendChild(template5);
   
   Transformer * transformer = new Transformer(xsl);
@@ -105,7 +112,7 @@ bool transformXMLhard() {
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return True;
+  return true;
 }
 
 

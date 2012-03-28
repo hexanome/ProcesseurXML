@@ -15,8 +15,7 @@ class Transformer
 		vector<ElementNode*> *templates;
 		
 		void setTemplates();
-		ElementNode * transformTemplate(ElementNode* template, ElementNode* xmlChild);
+		vector<Node*> * transformTemplate(ElementNode* unTemplate, ElementNode* xmlChild);
 	
 };
-
 #endif
