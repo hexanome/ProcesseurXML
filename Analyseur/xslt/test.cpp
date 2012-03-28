@@ -115,8 +115,6 @@ bool transformXMLhard() {
   template5->appendChild(new TextNode(" : ceci est un auteur<br><br>"));
   rootXSL->appendChild(template5);
   
-  string test1 = xml->serialize();
-  cout<<test1<<endl;
   
   Transformer * transformer = new Transformer(xsl);
   Document* xHtml = transformer->transformXML(xml);
@@ -124,7 +122,7 @@ bool transformXMLhard() {
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return test == "<html><head><title></title></head><body>ceci est un titre<br>Jean Marcceci est un auteur<br><br>ceci est un chapitre<br><br>ceci est un paragraphe<br>bibibiceci est un paragraphe<br>houba</body></html>";
+  return test == "<html><head><title></title></head><body>ceci est un titre<br>Jean Marc : ceci est un auteur<br><br>ceci est un chapitre<br><br>bibibi : ceci est un paragraphe<br>houba : ceci est un paragraphe<br></body></html>";
 }
 
 
