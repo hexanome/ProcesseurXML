@@ -106,7 +106,7 @@ int main(int argc, char ** argv) {
   Test *test = new Test();
   test->run("validateXmlDtd", validateXmlDtd);
   test->run("validateComplexDtd",validateComplexDtd);
-  test->run("testValidationFile1", testValidationFile1);
+  //test->run("testValidationFile1", testValidationFile1);
   test->end();
   delete test;
   return 0;
