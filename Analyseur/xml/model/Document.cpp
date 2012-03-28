@@ -24,7 +24,13 @@ string Document::serialize()
 	return root->serialize();
 }
 
-bool Document::isValid(Element * e)
+bool Document::isValid(Doctype * d)
 {
+	Element * e = new Element(d->getName());
+	Sequence * s = new Sequence();
+	for (int i = 0 ; i < d->getElements()->size() ; i++) {
+		s->addContenuCompose(d->getElements()->at(i));
+	}
+	e->setSerie(s);
 	return root->isValid(e);
 }

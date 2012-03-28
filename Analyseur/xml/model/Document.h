@@ -3,6 +3,7 @@
 
 #include "ElementNode.h"
 #include "../../dtd/model/Doctype.h"
+#include "../../dtd/model/Sequence.h"
 
 class Document {
 
@@ -10,7 +11,7 @@ class Document {
     Document();
     ~Document();
     void setRoot(ElementNode *newRoot);
-    bool isValid(Element * e);
+    bool isValid(Doctype * d);
     ElementNode* getRoot();
     string serialize();
 

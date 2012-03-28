@@ -19,6 +19,10 @@ void Doctype::setElements(vector<Element*> * els) {
 	this->elements = els;
 }
 
+vector<Element*> * Doctype::getElements() {
+	return this->elements;
+}
+
 string Doctype::getName() {
     return this->name;
 }

@@ -4,9 +4,12 @@
 #include "dtd/model/Attribut.h"
 #include "dtd/model/Sequence.h"
 #include "dtd/model/Doctype.h"
+#include "dtd/dtd.h"
+#include "xml/xml.h"
 #include "xml/model/ElementNode.h"
 #include "xml/model/TextNode.h"
 #include "xml/model/Document.h"
+
 
 
 // Testing XML and DTD models on XML/DTD validation
