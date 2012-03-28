@@ -53,12 +53,18 @@ bool transformXMLhard() {
   root->appendChild(titre);
   ElementNode * auteur = new ElementNode("auteur");
   titre->appendChild(auteur);
+  TextNode* auteurNom = new TextNode("Jean Marc");
+  auteur->appendChild(auteurNom);
   ElementNode * chapitre = new ElementNode("chapitre");
   root->appendChild(chapitre);
   ElementNode * paragraphe1 = new ElementNode("paragraphe");
   chapitre->appendChild(paragraphe1);
+  TextNode* parNom1 = new TextNode("bibibi");
+  paragraphe1->appendChild(parNom1);
   ElementNode * paragraphe2 = new ElementNode("paragraphe");
   chapitre->appendChild(paragraphe2);
+  TextNode* parNom2 = new TextNode("houba");
+  paragraphe2->appendChild(parNom2);
   
   Document * xsl = new Document();
   ElementNode * rootXSL = new ElementNode("xsl","stylesheet");
@@ -95,14 +101,21 @@ bool transformXMLhard() {
   
   ElementNode * template4 = new ElementNode("xsl","template");
   template4->setAttribute("match","paragraphe");
+  template4->appendChild(value1);
   template4->appendChild(new TextNode("ceci est un paragraphe<br>"));
+  ElementNode * value1 = new ElementNode("xsl","value-of");
+  
   rootXSL->appendChild(template4);
   
   ElementNode * template5 = new ElementNode("xsl","template");
   template5->setAttribute("match","auteur");
+  ElementNode * value2 = new ElementNode("xsl","value-of");
+  template5->appendChild(value2);
   template5->appendChild(new TextNode("ceci est un auteur<br><br>"));
   rootXSL->appendChild(template5);
   
+  string test1 = xml->serialize();
+  cout<<test1<<endl;
   
   Transformer * transformer = new Transformer(xsl);
   Document* xHtml = transformer->transformXML(xml);
@@ -110,7 +123,7 @@ bool transformXMLhard() {
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return test == "<html><head><title></title></head><body>ceci est un titre<br>ceci est un auteur<br><br>ceci est un chapitre<br><br>ceci est un paragraphe<br>ceci est un paragraphe<br></body></html>";
+  return test == "<html><head><title></title></head><body>ceci est un titre<br>Jean Marcceci est un auteur<br><br>ceci est un chapitre<br><br>ceci est un paragraphe<br>bibibiceci est un paragraphe<br>houba</body></html>";
 }
 
 

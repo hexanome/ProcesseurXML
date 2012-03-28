@@ -68,6 +68,17 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 		}
 	      }
 	    }
+	    if(child->getName().second.compare("value-of")==0)
+	    {
+	      if(resultInter)
+	      {
+		resultInt->insert(resultInt->end(), xmlChild->getChildren()->begin(), xmlChild->getChildren()->end());
+	      }
+	      else
+	      {
+		result->insert(result->end(), xmlChild->getChildren()->begin(), xmlChild->getChildren()->end());
+	      }
+	    }
 	  }
 	  else 
 	  {
