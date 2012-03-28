@@ -35,13 +35,13 @@ bool validateComplexDtd () {
 	
 	// XML 
   	TextNode *text = new TextNode("maison");
-  	ElementNode *element = new ElementNode("CHANNEL", "to");
+  	ElementNode *element = new ElementNode("to");
   	element->appendChild(text);	
   	
-  	ElementNode *element2 = new ElementNode("TVSCHEDULE", "CHANNEL");
+  	ElementNode *element2 = new ElementNode("CHANNEL");
   	element2->appendChild(element);
   	
-  	ElementNode *element3 = new ElementNode("", "TVSCHEDULE");
+  	ElementNode *element3 = new ElementNode("TVSCHEDULE");
   	element3->appendChild(element2);
   	
   	element3->setAttribute("NAME","honneur");
@@ -51,7 +51,6 @@ bool validateComplexDtd () {
 	Element* e = new Element("TVSCHEDULE");
     Element* c = new Element("CHANNEL");
     Sequence* s = new Sequence();
-    c->setCardinalite("+");
     s->addContenuCompose(c);
     e->setSerie(s);
    
@@ -67,7 +66,8 @@ bool validateComplexDtd () {
   	delete element3;
   	return valid;    
   	
-  	/*<!ELEMENT TVSCHEDULE (CHANNEL)>
+  	/*
+    <!ELEMENT TVSCHEDULE (CHANNEL)>
 	<!ELEMENT CHANNEL (to,from)>
 	<!ELEMENT to (#PCDATA)>
 	<!ELEMENT from (#PCDATA)>
@@ -75,9 +75,9 @@ bool validateComplexDtd () {
 	<!ATTLIST TVSCHEDULE NAME CDATA #IMPLIED>
 
 	<TVSCHEDULE NAME="honneur">
-		<CHANNEL CHAN="32">
-			<to>maison</to>
-		</CHANNEL>
+	<CHANNEL CHAN="32">
+	<to>maison</to>
+	</CHANNEL>
 	</TVSCHEDULE>*/
 
     
@@ -92,7 +92,6 @@ bool testValidationFile1() {
 
   fclose(xmlfd);
   fclose(dtdfd);
-
   bool valid = xdoc->isValid(ddoc);
   delete ddoc; delete xdoc;
 
@@ -106,7 +105,7 @@ int main(int argc, char ** argv) {
   Test *test = new Test();
   test->run("validateXmlDtd", validateXmlDtd);
   test->run("validateComplexDtd",validateComplexDtd);
-  //test->run("testValidationFile1", testValidationFile1);
+  test->run("testValidationFile1", testValidationFile1);
   test->end();
   delete test;
   return 0;
