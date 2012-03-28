@@ -86,7 +86,7 @@ string Element::serialize() {
     }
     s += ")>";
   }
-
+  
   for (int i = 0; i < attributs->size(); i++) {
     s += attributs->at(i)->serialize();
   }

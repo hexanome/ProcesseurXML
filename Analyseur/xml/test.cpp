@@ -27,8 +27,8 @@ int main()
 {
 	Test *t = new Test();
 
-	t->run("Test de parse de stream XML1.", testParseFile1);
-	t->run("Test de parse de stream XML2.", testParseFile2);
+	t->run("Test de parse de stream XML 1.", testParseFile1);
+	t->run("Test de parse de stream XML 2.", testParseFile2);
 	t->end();
 
 	return 0;
