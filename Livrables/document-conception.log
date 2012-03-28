@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.16)  28 MAR 2012 16:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.5)  28 MAR 2012 23:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,33 +391,61 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box26
 )
-(/usr/local/texlive/2011/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip43
-\f@ncyO@elh=\skip44
-\f@ncyO@erh=\skip45
-\f@ncyO@olh=\skip46
-\f@ncyO@orh=\skip47
-\f@ncyO@elf=\skip48
-\f@ncyO@erf=\skip49
-\f@ncyO@olf=\skip50
-\f@ncyO@orf=\skip51
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count95
+\float@exts=\toks21
+\float@box=\box27
+\@float@everytoks=\toks22
+\@floatcapt=\box28
 )
-No file document-conception.aux.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks23
+\c@algorithm=\count96
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count97
+\c@ALC@line=\count98
+\c@ALC@rem=\count99
+\c@ALC@depth=\count100
+\ALC@tlm=\skip43
+\algorithmicindent=\skip44
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip45
+\f@ncyO@elh=\skip46
+\f@ncyO@erh=\skip47
+\f@ncyO@olh=\skip48
+\f@ncyO@orh=\skip49
+\f@ncyO@elf=\skip50
+\f@ncyO@erf=\skip51
+\f@ncyO@olf=\skip52
+\f@ncyO@orf=\skip53
+)
+(./document-conception.aux)
 \openout1 = `document-conception.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 41.
+
 (/usr/local/texlive/2011/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -474,28 +502,28 @@ Package ucs Warning: ***************************
 (ucs)                ***************************
 (ucs)                Activating compatibility mode.
 (ucs)                ***************************
-(ucs)                 on input line 38.
+(ucs)                 on input line 41.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/ucs/utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 )
-LaTeX Info: Redefining \degres on input line 38.
-LaTeX Info: Redefining \dots on input line 38.
-LaTeX Info: Redefining \up on input line 38.
+LaTeX Info: Redefining \degres on input line 41.
+LaTeX Info: Redefining \dots on input line 41.
+LaTeX Info: Redefining \up on input line 41.
 
 (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
+\scratchcounter=\count101
 \scratchdimen=\dimen116
-\scratchbox=\box27
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count98
+\scratchbox=\box29
+\nofMPsegments=\count102
+\nofMParguments=\count103
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count104
 \MPscratchDim=\dimen117
-\MPnumerator=\count99
-\makeMPintoPDFobject=\count100
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
 
@@ -542,74 +570,91 @@ e
 (/usr/local/texlive/2011/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 59.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 62.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 59.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 62.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 59.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 62.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 59.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 62.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 59.
+(Font)              <10> on input line 62.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 59.
+(Font)              <7> on input line 62.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 59.
+(Font)              <5> on input line 62.
  [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-No file document-conception.toc.
+(./document-conception.toc)
 \tf@toc=\write3
 \openout3 = `document-conception.toc'.
 
-[1] (./contenu.tex <UMLXML.png, id=15, 741.4902pt x 462.528pt>
+ [1] (./contenu.tex
+<UMLXML.png, id=15, 741.4902pt x 462.528pt>
 File: UMLXML.png Graphic file (type png)
-
-<use UMLXML.png>
-Package pdftex.def Info: UMLXML.png used on input line 9.
+ <use UMLXML.png>
+Package pdftex.def Info: UMLXML.png used on input line 14.
 (pdftex.def)             Requested size: 483.69687pt x 301.7265pt.
- <UMLDTD.png, id=17, 663.47874pt x 826.08624pt>
-File: UMLDTD.png Graphic file (type png)
 
-<use UMLDTD.png>
-Package pdftex.def Info: UMLDTD.png used on input line 15.
+<UMLDTD.png, id=17, 663.47874pt x 826.08624pt>
+File: UMLDTD.png Graphic file (type png)
+ <use UMLDTD.png>
+Package pdftex.def Info: UMLDTD.png used on input line 22.
 (pdftex.def)             Requested size: 483.69687pt x 602.24382pt.
- [2 <./UMLXML.png>]) [3 <./UMLDTD.png>]
-(./document-conception.aux) ) 
+ [2 <./UMLXML.png>]
+
+LaTeX Warning: Command \' invalid in math mode on input line 36.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 57.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 77.
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 78.
+
+) [3 <./UMLDTD.png>] [4] (./document-conception.aux) ) 
 Here is how much of TeX's memory you used:
- 4058 strings out of 493633
- 55647 string characters out of 3143377
- 120017 words of memory out of 3000000
- 7268 multiletter control sequences out of 15000+200000
+ 4339 strings out of 493633
+ 59210 string characters out of 3143378
+ 131545 words of memory out of 3000000
+ 7531 multiletter control sequences out of 15000+200000
  39202 words of font info for 33 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,10n,43p,343b,591s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvip
-s/lm/lm-ec.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx10
-.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr
-/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2011/texmf-dist/
-fonts/type1/public/lm/lmr17.pfb>
-Output written on document-conception.pdf (4 pages, 339679 bytes).
+ 37i,10n,43p,343b,742s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/
+texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2011/texmf-dist
+/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/lm/lm-e
+c.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></us
+r/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
+pe1/public/lm/lmr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/
+lm/lmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy10.p
+fb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on document-conception.pdf (5 pages, 362687 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -5,10 +5,10 @@ MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Doctype.o 
 TEST_EXE = test
 
 all:
-	@echo; echo "-- Making: DTD Parser --"
+	@echo "-- Making: DTD Parser --"
 	@cd parser; make
 	@make parser
-	@echo; echo "-- Making: DTD Model --"
+	@echo "-- Making: DTD Model --"
 	@cd model; make
 
 clean:
@@ -19,6 +19,7 @@ clean:
 
 test: all $(PARSE_OBJ)
 	@cd model; make test
+	@echo "--- Testing dtd ---"
 	@g++ -o $(TEST_EXE) ../../Test/test.o test.o $(PARSE_OBJ) $(MOD_OBJ)
 	@./test
 

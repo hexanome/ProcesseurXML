@@ -1,8 +1,8 @@
 \select@language {french}
 \contentsline {section}{\numberline {1}Structures de donn\IeC {\'e}es}{2}
 \contentsline {subsection}{\numberline {1.1}Diagrammes UML d\IeC {\'e}taill\IeC {\'e}s}{2}
-\contentsline {subsubsection}{\numberline {1.1.1}Structure XML}{2}
-\contentsline {subsubsection}{\numberline {1.1.2}Structure DTD}{3}
+\contentsline {subsubsection}{\numberline {1.1.1}Mod\IeC {\`e}le XML}{2}
+\contentsline {subsubsection}{\numberline {1.1.2}Mod\IeC {\`e}le DTD}{3}
 \contentsline {section}{\numberline {2}Algorithmes}{3}
 \contentsline {subsection}{\numberline {2.1}Algorithmes de Validation}{3}
 \contentsline {subsection}{\numberline {2.2}Algorithmes de Transformation}{3}

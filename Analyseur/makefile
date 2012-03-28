@@ -5,6 +5,7 @@ TESTOBJ = test.o ../Test/test.o
 all: $(OBJ)
 	@cd dtd; make
 	@cd xml; make
+	@cd xslt; make
 
 xml/model/%.o: xml/model/%.cpp
 	@cd xml/model; make
@@ -27,10 +28,10 @@ tool:
 	$(CC) -o parse tool/main.o $(OBJ)
 
 test: $(TESTOBJ)
-	@echo; echo "--- Testing DTD ---"
 	@cd dtd; make test
-	@echo; echo "--- Testing XML ---"
 	@cd xml; make test
+	@cd xslt; make test
+	@echo "--- Testing Analyseur ---"
 	@$(CC) -o test $(OBJ) $(TESTOBJ)
 	@./test
 
@@ -38,5 +39,6 @@ clean:
 	@rm -f *.o ./test
 	@cd dtd; make clean
 	@cd xml; make clean
+	@cd xslt; make clean
 
 .PHONY: all test clean tool
