@@ -3,8 +3,11 @@
 #include "dtd/model/Element.h"
 #include "dtd/model/Attribut.h"
 #include "dtd/model/Sequence.h"
+#include "dtd/model/Doctype.h"
 #include "xml/model/ElementNode.h"
 #include "xml/model/TextNode.h"
+#include "xml/model/Document.h"
+
 
 // Testing XML and DTD models on XML/DTD validation
 
@@ -24,6 +27,8 @@ bool validateXmlDtd() {
   delete text; delete element; delete e;
   return valid;
 }
+
+
   
 bool validateComplexDtd () {
 	
@@ -76,6 +81,20 @@ bool validateComplexDtd () {
 
     
 }
+
+bool testValidationFile1()
+{
+	FILE *dtdfd = fopen("rap1.dtd", "r");
+	Doctype *ddoc = DtdParser::parseStream(dtdfd);
+	
+	FILE *xmlfd = fopen("rap1.xml", "r");
+	Document *xdoc = XmlParser::parseStream(xmlfd);
+
+	fclose(xmlfd);
+	fclose(dtdfd);
+	return xdoc->isValid(ddoc);
+}
+
 // Run the tests
 
 int main(int argc, char ** argv) {
@@ -83,6 +102,7 @@ int main(int argc, char ** argv) {
   Test *test = new Test();
   test->run("validateXmlDtd", validateXmlDtd);
   test->run("validateComplexDtd",validateComplexDtd);
+  test->run("testValidationFile1", testValidationFile1);
   test->end();
   delete test;
   return 0;
