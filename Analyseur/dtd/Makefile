@@ -1,7 +1,7 @@
 CC = g++
 CCFLAGS = -Wno-write-strings
 PARSE_OBJ = lex.dtd.o dtd.tab.o dtd.o
-MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Doctype.o model/Definitions.o model/Element.o model/Sequence.o model/Serie.o
+MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Doctype.o model/Element.o model/Sequence.o model/Serie.o
 TEST_EXE = test
 
 all:
@@ -9,11 +9,11 @@ all:
 	@cd parser; make
 	@echo -e "\n-- DTD Model --"
 	@cd model; make
-	@# TODO: make the actual program.
 
 clean:
 	@cd parser; make clean
 	@cd model; make clean
+	@rm -f test.o
 	@rm -rf $(MOD_OBJ) $(PARSE_OBJ) $(TEST_EXE)
 
 test: all $(PARSE_OBJ)
