@@ -7,11 +7,11 @@ all:
 	@cd parser; make
 	@echo -e "\n-- XML Model --"
 	@cd model; make
-	# TODO: make the actual program.
 
 clean:
 	@cd parser; make clean
 	@cd model; make clean
+	@rm -f test.o
 	@rm -rf $(MOD_OBJ) $(PARSE_OBJ) $(TEST_EXE)
 
 test: all $(PARSE_OBJ)

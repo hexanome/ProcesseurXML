@@ -11,26 +11,24 @@
 #include "xml/model/Document.h"
 
 
-
 // Testing XML and DTD models on XML/DTD validation
 
 bool validateXmlDtd() {
-  // XML 
-  TextNode *text = new TextNode("bonjour");
-  ElementNode *element = new ElementNode("", "element");
-  element->appendChild(text);
+    // XML 
+    TextNode *text = new TextNode("bonjour");
+    ElementNode *element = new ElementNode("", "element");
+    element->appendChild(text);
 
-  // DTD
-  Element* e = new Element("element");
-  e->setCategory("ANY");
+    // DTD
+    Element* e = new Element("element");
+    e->setCategory("ANY");
 
-  // Validate
-  bool valid = element->isValid(e);
+    // Validate
+    bool valid = element->isValid(e);
 
-  delete text; delete element; delete e;
-  return valid;
+    delete element; delete e;
+    return valid;
 }
-
 
   
 bool validateComplexDtd () {
@@ -85,17 +83,20 @@ bool validateComplexDtd () {
     
 }
 
-bool testValidationFile1()
-{
-	FILE *dtdfd = fopen("rap1.dtd", "r");
-	Doctype *ddoc = DtdParser::parseStream(dtdfd);
-	
-	FILE *xmlfd = fopen("rap1.xml", "r");
-	Document *xdoc = XmlParser::parseStream(xmlfd);
+bool testValidationFile1() {
+  FILE *dtdfd = fopen("rap1.dtd", "r");
+  Doctype *ddoc = DtdParser::parseStream(dtdfd);
 
-	fclose(xmlfd);
-	fclose(dtdfd);
-	return xdoc->isValid(ddoc);
+  FILE *xmlfd = fopen("rap1.xml", "r");
+  Document *xdoc = XmlParser::parseStream(xmlfd);
+
+  fclose(xmlfd);
+  fclose(dtdfd);
+
+  bool valid = xdoc->isValid(ddoc);
+  delete ddoc; delete xdoc;
+
+  return valid;
 }
 
 // Run the tests
