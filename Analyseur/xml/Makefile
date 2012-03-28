@@ -5,6 +5,7 @@ TEST_EXE = test
 all:
 	@echo -e "\n-- XML Parser --"
 	@cd parser; make
+	@make parser
 	@echo -e "\n-- XML Model --"
 	@cd model; make
 

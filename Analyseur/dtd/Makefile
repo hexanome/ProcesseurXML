@@ -7,6 +7,7 @@ TEST_EXE = test
 all:
 	@echo -e "\n-- DTD Parser --"
 	@cd parser; make
+	@make parser
 	@echo -e "\n-- DTD Model --"
 	@cd model; make
 
