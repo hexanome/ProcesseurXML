@@ -26,7 +26,7 @@ test.o: test.cpp
 
 
 clean:
-	@rm *.o $(TESTEXE)
+	@rm -f *.o $(TESTEXE)
 
 
 .PHONY: all test clean

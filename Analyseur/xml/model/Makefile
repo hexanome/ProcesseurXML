@@ -1,6 +1,6 @@
 CC = g++
 TESTEXE = test
-OBJ = ElementNode.o Document.o TextNode.o ../../dtd/model/Element.o ../../dtd/model/Attribut.o ../../dtd/model/Serie.o
+OBJ = ElementNode.o Document.o TextNode.o ../../dtd/model/Element.o ../../dtd/model/Attribut.o ../../dtd/model/Serie.o ../../dtd/model/Sequence.o ../../dtd/model/Doctype.o
 TESTOBJ = ../../../Test/test.o test.o
 
 all: $(OBJ) $(TESTOBJ)
