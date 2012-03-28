@@ -8,8 +8,12 @@ all: $(OBJ)
 
 xml/model/%.o: xml/model/%.cpp
 	@cd xml/model; make
+xml/%.o:
+	@cd xml/model; make
 
 dtd/model/%.o: dtd/model/%.cpp
+	@cd dtd/model; make
+dtd/%.o:
 	@cd dtd/model; make
 
 %.o: %.cpp
