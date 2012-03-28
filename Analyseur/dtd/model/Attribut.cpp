@@ -1,6 +1,10 @@
 #include "Attribut.h"
 
 Attribut::Attribut() {
+  this->elementName = "";
+  this->attributeName = "";
+  this->attributeTypes = new vector<string>();
+  this->defaultValue = "#IMPLIED";
 }
 
 Attribut::Attribut(string elementName,string attributeName){
