@@ -2,6 +2,7 @@
 #include "../../includes/common.h"
 #include "ElementNode.h"
 #include "TextNode.h"
+#include "Document.h"
 
 // Testing XML services and serialization
 
@@ -27,7 +28,7 @@ bool serializeBoth() {
   element->appendChild(text);
 
   string xml = element->serialize();
-  delete text; delete element;
+  delete element;
   return xml == "<element>bonjour</element>";
 }
 
@@ -45,8 +46,30 @@ bool serializeComplex() {
   e->appendChild(baz);
 
   string xml = e->serialize();
-  delete e; delete ebar; delete foo; delete bar; delete baz;
+  delete e;
   return xml == "<yo:dawg>foo<awesome>bar</awesome>baz</yo:dawg>";
+}
+
+bool serializeHtml() {
+  Document * d = new Document();
+  ElementNode * html = new ElementNode("", "html");
+  d->setRoot(html);
+  ElementNode * head = new ElementNode("", "head");
+  html->appendChild(head);
+  ElementNode * title = new ElementNode("", "title");
+  head->appendChild(title);
+  ElementNode * body = new ElementNode("", "body");
+  html->appendChild(body);
+  ElementNode * h1 = new ElementNode("", "h1");
+  body->appendChild(h1);
+  TextNode * text1 = new TextNode("bonjour");
+  title->appendChild(text1);
+  TextNode * text2 = new TextNode("titre");
+  h1->appendChild(text2);
+
+  string xml = d->serialize();
+   delete d;
+  return xml == "<html><head><title>bonjour</title></head><body><h1>titre</h1></body></html>";
 }
 
 bool serializeElementNodeWithAttList() {
@@ -58,8 +81,6 @@ bool serializeElementNodeWithAttList() {
   
   string xml = elementNode1->serialize();
   delete elementNode1;
-  delete textNode1;
-  cout << endl << xml << endl;
   return xml == "<Date Annee=\"2013\" Heure=\"13\">beau temps</Date>";
 }
 
@@ -73,6 +94,7 @@ int main(int argc, char ** argv) {
   test->run("serializeBoth", serializeBoth);
   test->run("serializeComplex", serializeComplex);
   test->run("serializeElementNodeWithAttList", serializeElementNodeWithAttList);
+  test->run("serializeHtml", serializeHtml);
   test->end();
   delete test;
   return 0;

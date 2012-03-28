@@ -50,15 +50,15 @@ bool validateComplexDtd () {
     e->setSerie(s);
    
     Sequence* s2 = new Sequence();    
-    s2->addContenuCompose(new Element("to","(#PCDATA)"));
-  	s2->addContenuCompose(new Element("from","(#PCDATA)"));
+    s2->addContenuCompose(new Element("to"));
+  	s2->addContenuCompose(new Element("from"));
     c->setSerie(s2);
     c->addAttribut(new Attribut("CHANNEL","CHAN"));
     e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
 
     // VALIDATE
     bool valid = element3->isValid(e);
-  	delete text; delete element; delete element2; delete element3;
+  	delete text; delete element; delete element2; delete element3; delete s2; delete c; delete s;delete e;
   	return valid;    
   	
   	/*<!ELEMENT TVSCHEDULE (CHANNEL)>
@@ -82,6 +82,7 @@ int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
   test->run("validateXmlDtd", validateXmlDtd);
+  test->run("validateComplexDtd",validateComplexDtd);
   test->end();
   delete test;
   return 0;
