@@ -1,5 +1,6 @@
 #include "../../../Test/test.h"
 #include "../../includes/common.h"
+#include "Doctype.h"
 #include "Element.h"
 #include "Attribut.h"
 #include "Sequence.h"
@@ -24,17 +25,18 @@ bool serializeElementComplexe() {
   e->setSerie(s);  
   string xml = e->serialize();
   delete e;
-  return xml == "<!ELEMENT note (to,from,heading,body)><!ELEMENT to (#PCDATA)><!ELEMENT from (#PCDATA)><!ELEMENT heading (#PCDATA)><!ELEMENT body (#PCDATA)>";  
+  return xml == "<!ELEMENT note (to,from,heading,body)>";  
 }
 
 bool serializeElementMegaComplexe() {
+  vector<Element*> * els = new vector<Element*>();
+
   Element* e = new Element("TVSCHEDULE");
   Element* c = new Element("CHANNEL");
   Sequence* s = new Sequence();
   c->setCardinalite("+");
   s->addContenuCompose(c);
   e->setSerie(s);
-
    
   Sequence* s2 = new Sequence();    
   s2->addContenuCompose(new Element("to"));
@@ -42,10 +44,16 @@ bool serializeElementMegaComplexe() {
   c->setSerie(s2);
   c->addAttribut(new Attribut("CHANNEL","CHAN"));
   e->addAttribut(new Attribut("TVSCHEDULE","NAME"));
+
+  els->push_back(e);
+  els->push_back(c);
+
+  Doctype * ddoc = new Doctype();
+  ddoc->setElements(els);
     
-  string xml = e->serialize();
+  string xml = ddoc->serialize();
   delete e;
-  return xml == "<!ELEMENT TVSCHEDULE (CHANNEL)><!ELEMENT CHANNEL (to,from)><!ELEMENT to (#PCDATA)><!ELEMENT from (#PCDATA)><!ATTLIST CHANNEL CHAN CDATA #IMPLIED><!ATTLIST TVSCHEDULE NAME CDATA #IMPLIED>";  
+  return xml == "<!ELEMENT TVSCHEDULE (CHANNEL+)><!ATTLIST TVSCHEDULE NAME CDATA #IMPLIED><!ELEMENT CHANNEL (to,from)><!ATTLIST CHANNEL CHAN CDATA #IMPLIED>";  
 }
 
 bool serializeAttList() {
