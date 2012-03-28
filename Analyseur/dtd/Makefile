@@ -1,3 +1,5 @@
+CC = g++
+CCFLAGS = -Wno-write-strings
 PARSE_OBJ = lex.dtd.o dtd.tab.o dtd.o
 MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Doctype.o model/Definitions.o model/Element.o model/Sequence.o model/Serie.o
 TEST_EXE = test
@@ -23,6 +25,6 @@ lex.dtd.o: parser
 dtd.tab.o: parser
 dtd.o: parser
 parser:
-	@g++ -g -DYYDEBUG=1 -c parser/lex.dtd.c parser/dtd.tab.c test.cpp dtd.cpp
+	@$(CC) $(CCFLAGS) -g -DYYDEBUG=1 -c parser/lex.dtd.c parser/dtd.tab.c test.cpp dtd.cpp
 
 .PHONY: all parser clean test
