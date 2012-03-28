@@ -20,6 +20,6 @@ void Test::run(string name, bool(*function)()) {
 }
 
 void Test::end() {
-  cout << passed << "/" << tests << " tests passed" << endl;
+  cout << "[test] " << passed << "/" << tests << " tests passed" << endl << endl;
   tests = 0; passed = 0;
 }

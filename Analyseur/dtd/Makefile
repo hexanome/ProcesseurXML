@@ -5,10 +5,10 @@ MOD_OBJ = model/Attribut.o model/Choix.o model/ContenuCompose.o model/Doctype.o 
 TEST_EXE = test
 
 all:
-	@echo "\n-- DTD Parser --"
+	@echo; echo "-- Making: DTD Parser --"
 	@cd parser; make
 	@make parser
-	@echo "\n-- DTD Model --"
+	@echo; echo "-- Making: DTD Model --"
 	@cd model; make
 
 clean:

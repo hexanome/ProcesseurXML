@@ -3,10 +3,10 @@ MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Ele
 TEST_EXE = test
 
 all:
-	@echo "\n-- XML Parser --"
+	@echo; echo "-- Making: XML Parser --"
 	@cd parser; make
 	@make parser
-	@echo "\n-- XML Model --"
+	@echo; echo "-- Making: XML Model --"
 	@cd model; make
 
 clean:
