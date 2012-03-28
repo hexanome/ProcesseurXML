@@ -14,10 +14,10 @@ Document* XmlParser::parseStream(FILE* fd)
 	Document *xdoc = NULL;
 	int xmlErr = xmlparse(&xdoc);
 	
-	if (xdoc != NULL) 
-	{
-		cout << xdoc->serialize() << endl;
-	}
+	//if (xdoc != NULL) 
+	//{
+	//	cout << xdoc->serialize() << endl;
+	//}
 
 	return xdoc;
 }

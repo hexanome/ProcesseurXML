@@ -96,12 +96,8 @@ bool testValidationFile1() {
   FILE *dtdfd = fopen("rap1.dtd", "r");
   Doctype *ddoc = DtdParser::parseStream(dtdfd);
 
-  cout << ddoc->serialize() << endl;
-
   FILE *xmlfd = fopen("rap1.xml", "r");
   Document *xdoc = XmlParser::parseStream(xmlfd);
-
-  cout << xdoc->serialize() << endl;
 
   fclose(xmlfd);
   fclose(dtdfd);
