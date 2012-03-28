@@ -12,7 +12,7 @@ class Document {
     void setRoot(ElementNode *newRoot);
     bool isValid(Element * e);
     ElementNode* getRoot();
-    virtual string serialize();
+    string serialize();
 
   private:
     ElementNode *root;

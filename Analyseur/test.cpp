@@ -63,7 +63,7 @@ bool validateComplexDtd () {
 
     // VALIDATE
     bool valid = element3->isValid(e);
-  	delete text; delete element; delete element2; delete element3; delete s2; delete c; delete s;delete e;
+  	delete element3;
   	return valid;    
   	
   	/*<!ELEMENT TVSCHEDULE (CHANNEL)>
