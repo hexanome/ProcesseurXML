@@ -81,7 +81,7 @@ string Element::serialize() {
   if(category != "") {
     s += category + ">";   
   } else if (serie != NULL && serie->getElements()->size() > 0) {
-    s += serie->getName() + ">" + serie->serialize();
+    s += serie->getName() + ">";
   } else {
     s += "(#PCDATA";
     for (int i = 0; i < mixed->size(); i++) {
