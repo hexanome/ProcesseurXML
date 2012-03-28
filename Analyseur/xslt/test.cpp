@@ -42,7 +42,7 @@ bool transformXMLlight() {
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return true;
+  return test == "<html><head><title></title></head><body></body></html>";
 }
 
 bool transformXMLhard() {
@@ -110,7 +110,7 @@ bool transformXMLhard() {
   string test = xHtml->serialize();
   cout<<test<<endl;
   
-  return true;
+  return test == "<html><head><title></title></head><body>ceci est un titre<br>ceci est un auteur<br><br>ceci est un chapitre<br><br>ceci est un paragraphe<br>ceci est un paragraphe<br></body></html>";
 }
 
 
