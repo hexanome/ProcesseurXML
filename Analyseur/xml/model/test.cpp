@@ -111,13 +111,13 @@ bool serializeElementNodeWithAttList() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  test->run("serializeTextNode", serializeTextNode);
-  test->run("serializeElementNode", serializeElementNode);
-  test->run("serializeBoth", serializeBoth);
-  test->run("serializeComplex", serializeComplex);
-  test->run("serializeElementNodeWithAttList", serializeElementNodeWithAttList);
-  test->run("serializeHtml", serializeHtml);
-  test->run("serializeHtmlWithNamespace", serializeHtmlWithNamespace);
+  test->run("Serialisation d'un TextNode", serializeTextNode);
+  test->run("Serialisation d'un ElementNode", serializeElementNode);
+  test->run("Serialisation des deux", serializeBoth);
+  test->run("Serialisation complexe", serializeComplex);
+  test->run("Serialisation ElementNode avec AttList", serializeElementNodeWithAttList);
+  test->run("Serialisation d'un doc HTML", serializeHtml);
+  test->run("serialisation HTML avec Namespace", serializeHtmlWithNamespace);
   test->end();
   delete test;
   return 0;
