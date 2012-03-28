@@ -27,7 +27,7 @@ test: $(TESTOBJ)
 	@./test
 
 clean:
-	@rm -f *.o
+	@rm -f *.o ./test
 	@cd dtd; make clean
 	@cd xml; make clean
 
