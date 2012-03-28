@@ -23,7 +23,7 @@ test: all $(TESTOBJ)
 	@cd dtd; make test
 	@echo -e "\n--- Testing XML ---"
 	@cd xml; make test
-	@$(CC) -o $(TESTOBJ)
+	@$(CC) -o $(OBJ) $(TESTOBJ)
 
 clean:
 	@cd dtd; make clean
