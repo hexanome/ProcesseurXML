@@ -27,7 +27,7 @@ test: $(TESTOBJ)
 	@cd dtd; make test
 	@cd xml; make test
 	@cd xslt; make test
-	@echo "\n--- Testing Analyseur ---"
+	@echo "--- Testing Analyseur ---"
 	@$(CC) -o test $(OBJ) $(TESTOBJ)
 	@./test
 
