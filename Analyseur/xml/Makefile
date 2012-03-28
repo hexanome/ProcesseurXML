@@ -1,5 +1,5 @@
 PARSE_OBJ = lex.xml.o xml.tab.o xml.o
-MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Element.o ../dtd/model/Attribut.o ../dtd/model/Serie.o
+MOD_OBJ = model/Document.o model/ElementNode.o model/TextNode.o ../dtd/model/Element.o ../dtd/model/Attribut.o ../dtd/model/Serie.o ../dtd/model/Doctype.o ../dtd/model/Sequence.o
 TEST_EXE = test
 
 all:
@@ -23,6 +23,6 @@ lex.xml.o: parser
 xml.tab.o: parser
 xml.o: parser
 parser:
-	@g++ -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
+	@g++ -Wno-write-strings -g -DYYDEBUG=1 -c parser/lex.xml.c parser/xml.tab.c test.cpp xml.cpp
 
 .PHONY: all parser clean test

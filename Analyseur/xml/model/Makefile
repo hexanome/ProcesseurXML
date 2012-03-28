@@ -13,7 +13,8 @@ test: all
 
 TextNode.o: TextNode.cpp TextNode.h Node.h ../../includes/common.h
 ElementNode.o: ElementNode.cpp TextNode.h Node.h ../../includes/common.h
-Document.o: Document.cpp Document.h ElementNode.h ../../includes/common.h
+Document.o: Document.cpp Document.h ElementNode.h ../../includes/common.h  \
+  ../../dtd/model/Doctype.o ../../dtd/model/Sequence.o
 
 ../../dtd/model/%.o:
 	@cd ../../dtd/model ; make
