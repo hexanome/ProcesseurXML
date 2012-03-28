@@ -61,7 +61,12 @@ void Element::addMixed(string mixed) {
   this->mixed->push_back(mixed);
 }
 
-vector<Element*> * Element::getElements() { 
+vector<Element*> * Element::getElements() {
+	cout << "Element::getElements " << category << " " << serie;
+	for (int i = 0; i < mixed->size(); i++) {
+		cout << " " << mixed->at(i);
+	}
+	cout << endl; 
   if (category == "" && serie != NULL) { 
     return serie->getElements();
   } else {

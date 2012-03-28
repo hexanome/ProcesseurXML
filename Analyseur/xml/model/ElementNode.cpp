@@ -128,13 +128,24 @@ bool ElementNode::isValid(Element * e)
 {
 	bool valid = nodeName.second == e->getName();
 	
+	if (!valid) {
+		cout << nodeName.second << " not valid! Should be " << e->getName() << endl;
+		return false;
+	}
+	
 	vector<Attribut*>* att = e->getAttributs();
 	for (map<string,string>::iterator ii = attributes->begin(); ii != attributes->end(); ++ii) {
 		bool found = false;
+		cout << "searching for attribute " << (*ii).first << endl;
 		for (int i = 0 ; i < att->size() && !found ; i++) {
 			found |= (*ii).first == att->at(i)->getAttributeName();
 		}
 		valid &= found;
+		if (!valid) {
+			cout << nodeName.second << " not valid!" << endl;
+			return false;
+		}
+
 	}
 	
 	vector<Element*> * els = e->getElements();
@@ -142,13 +153,19 @@ bool ElementNode::isValid(Element * e)
 		ElementNode * child = dynamic_cast<ElementNode*>(childNodes->at(i));
 		if (child) {
 			bool found = false;
+			cout << "looking for child " << child->getName().second << " in " << nodeName.second << "'s " << els->size() << " children" << endl;
 			for (int j = 0 ; j < els->size() && !found ; j++) {
+				cout << "is it " << els->at(j)->getName() << "?" << endl;
 				if (child->getName().second == els->at(j)->getName()) {
 					valid &= child->isValid(els->at(j));
 					found = true;
 				}
 			}
 			valid &= found;
+			if (!valid) {
+			  cout << nodeName.second << " not valid! child not found/valid:" << child->getName().second << endl;
+			  return false;
+		    }
 		}
 	}
 	

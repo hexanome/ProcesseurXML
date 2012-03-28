@@ -26,7 +26,7 @@ string Document::serialize()
 
 bool Document::isValid(Doctype * d)
 {
-	Element * e = new Element(d->getName());
+	Element * e = new Element(root->getName().second);// FIXME should be d->getName());
 	Sequence * s = new Sequence();
 	for (int i = 0 ; i < d->getElements()->size() ; i++) {
 		s->addContenuCompose(d->getElements()->at(i));
