@@ -38,7 +38,7 @@ Node *ElementNode::lastChild() {
   return childNodes->back();
 }
 
-vector<Node*> ElementNode::getChildren()
+vector<Node*> * ElementNode::getChildren()
 {
   return childNodes;
 }

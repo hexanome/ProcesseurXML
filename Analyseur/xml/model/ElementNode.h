@@ -16,7 +16,7 @@ class ElementNode : public Node {
     ElementName getName();
     Node *firstChild();
     Node *lastChild();
-    vector<Node*> getChildren();
+    vector<Node*> *getChildren();
     void appendChild(Node *n);
     string getAttribute(string name);
     AttList * getAttributes();
