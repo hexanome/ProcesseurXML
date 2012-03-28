@@ -10,10 +10,5 @@ Doctype* DtdParser::parseStream(FILE* fd)
 	Doctype *ddoc = NULL;
 	int dtdErr = dtdparse(&ddoc);
 
-	//if (ddoc != NULL) 
-	//{
-	//	cout << ddoc->serialize() << endl;
-	//}
-
 	return ddoc;
 }

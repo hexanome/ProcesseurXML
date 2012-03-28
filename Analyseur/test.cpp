@@ -112,9 +112,9 @@ bool testValidationFile1() {
 int main(int argc, char ** argv) {
   int passed = 0;
   Test *test = new Test();
-  test->run("validateXmlDtd", validateXmlDtd);
-  test->run("validateComplexDtd",validateComplexDtd);
-  test->run("testValidationFile1", testValidationFile1);
+  test->run("Validation 1: Validation d'un élément XML simple par une DTD.", validateXmlDtd);
+  test->run("Validation 2: Validation de plusieurs éléments XML par une DTD plus compliquée.",validateComplexDtd);
+  test->run("Validation 3: Validation d'un fichier XML par une DTD présente dans un autre fichier.", testValidationFile1);
   test->end();
   delete test;
   return 0;
