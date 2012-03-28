@@ -22,6 +22,14 @@ static char* skipSpace(char *s) {
 /* affecte la valeur de la chaine de caractère et renvoie le token */
 #define stringreturn(tokenval) dtdlval.s=skipSpace(dtdtext);return(tokenval)
 
+void dtdFlushBuffer()
+{
+  YY_FLUSH_BUFFER;
+  BEGIN(0);
+}
+
+extern int yylineno;
+
 %}
 %option noyywrap
 
