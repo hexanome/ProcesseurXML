@@ -6,7 +6,7 @@
 #include "../../dtd/model/Attribut.h"
 #include "Node.h"
 
-typedef vector<Node*> ChildNodes;
+//typedef vector<Node*> ChildNodes;
 
 class ElementNode : public Node {
 
@@ -16,8 +16,10 @@ class ElementNode : public Node {
     ElementName getName();
     Node *firstChild();
     Node *lastChild();
+    vector<Node*> getChildren();
     void appendChild(Node *n);
     string getAttribute(string name);
+    AttList * getAttributes();
     void setAttribute(string name, string value);
     void setNodes(vector<Node*> * nodes);
     void setAttributes(AttList * attList);
@@ -27,7 +29,7 @@ class ElementNode : public Node {
   private:
     ElementName nodeName;
     AttList * attributes;
-    ChildNodes * childNodes;
+    vector<Node*> * childNodes;
 
 };
 

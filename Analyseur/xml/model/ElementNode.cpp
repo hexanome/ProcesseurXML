@@ -35,6 +35,11 @@ Node *ElementNode::lastChild() {
   return childNodes->back();
 }
 
+vector<Node*> ElementNode::getChildren()
+{
+  return childNodes;
+}
+
 
 // Append another node to the content
 void ElementNode::appendChild(Node *n) {
@@ -45,6 +50,11 @@ void ElementNode::appendChild(Node *n) {
 // Get an XML element attribute
 string ElementNode::getAttribute(string name) {
   return (*attributes)[name];
+}
+
+AttList * ElementNode::getAttributes()
+{
+  return attributes;
 }
 
 
