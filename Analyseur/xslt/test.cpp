@@ -1,8 +1,6 @@
 #include "../../../Test/test.h"
 #include "../../includes/common.h"
-#include "ElementNode.h"
-#include "TextNode.h"
-#include "Document.h"
+#include "../xml/model/Document.h"
 
 bool transformXMLlight() {
   Document * xml = new Document();
