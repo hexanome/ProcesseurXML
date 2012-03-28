@@ -23,9 +23,9 @@ main.o: main.cpp main.h
 test.o: test.cpp
 
 test: $(TESTOBJ)
-	@echo -e "\n--- Testing DTD ---"
+	@echo "\n--- Testing DTD ---"
 	@cd dtd; make test
-	@echo -e "\n--- Testing XML ---"
+	@echo "\n--- Testing XML ---"
 	@cd xml; make test
 	@$(CC) -o test $(OBJ) $(TESTOBJ)
 	@./test
