@@ -45,15 +45,23 @@ vector<ElementNode*> * Transformer::transformTemplate(ElementNode* template, Ele
 	      }
 	    }
 	  }
-	  else
+	  else 
 	  {
 	    ElementNode* node = new ElementNode(child.first,child.second);
-	    node.seAttributes(new map<string,string>(node.getAttributes()));
-	    vector<Node*> subChildren = node->getChildren();
+	    node.setAttributes(new map<string,string>(node.getAttributes()));
+	    vector<Node*> subChildren = child->getChildren();
 	    for (vector<Node*>::iterator ij = subChildren->begin(); ij != subChildren->end(); ++ij) {
+	      ElementNode * subChild = dynamic_cast<ElementNode*>(childNodes->at(i));
+	      if (subChild) {
 	      ElementNode* subResult = transformTemplate(*ij,xmlChild);
-	      result->insert(result->end(), subResult->begin(), subResult->end());
+	      node->insert(result->end(), subResult->begin(), subResult->end());
+	      }
+	      else
+	      {
+		node->push_back(*ii);
+	      }
 	    }
+	    result->push_back(node);
 	}
 	else
 	{
