@@ -25,6 +25,9 @@ Element::Element(string name, string cat) {
 }
 
 Element::~Element(){
+	for (int i = 0 ; i < attributs->size() ; i++) {
+		delete attributs->at(i);
+	}
   delete attributs;
   delete mixed;
 }
@@ -86,7 +89,7 @@ string Element::serialize() {
     }
     s += ")>";
   }
-
+  
   for (int i = 0; i < attributs->size(); i++) {
     s += attributs->at(i)->serialize();
   }

@@ -11,6 +11,7 @@ class Doctype {
     Doctype(string name);
     ~Doctype();
     void setElements(vector<Element*> * els);
+    vector<Element*> * getElements();
     string getName();
     string serialize();
 
