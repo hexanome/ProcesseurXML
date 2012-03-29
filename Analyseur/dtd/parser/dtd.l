@@ -94,4 +94,5 @@ any "ANY"
 {comment}		               { /* skip comments stringreturn(COMMENT); */ }
 
 {nl}                    {printf("%s",dtdtext);/* skip, must be an extra one at EOF */;}
-.			{ fprintf(stderr, "LEXER ERROR (dtd): \n");}
+.			{ fprintf(stderr, "LEXER ERROR (dtd): line %d, char %c\n",
+                      dtdlineno, *dtdtext);}
