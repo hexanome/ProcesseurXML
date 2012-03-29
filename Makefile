@@ -2,7 +2,7 @@ CC = g++
 DIRS = AnalyseurXML/ Analyseur/
 TESTDIRS = Analyseur/
 
-all:
+all: Test/test.o
 	@for d in $(DIRS); do  \
 		echo; echo "--- Making the $$d ---";  \
 		cd $$d;  \

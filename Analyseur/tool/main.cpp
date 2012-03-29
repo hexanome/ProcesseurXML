@@ -11,12 +11,12 @@ int main(int argc, char **argv)
 
     for (int i = 0; i < argc; i++)
     {
-    	if (((string)"-d").compare(argv[i]) == 0 && i + 1 < argc)
+    	if (((string)"-d").compare(argv[i]) == 0 && i + 1 < argc && argv[i + 1][0] != '-')
     	{
     		dtdFile = argv[i + 1];
             reservedIndex = i + 1;
     	}
-    	else if (((string)"-s").compare(argv[i]) == 0 && i + 1 < argc)
+    	else if (((string)"-s").compare(argv[i]) == 0 && i + 1 < argc && argv[i + 1][0] != '-')
     	{
     		xslFile = argv[i + 1];
             reservedIndex = i + 1;
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
         {
             verbose = true;
         }
-        else if (xmlFile == "" && i != reservedIndex)
+        else if (xmlFile == "" && i != reservedIndex && argv[i][0] != '-')
         {
             xmlFile = argv[i];            
         }
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
             if (verbose)
                 cout << "ERROR: XML file \"" << xmlFile << "\" failed validation against DTD file \"" << dtdFile << "\"." << endl;
 
-            return INVALID_FILE;
+            return INVALID_XML_FILE;
         }
 
         if (verbose)
@@ -138,6 +138,35 @@ int main(int argc, char **argv)
         Document *xslDoc = XmlParser::parseStream(xslfd);
         fclose(xslfd);
 
+        FILE *xslDtdFd = fopen("xslt.dtd", "r");
+
+        if (xslDtdFd == 0)
+        {
+            if (verbose)
+                cout << "DTD file for XSL file not found, moving on..." << endl;
+        }
+        else
+        {
+            Doctype *xslDDoc = DtdParser::parseStream(xslDtdFd);
+            fclose(xslDtdFd);
+
+            if (verbose)
+                cout << "DTD file for XSL file was opened successfully." << endl;
+
+            cout << xslDDoc->serialize() << endl;
+
+            if (!xslDoc->isValid(xslDDoc))
+            {
+                if (verbose)
+                    cout << "ERROR: XSL file \"" << xslFile << "\" failed validation against the XSL DTD." << endl;
+
+                return INVALID_XSL_FILE;
+            }
+
+            if (verbose)
+                cout << "XSL file \"" << xslFile << "\" was successfully validated against the XSL DTD." << endl;
+        }
+
         if (verbose)
         {
             cout << "XSL file \"" << xslFile << "\" was opened successfully." << endl << endl;
@@ -149,14 +178,14 @@ int main(int argc, char **argv)
         Document * transformedDoc = transformer->transformXML(xdoc);
 
         if (verbose)
-            cout << endl;
+            cout << endl << "Resulting file:" << endl << endl;
 
         // We print the result on the standard output.
         cout << transformedDoc->serialize() << endl; 
     }
 
     if (verbose)
-        cout << "Completed." << endl;
+        cout << endl << "-- Completed." << endl << endl;
 
 	return SUCCESS;
 }

@@ -1,4 +1,6 @@
-%option 8bit 
+%option 8bit nodefault
+%option noyywrap
+%option yylineno
 
 %{
 #include <ctype.h>
@@ -43,7 +45,7 @@ comma ","
 pipe "|"
 esc		"&#"[0-9]+";"|"&#x"[0-9a-fA-F]+";"
 namestart	[A-Za-z\200-\377_]
-namechar	[A-Za-z\200-\377_0-9.-]
+namechar	[A-Za-z\200-\377_0-9.\:\-]
 tokentype "ID"|"IDREF"|"IDREFS"|"ENTITY"|"ENTITIES"|"NMTOKEN"|"NMTOKENS"
 name		{namestart}{namechar}*
 comment		{open}"!--"([^-]|"-"[^-])*"--"{close}
@@ -92,4 +94,5 @@ any "ANY"
 {comment}		               { /* skip comments stringreturn(COMMENT); */ }
 
 {nl}                    {printf("%s",dtdtext);/* skip, must be an extra one at EOF */;}
-.			{ fprintf(stderr, "!ERROR(%c)\n", *dtdtext);}
+.			{ fprintf(stderr, "LEXER ERROR (dtd): line %d, char %c\n",
+                      dtdlineno, *dtdtext);}
