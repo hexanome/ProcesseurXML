@@ -4,11 +4,13 @@ OBJ = transformer.o ../xml/model/Document.o ../xml/model/ElementNode.o ../xml/mo
 TESTOBJ = test.o ../../Test/test.o
 
 all: $(OBJ) $(TESTOBJ)
+	@echo "\n --- Making xslt ---"
 	@$(CC) -o $(TESTEXE) $^
 
 # Testing ...
 
 test: all
+	@echo "\n --- Testing xslt ---"
 	@./$(TESTEXE)
 
 transformer.o: transformer.cpp transformer.h ../xml/model/Document.h
