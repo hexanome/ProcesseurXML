@@ -1,11 +1,20 @@
 #include "Document.h"
 
 Document::Document() {
+	dtdFile = "";
 	root = new ElementNode("","");
 }
 
 Document::~Document() {
 	delete root;
+}
+
+void Document::setDtdFile(string dtd) {
+	dtdFile = dtd;
+}
+
+string Document::getDtdFile() {
+	return dtdFile;
 }
 
 void Document::setRoot(ElementNode *newRoot) 

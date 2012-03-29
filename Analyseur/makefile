@@ -23,9 +23,9 @@ dtd/%.o:
 main.o: main.cpp main.h
 test.o: test.cpp
 
-tool:
+tool: tool/main.cpp tool/main.h
 	$(CC) -c tool/main.cpp
-	$(CC) -o parse tool/main.o $(OBJ)
+	$(CC) -o parse main.o xslt/transformer.o $(OBJ)
 
 test: $(TESTOBJ)
 	@cd dtd; make test

@@ -10,12 +10,15 @@ class Document {
   public:
     Document();
     ~Document();
+    void setDtdFile(string dtd);
+    string getDtdFile();
     void setRoot(ElementNode *newRoot);
     bool isValid(Doctype * d);
     ElementNode* getRoot();
     string serialize();
 
   private:
+  	string dtdFile;
     ElementNode *root;
 
 };
