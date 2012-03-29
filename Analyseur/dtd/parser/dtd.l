@@ -45,7 +45,7 @@ comma ","
 pipe "|"
 esc		"&#"[0-9]+";"|"&#x"[0-9a-fA-F]+";"
 namestart	[A-Za-z\200-\377_]
-namechar	[A-Za-z\200-\377_0-9.-]
+namechar	[A-Za-z\200-\377_0-9.\:]
 tokentype "ID"|"IDREF"|"IDREFS"|"ENTITY"|"ENTITIES"|"NMTOKEN"|"NMTOKENS"
 name		{namestart}{namechar}*
 comment		{open}"!--"([^-]|"-"[^-])*"--"{close}
