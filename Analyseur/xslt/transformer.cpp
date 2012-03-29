@@ -11,7 +11,6 @@ Document* Transformer::transformXML(Document *xml)
 {
   Document *result = new Document();
   ElementNode *root=xml->getRoot();
-  
   ElementNode* rootTemplate;
   for (vector<ElementNode*>::iterator ik = templates->begin(); ik != templates->end(); ++ik) {
     if((*ik)->getAttribute("match").compare("/")==0)
@@ -37,9 +36,7 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
     
     result->push_back(node);
     resultInter=true;
-     
   }
-  
   for (vector<Node*>::iterator ii = children->begin(); ii != children->end(); ++ii) {
 	ElementNode * child = dynamic_cast<ElementNode*>(*ii);
 	if (child) {
@@ -82,6 +79,7 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 	  }
 	  else 
 	  {
+	    
 	    vector<Node*>* subResult = transformTemplate(child,xmlChild);
 	    if(resultInter)
 	    {
@@ -91,7 +89,6 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 	    {
 	      result->insert(result->end(), subResult->begin(), subResult->end());
 	    }
-	    
 	    
 	    
 	    
@@ -119,12 +116,22 @@ vector<Node*> * Transformer::transformTemplate(ElementNode* unTemplate, ElementN
 	}
 	else
 	{
-	  result->push_back(*ii);
+	  if(resultInter)
+	  {
+	    resultInt->push_back(*ii);
+	  }
+	  else
+	  {
+	    result->push_back(*ii);
+	  }
 	}
     }
     if(resultInter)
     {
-      ((ElementNode*)result->back())->setNodes(resultInt);
+      if(resultInt->size()>0)
+      {
+	((ElementNode*)result->back())->setNodes(resultInt);
+      }
     }
     return result;
 }

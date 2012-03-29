@@ -115,6 +115,8 @@ bool transformXMLhard() {
   template5->appendChild(new TextNode(" : ceci est un auteur<br><br>"));
   rootXSL->appendChild(template5);
   
+  string test1 = xsl->serialize();
+  //cout<<test1<<endl;
   
   Transformer * transformer = new Transformer(xsl);
   Document* xHtml = transformer->transformXML(xml);

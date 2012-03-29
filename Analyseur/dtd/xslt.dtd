@@ -6,6 +6,6 @@
 
 <!ELEMENT xsl:apply-templates EMPTY>
 
-
+<!ELEMENT xsl:value-of EMPTY>
 
 
