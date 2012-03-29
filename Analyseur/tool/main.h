@@ -1,7 +1,8 @@
 #ifndef PARSEMAIN_H
 #define PARSEMAIN_H
 
-#define INVALID_FILE 		5
+#define INVALID_XSL_FILE	6
+#define INVALID_XML_FILE 	5
 #define XSL_FILE_NOT_FOUND	4
 #define DTD_FILE_NOT_FOUND	3
 #define XML_FILE_NOT_FOUND 	2
