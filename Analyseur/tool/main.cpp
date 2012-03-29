@@ -138,6 +138,7 @@ int main(int argc, char **argv)
         Document *xslDoc = XmlParser::parseStream(xslfd);
         fclose(xslfd);
 
+        /*
         FILE *xslDtdFd = fopen("xslt.dtd", "r");
 
         if (xslDtdFd == 0)
@@ -153,8 +154,6 @@ int main(int argc, char **argv)
             if (verbose)
                 cout << "DTD file for XSL file was opened successfully." << endl;
 
-            cout << xslDDoc->serialize() << endl;
-
             if (!xslDoc->isValid(xslDDoc))
             {
                 if (verbose)
@@ -166,6 +165,7 @@ int main(int argc, char **argv)
             if (verbose)
                 cout << "XSL file \"" << xslFile << "\" was successfully validated against the XSL DTD." << endl;
         }
+        */
 
         if (verbose)
         {
