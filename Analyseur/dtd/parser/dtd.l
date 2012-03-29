@@ -1,4 +1,6 @@
-%option 8bit 
+%option 8bit nodefault
+%option noyywrap
+%option yylineno
 
 %{
 #include <ctype.h>
@@ -92,4 +94,4 @@ any "ANY"
 {comment}		               { /* skip comments stringreturn(COMMENT); */ }
 
 {nl}                    {printf("%s",dtdtext);/* skip, must be an extra one at EOF */;}
-.			{ fprintf(stderr, "LEXER ERROR (dtd): line %d, char %c\n", xmllineno, *xmltext);}
+.			{ fprintf(stderr, "LEXER ERROR (dtd): \n");}
