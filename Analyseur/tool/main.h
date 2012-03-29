@@ -1,10 +1,11 @@
 #ifndef PARSEMAIN_H
 #define PARSEMAIN_H
 
-#define INVALID_FILE 		4
-#define XSL_FILE_NOT_FOUND	3
-#define DTD_FILE_NOT_FOUND	2
-#define XML_FILE_NOT_FOUND 	1
+#define INVALID_FILE 		5
+#define XSL_FILE_NOT_FOUND	4
+#define DTD_FILE_NOT_FOUND	3
+#define XML_FILE_NOT_FOUND 	2
+#define NO_FILE_SPECIFIED	1
 #define SUCCESS 			0
 
 #include "../includes/common.h"
