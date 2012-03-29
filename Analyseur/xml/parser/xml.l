@@ -121,5 +121,5 @@ closespecial "?>"{nl}?
 
 <CONTENT>{ws}?{pcdata}		{ xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
 
-.			{ fprintf(stderr, "LEXER ERROR: line %d, char %c\n", xmllineno, *xmltext);}
+.			{ fprintf(stderr, "LEXER ERROR (xml): line %d, char %c\n", xmllineno, *xmltext);}
 
