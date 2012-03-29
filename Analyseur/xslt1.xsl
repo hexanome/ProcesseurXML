@@ -5,38 +5,42 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
   <html>
   <body>
-  <h2>Nice doc, doc</h2>
+  <h2>Document</h2>
   <xsl:apply-templates/>
   </body>
   </html>
 </xsl:template>
 
-<xsl:template match="cd">
-  <p>
-  <xsl:apply-templates/>
-  </p>
-</xsl:template>
-
 <xsl:template match="titre">
-  Title: <span style="color:#ff0000">
-  Ceci est un titre</span>
-  <br />
+  Titre : <span style="color:#ff0000">
+  <b><xsl:value-of/></b></span>
+  <br/>
 </xsl:template>
 
 <xsl:template match="auteur">
-  Auteur <span style="color:#00ff00">
-  Ceci est un auteur</span>
-  <br />
+  <b>Auteur : </b><br/><xsl:apply-templates/><br/>
 </xsl:template>
+
+<xsl:template match="nom">
+  Nom : <span style="color:#00ff00">
+   <xsl:value-of/></span>
+  <br/>
+</xsl:template>
+
 <xsl:template match="prenom">
-  Prenom <span style="color:#00ff00">
-  Ceci est un prenom</span>
-  <br />
+  Prenom : <span style="color:#00ff00">
+   <xsl:value-of/></span>
+  <br/>
 </xsl:template>
+
+<xsl:template match="resume">
+  Resume : <span style="color:#00ff00">
+   <xsl:value-of/></span>
+  <br/>
+</xsl:template>
+
 <xsl:template match="chapitre">
-  Chapitre <span style="color:#00ff00">
-  Ceci est un chapitre</span>
-  <br />
+  <xsl:value-of/>
 </xsl:template>
 
 </xsl:stylesheet>
