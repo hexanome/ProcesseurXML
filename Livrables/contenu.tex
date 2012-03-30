@@ -3,7 +3,7 @@
 
 \section{Objectifs}
 
-Le but de ce projet était de réaliser un analyseur de documents XML, utilisant les outils flex et bison pour définir une grammaire et construire un parseur. Un document XML est représenté en mémoire selon une structure de donnée définie ci-après, et il peut être validé selon une DTD, dont la structure de donnée est également définie ci-après. Un document peut également être transformé grâce à une feuille de style XSLT.
+Le but de ce projet était de réaliser un analyseur de documents XML, utilisant les outils flex et bison pour définir une grammaire et construire un parseur. Un document XML est représenté en mémoire selon une structure de donnée définie ci-après, et il peut être validé selon une DTD, dont la structure de donnée est aussi définie ci-après. Un document peut également être transformé grâce à une feuille de style XSLT.
 
 \section{Structures de données}
 
@@ -32,6 +32,8 @@ Voici la description des structures de données que nous avons utilisées dans l
 Voici les algorithmes principaux que nous avons implémenté pour effectuer la validation d'un document XML par une DTD, et pour effectuer sa transformation par rapport à une feuille de style XSLT :
 
 \subsection{Algorithmes de Validation}
+
+Une validation XML simple a été implémentée de manière algorithmique. Elle fonctionne en parcourant récursivement tous les noeuds d'un document XML, vérifie que chaque noeud est autorisé par la DTD, et que tous ses attributs et sous-éléments aussi :
 
 \begin{algorithm}
 \caption{Document::isValid(DocType)}
@@ -65,6 +67,8 @@ Voici les algorithmes principaux que nous avons implémenté pour effectuer la v
 \end{algorithm}
 
 \subsection{Algorithmes de Transformation}
+
+La transformation se base sur une structure XSLT, représentée par le même modèle que pour un document XML classique. L'algorithme parcoure chaque template pour essayer de l'appliquerdepuis le document XML vers le nouveau document.
 
 \begin{algorithm}
 \caption{TransformXML(documentXML,documentXSL)}
