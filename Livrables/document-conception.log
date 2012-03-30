@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.5)  28 MAR 2012 23:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.16)  30 MAR 2012 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,52 +609,49 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 <UMLXML.png, id=15, 741.4902pt x 462.528pt>
 File: UMLXML.png Graphic file (type png)
  <use UMLXML.png>
-Package pdftex.def Info: UMLXML.png used on input line 14.
+Package pdftex.def Info: UMLXML.png used on input line 18.
 (pdftex.def)             Requested size: 483.69687pt x 301.7265pt.
 
 <UMLDTD.png, id=17, 663.47874pt x 826.08624pt>
 File: UMLDTD.png Graphic file (type png)
  <use UMLDTD.png>
-Package pdftex.def Info: UMLDTD.png used on input line 22.
+Package pdftex.def Info: UMLDTD.png used on input line 26.
 (pdftex.def)             Requested size: 483.69687pt x 602.24382pt.
- [2 <./UMLXML.png>]
+ [2 <./UMLXML.png>] [3 <./UMLDTD.png>]
 
-LaTeX Warning: Command \' invalid in math mode on input line 36.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 57.
+LaTeX Warning: Command \c invalid in math mode on input line 74.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 77.
+LaTeX Warning: Command \` invalid in math mode on input line 94.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 78.
+LaTeX Warning: Command \` invalid in math mode on input line 95.
 
-) [3 <./UMLDTD.png>] [4] (./document-conception.aux) ) 
+) [4] [5] (./document-conception.aux) ) 
 Here is how much of TeX's memory you used:
  4339 strings out of 493633
- 59210 string characters out of 3143378
- 131545 words of memory out of 3000000
+ 59210 string characters out of 3143377
+ 133545 words of memory out of 3000000
  7531 multiletter control sequences out of 15000+200000
  39202 words of font info for 33 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,10n,43p,343b,742s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/
-texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2011/texmf-dist
-/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvi
-ps/lm/lm-mathit.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/lm/lm-e
-c.enc}</usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></us
-r/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2011/texmf-di
-st/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
-pe1/public/lm/lmr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/
-lm/lmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy10.p
-fb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on document-conception.pdf (5 pages, 362687 bytes).
+ 37i,10n,43p,513b,742s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/font
+s/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvip
+s/lm/lm-rm.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/lm/lm-mathit
+.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/loc
+al/texlive/2011/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2011/texmf-dist/fo
+nts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
+public/lm/lmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/l
+mr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmr17.pfb></
+usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on document-conception.pdf (6 pages, 365314 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
