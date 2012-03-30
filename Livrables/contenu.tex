@@ -1,5 +1,9 @@
 %Corps du document :
-%\setlength{\parindent}{1cm}    
+%\setlength{\parindent}{1cm}
+
+\section{Objectifs}
+
+Le but de ce projet était de réaliser un analyseur de documents XML, utilisant les outils flex et bison pour définir une grammaire et construire un parseur. Un document XML est représenté en mémoire selon une structure de donnée définie ci-après, et il peut être validé selon une DTD, dont la structure de donnée est également définie ci-après. Un document peut également être transformé grâce à une feuille de style XSLT.
 
 \section{Structures de données}
 
@@ -23,27 +27,40 @@ Voici la description des structures de données que nous avons utilisées dans l
 \end {center}
 \medskip
 
-
 \section{Algorithmes}
+
+Voici les algorithmes principaux que nous avons implémenté pour effectuer la validation d'un document XML par une DTD, et pour effectuer sa transformation par rapport à une feuille de style XSLT :
 
 \subsection{Algorithmes de Validation}
 
 \begin{algorithm}
-\caption{Document isValid(DocType)}
+\caption{Document::isValid(DocType)}
 \begin{algorithmic}
-\STATE $sequence \leftarrow new sequence$
-\FORALL{$element de DocType$}
-\STATE $sequence \leftarrow ajout du contenu composé (element de la DocType)$
-\ENDFOR
-\STATE $element \leftarrow new Element avec comme serie(sequence)$
-\RETURN $nodeDuXML.isValid(element,DocType)$
+\STATE $Element \leftarrow DocType$
+\RETURN $noeudRacine.isValid(Element,DocType)$
 \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}
-\caption{ElementNode isValid(DocType)}
+\caption{ElementNode::isValid(Element,DocType)}
 \begin{algorithmic}
-\STATE $LIGNE A CHANGER$
+\IF{$ElementNode.name not equals Element.name$}
+\RETURN $false$
+\ENDIF
+\FORALL{$ElementNode.attribut$}
+\IF{$ElementNode.attribut not in Element.attributs$}
+\RETURN $false$
+\ENDIF
+\ENDFOR
+\FORALL{$ElementNode.children$}
+\IF{$ElementNode.childi is ElementNode AND is not in Element.children$}
+\RETURN $false$
+\ENDIF
+\STATE $valid \leftarrow ElementNode.child.isValid(Element.child)$
+\IF{$not valid$}
+\RETURN $false$
+\ENDIF
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 
@@ -90,3 +107,4 @@ Voici la description des structures de données que nous avons utilisées dans l
 \RETURN $result$
 \end{algorithmic}
 \end{algorithm}
+
