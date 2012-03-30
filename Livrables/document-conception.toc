@@ -6,4 +6,5 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Mod\IeC {\`e}le DTD}{3}
 \contentsline {section}{\numberline {3}Algorithmes}{3}
 \contentsline {subsection}{\numberline {3.1}Algorithmes de Validation}{4}
-\contentsline {subsection}{\numberline {3.2}Algorithmes de Transformation}{4}
+\contentsline {subsection}{\numberline {3.2}Algorithmes de Transformation}{5}
+\contentsline {section}{\numberline {4}Conclusion}{5}
