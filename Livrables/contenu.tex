@@ -27,13 +27,15 @@ Voici la description des structures de données que nous avons utilisées dans l
 \end {center}
 \medskip
 
+\newpage
+
 \section{Algorithmes}
 
 Voici les algorithmes principaux que nous avons implémenté pour effectuer la validation d'un document XML par une DTD, et pour effectuer sa transformation par rapport à une feuille de style XSLT :
 
 \subsection{Algorithmes de Validation}
 
-Une validation XML simple a été implémentée de manière algorithmique. Elle fonctionne en parcourant récursivement tous les noeuds d'un document XML, vérifie que chaque noeud est autorisé par la DTD, et que tous ses attributs et sous-éléments aussi :
+Une validation XML simple a été implémentée de manière algorithmique, car ceci ne nécessitait pas d'incorporer des bilbiothèques externes comme boost pour gérer des expressions régulières. La validation fonctionne en parcourant récursivement tous les noeuds d'un document XML, vérifie que chaque noeud est autorisé par la DTD, et que tous ses attributs et sous-éléments aussi :
 
 \begin{algorithm}
 \caption{Document::isValid(DocType)}
@@ -69,8 +71,6 @@ Une validation XML simple a été implémentée de manière algorithmique. Elle 
 \subsection{Algorithmes de Transformation}
 
 La transformation se base sur une structure XSLT, représentée par le même modèle que pour un document XML classique. L'algorithme parcoure chaque template pour essayer de l'appliquerdepuis le document XML vers le nouveau document.
-
-\newpage
 
 \begin{algorithm}
 \caption{TransformXML(documentXML,documentXSL)}
@@ -114,3 +114,6 @@ La transformation se base sur une structure XSLT, représentée par le même mod
 \end{algorithmic}
 \end{algorithm}
 
+\section{Conclusion}
+
+Nous avons réalisé un analyseur de documents XML, et les objectifs du projet on bien été ateints. Un accent particulier sur les tests unitaires nous a permis de développer efficacement tout en gardant un regard global sur l'avancement du projet, et cela nous a aidé à respecter les délais de remise du projet. Ce projet nous a permis de manipuler les outils de grammaire et langages flex et bison, ainsi que d'autres outils très pratiques comme Git et \LaTeX, et nous avons également pu accroître notre expérience en tant qu'héxanôme sur un projet de développement conséquent en équipe.
