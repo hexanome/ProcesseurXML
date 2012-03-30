@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.16)  30 MAR 2012 16:30
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.16)  30 MAR 2012 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,23 +619,23 @@ Package pdftex.def Info: UMLDTD.png used on input line 26.
 (pdftex.def)             Requested size: 483.69687pt x 602.24382pt.
  [2 <./UMLXML.png>] [3 <./UMLDTD.png>]
 
-LaTeX Warning: Command \c invalid in math mode on input line 74.
+LaTeX Warning: Command \c invalid in math mode on input line 78.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 94.
+LaTeX Warning: Command \` invalid in math mode on input line 98.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 95.
+LaTeX Warning: Command \` invalid in math mode on input line 99.
 
 ) [4] [5] (./document-conception.aux) ) 
 Here is how much of TeX's memory you used:
  4339 strings out of 493633
  59210 string characters out of 3143377
- 133545 words of memory out of 3000000
+ 134545 words of memory out of 3000000
  7531 multiletter control sequences out of 15000+200000
  39202 words of font info for 33 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,10n,43p,513b,742s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,10n,43p,508b,742s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2011/texmf-dist/font
 s/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvip
 s/lm/lm-rm.enc}{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/lm/lm-mathit
@@ -648,7 +648,7 @@ public/lm/lmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/l
 mr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmr17.pfb></
 usr/local/texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
 texlive/2011/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on document-conception.pdf (6 pages, 365314 bytes).
+Output written on document-conception.pdf (6 pages, 366230 bytes).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream
